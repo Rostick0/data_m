@@ -1,0 +1,25 @@
+.AsideSubnavItem {
+    &__link {
+        border-radius: 6px;
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        column-gap: 12px;
+        font-size: 14px;
+        line-height: 1.42;
+        padding: 8px 12px;
+        transition: 200ms;
+
+        &:hover {
+            background-color: var(--brand_primary_2);
+        }
+
+        &_selected {
+            background-color: var(--brand_primary_0);
+        }
+
+        span {
+            line-height: inherit;
+        }
+    }
+}
