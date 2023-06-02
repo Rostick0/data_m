@@ -1,0 +1,9 @@
+.TopNav {
+    border-bottom: 1px solid var(--basic_border);
+    padding: 0 16px;
+
+    &__list {
+        display: flex;
+        column-gap: 16px;
+    }
+}

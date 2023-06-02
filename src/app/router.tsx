@@ -15,7 +15,9 @@ const AppRouter: React.FC<AppRouterprops> = () => {
     return (
         <Suspense fallback={<div>Loading...</div>}>
             <Routes>
-                <Route path="/broadcast" element={<BroadcastList />} />
+                <Route path="/broadcast" children={
+                    <Route path="list" element={<BroadcastList />}
+                    />} />
                 {/* <Route path="/broadcast/list" element={<BroadcastList />} /> */}
                 {/* < Route path="/broadcast/list/details" element={< BroadcastDetails />} />
                 < Route path="/broadcast/push" element={BroadcastPush} />

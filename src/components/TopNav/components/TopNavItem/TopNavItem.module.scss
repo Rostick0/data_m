@@ -1,0 +1,15 @@
+.TopNavItem {
+    &__link {
+        border-bottom: 2px solid transparent;
+        display: flex;
+        align-items: center;
+        column-gap: 8px;
+        padding: 18px 12px;
+        transition: 200ms;
+
+        &_selected {
+            border-bottom: 2px solid var(--brand_primary_1);
+            color: var(--text_primary);
+        }
+    }
+}
