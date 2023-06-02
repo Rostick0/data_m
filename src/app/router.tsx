@@ -14,7 +14,7 @@ interface AppRouterprops {
 
 const AppRouter: React.FC<AppRouterprops> = () => {
     return (
-        <Suspense fallback={<div > Loading...</div>}>
+        <Suspense fallback={<div>Loading...</div>}>
             <Routes>
                 <Route path="/broadcast" children={
                     <Route path='list' element={<BroadcastList />}></Route>

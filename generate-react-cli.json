@@ -12,8 +12,8 @@
       "withStory": false,
       "withLazy": false
     },
-    "icon": {
-      "path": "src/icon",
+    "layout": {
+      "path": "src/layout",
       "withStyle": true,
       "withTest": false,
       "withStory": false,

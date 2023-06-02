@@ -1,1 +1,15 @@
-.Button {}
+.Button {
+    border-radius: 6px;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 200ms;
+
+    &__style {
+        &_blue {
+            background-color: var(--brand_primary_1);
+            color: var(--white);
+            box-shadow: var(--button_primary_box_shadow);
+        }
+    }
+}
