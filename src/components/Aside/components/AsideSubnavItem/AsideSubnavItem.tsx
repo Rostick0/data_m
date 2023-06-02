@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { Path } from 'react-router-dom';
 
 interface AsideSubnavItemProps {
-  // id: number | undefined,
   link: string | Partial<Path>,
   icon: string | TrustedHTML,
   name: string | undefined
