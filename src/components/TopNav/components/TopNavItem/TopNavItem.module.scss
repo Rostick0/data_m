@@ -11,5 +11,9 @@
             border-bottom: 2px solid var(--brand_primary_1);
             color: var(--text_primary);
         }
+
+        &:hover {
+            color: var(--text_primary);
+        }
     }
 }

@@ -1,12 +1,14 @@
-import React, { FC } from 'react';
+import React, { FC, InputHTMLAttributes } from 'react';
 import styles from './Input.module.scss';
 
-interface InputProps {}
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> { }
 
-const Input: FC<InputProps> = () => (
-  <div className={styles.Input}>
-    Input Component
-  </div>
-);
+const Input: FC<InputProps> = props => {
+  const { className, ...rest } = props
+  const styleClassName = className ? ' ' + className : '';
+  return (
+    <input className={styles.Input + styleClassName} {...rest} />
+  );
+};
 
 export default Input;

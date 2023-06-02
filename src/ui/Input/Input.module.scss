@@ -1,1 +1,18 @@
-.Input {}
+.Input {
+    border: 1px solid var(--basic_border);
+    border-radius: 6px;
+    color: var(--text_primary);
+    font-size: 14px;
+    font-family: 'Inter';
+    line-height: 143%;
+    padding: 8px 12px;
+    transition: 200ms;
+
+    &::placeholder {
+        color: var(--text_tertiary);
+    }
+
+    &:disabled {
+        background-color: var(--basic_background);
+    }
+}
