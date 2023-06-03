@@ -26,7 +26,7 @@ const InputMulti: FC<InputMultiProps> = props => {
       id: Date.now() + value.toString(),
       value: value.toString()
     }];
-    
+
     setTags(newTags);
     setValue('');
   }
@@ -41,14 +41,12 @@ const InputMulti: FC<InputMultiProps> = props => {
 
   return (
     <label className={styles.InputMulti + styleClassName}>
-      {tags?.map((tag) => {
-        return (
-          <InputTag
-            key={tag.id}
-            onClick={() => clearTag(tag.id)}
-          >{tag.value}</InputTag>
-        )
-      })}
+      {tags?.map((tag) => (
+        <InputTag
+          key={tag.id}
+          onClick={() => clearTag(tag.id)}
+        >{tag.value}</InputTag>
+      ))}
 
       <input
         className={styles.InputMulti__input}

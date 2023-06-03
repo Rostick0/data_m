@@ -6,6 +6,7 @@ import Select from '../../ui/Select/Select';
 import FieldUi from '../../components/Field/Field';
 import InputSwitch from '../../ui/InputSwitch/InputSwitch';
 import InputMulti from '../../ui/InputMulti/InputMulti';
+import SelectMulti from '../../ui/SelectMulti/SelectMulti';
 
 interface BroadcastEmailProps { }
 
@@ -34,10 +35,24 @@ const BroadcastEmail: FC<BroadcastEmailProps> = () => (
       <FieldItemUi
         title="Тип"
       >
-        <Select
+        <SelectMulti
           className='input_width_default'
           placeholder="Выберите"
-        ></Select>
+          items={[
+            {
+              name: 132131231231312,
+              value: 1
+            },
+            {
+              name: 'dsadas3132131231231312',
+              value: 2
+            },
+            {
+              name: 'd44412h532gj5j4f35',
+              value: 3
+            },
+          ]}
+        ></SelectMulti>
       </FieldItemUi>
       <FieldItemUi
         title="Брать из"
@@ -93,10 +108,10 @@ const BroadcastEmail: FC<BroadcastEmailProps> = () => (
       <FieldItemUi
         title="Имя трекера"
       >
-        <InputMulti
+        <Input
           className='input_width_default'
           placeholder="Введите"
-        ></InputMulti>
+        ></Input>
       </FieldItemUi>
       <FieldItemUi>
         <InputSwitch>Добавить к промо</InputSwitch>
@@ -104,10 +119,10 @@ const BroadcastEmail: FC<BroadcastEmailProps> = () => (
       <FieldItemUi
         title="Теги"
       >
-        <Input
+        <InputMulti
           className='input_width_default'
           placeholder="Введите"
-        ></Input>
+        ></InputMulti>
       </FieldItemUi>
       <FieldItemUi
         title="Ключи"

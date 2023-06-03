@@ -1,1 +1,57 @@
-.SelectMulti {}
+.SelectMulti {
+    position: relative;
+
+    &__switch {
+        border: 1px solid var(--basic_border);
+        border-radius: 6px;
+        display: inline-flex;
+        align-items: center;
+        flex-wrap: wrap;
+        grid-gap: 2px;
+        position: relative;
+        overflow: hidden;
+        padding: 4px;
+    }
+
+    &__input {
+        font-size: 14px;
+        line-height: 143%;
+        padding: 4px 12px;
+        padding-right: 36px;
+        width: 100%;
+
+        &::placeholder {
+            color: var(--text_tertiary);
+        }
+    }
+
+    &__icon {
+        position: absolute;
+        right: 0;
+    }
+
+    &__list {
+        border: 1px solid var(--basic_border);
+        border-radius: 5px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        margin-top: 10px;
+        width: 100%;
+        max-height: 150px;
+        z-index: 1;
+    }
+
+    &__item {
+        background-color: var(--white);
+        color: var(--text_primary);
+        cursor: pointer;
+        padding: 8px 12px;
+        transition: 200ms;
+
+        &:hover {
+            background-color: var(--basic_hover);
+        }
+    }
+}

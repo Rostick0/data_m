@@ -2,11 +2,11 @@ import React, { FC, useState } from 'react';
 import styles from './Select.module.scss';
 import Input from '../Input/Input';
 
-interface Items {
+export interface Items {
   value: string | number | undefined,
   name: string | number | undefined
 }
-interface SelectProps {
+export interface SelectProps {
   className?: string | undefined,
   placeholder?: string | undefined,
   onChange?: Function | undefined

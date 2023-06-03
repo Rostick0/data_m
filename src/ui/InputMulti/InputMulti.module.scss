@@ -17,7 +17,9 @@
     &__input {
         flex-grow: 1;
         flex-shrink: 1;
-        padding: 8px 12px;
+        font-size: 14px;
+        line-height: 143%;
+        padding: 4px 9px;
 
         &::placeholder {
             color: var(--text_tertiary);
