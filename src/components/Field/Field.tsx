@@ -3,7 +3,7 @@ import styles from './Field.module.scss';
 import Title from '../../ui/Title/Title';
 
 interface FieldProps {
-  title?: string | undefined,
+  title?: React.ReactNode | undefined,
   children?: React.ReactNode | undefined
 }
 
