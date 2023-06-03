@@ -1,0 +1,54 @@
+.InputSwitch {
+    display: flex;
+    align-items: flex-start;
+    column-gap: 12px;
+
+    &:hover {
+        .InputSwitch {
+            &__switch {
+                background-color: var(--basic_border);
+            }
+
+            &__input:checked {
+                &+.InputSwitch {
+                    &__switch {
+                        background-color: #3379CA;
+                    }
+                }
+            }
+        }
+    }
+
+    &__input:checked {
+        &+.InputSwitch {
+            &__switch {
+                background-color: var(--brand_primary_2);
+
+                .InputSwitch__icon {
+                    transform: translateX(12px);
+                }
+            }
+        }
+    }
+
+    &__switch {
+        background-color: var(--basic_sep);
+        border-radius: 12px;
+        padding: 3px;
+        transition: 200ms;
+        width: 32px;
+        min-width: 32px;
+        height: 20px;
+    }
+
+    &__icon {
+        background-color: var(--white);
+        border-radius: 50%;
+        box-shadow: var(--shadow_card);
+        display: flex;
+        transition: 200ms;
+        width: 14px;
+        height: 14px;
+        transform: translateX(0);
+    }
+}

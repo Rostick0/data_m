@@ -1,1 +1,50 @@
-.InputBox {}
+.InputBox {
+    display: flex;
+    align-items: flex-start;
+    column-gap: 12px;
+
+    &:hover {
+        .InputBox__icon {
+            background-color: var(--basic_background);
+        }
+
+        .InputBox__input:checked+.InputBox__icon {
+            background-color: var(--brand_primary_2);
+        }
+    }
+
+    &__input {
+        &:checked+.InputBox__icon {
+            background-color: var(--brand_primary_1);
+
+            svg {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__icon {
+        background-color: var(--white);
+        border: 1px solid var(--basic_border);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2px;
+        transition: 200ms;
+        min-width: 16px;
+        width: 16px;
+        height: 16px;
+
+        svg {
+            transition: 200ms;
+            opacity: 0;
+        }
+    }
+
+    &__children {
+        font-size: 14px;
+        font-weight: var(--font-family-default);
+        line-height: 1.43;
+    }
+}

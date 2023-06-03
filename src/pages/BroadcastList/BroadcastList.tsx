@@ -7,6 +7,8 @@ import Title from '../../ui/Title/Title';
 import Input from '../../ui/Input/Input';
 import Select from '../../ui/Select/Select';
 import Status from '../../ui/Status/Status';
+import InputBox from '../../ui/InputBox/InputBox';
+import InputSwitch from '../../ui/InputSwitch/InputSwitch';
 
 interface BroadcastListProps { }
 
@@ -36,7 +38,8 @@ const BroadcastList: FC<BroadcastListProps> = () => (
             placeholder='Тип'
           ></Select>
         </div>
-        <Status type='working'></Status>
+        <InputBox>Тестовый тест</InputBox>
+        <InputSwitch>ТАв</InputSwitch>
       </div>
     </div>
   </LayoutBroadcost >
