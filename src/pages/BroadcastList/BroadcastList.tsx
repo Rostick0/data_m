@@ -9,6 +9,7 @@ import Status from '../../ui/Status/Status';
 import InputBox from '../../ui/InputBox/InputBox';
 import InputSwitch from '../../ui/InputSwitch/InputSwitch';
 import InputRadio from '../../ui/InputRadio/InputRadio';
+import SelectMulti from '../../ui/SelectMulti/SelectMulti';
 
 interface BroadcastListProps { }
 
@@ -36,19 +37,8 @@ const BroadcastList: FC<BroadcastListProps> = () => (
           ]}
           placeholder='Тип'
         ></Select>
+        <SelectMulti></SelectMulti>
       </div>
-      <InputBox>Тестовый тест</InputBox>
-      <InputSwitch>ТАв</InputSwitch>
-      <InputRadio items={[
-        {
-          name: '123',
-          value: '123'
-        },
-        {
-          name: '1234',
-          value: '1234'
-        }
-      ]}></InputRadio>
     </div>
   </div>
 );
