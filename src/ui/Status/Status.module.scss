@@ -1,0 +1,33 @@
+.Status {
+    border-radius: 4px;
+    font-family: 'Inter';
+    font-size: 9px;
+    font-weight: 600;
+    line-height: 1.78;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 2px 8px;
+
+    &__style {
+        &_blue {
+            background: linear-gradient(90deg, #DDEDFF 65.09%, #F5F8FA 65.1%);
+            color: var(--brand_primary_2);
+        }
+
+        &_green {
+            background: #C8FFD4;
+            color: #299914;
+        }
+
+        &_grey {
+            background: var(--basic_background);
+            color: var(--text_secondary);
+        }
+
+        &_orange {
+            background: #FFE4D3;
+            color: #BD4A06;
+        }
+    }
+}
