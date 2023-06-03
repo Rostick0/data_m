@@ -9,10 +9,11 @@ import Select from '../../ui/Select/Select';
 import Status from '../../ui/Status/Status';
 import InputBox from '../../ui/InputBox/InputBox';
 import InputSwitch from '../../ui/InputSwitch/InputSwitch';
+import InputRadio from '../../ui/InputRadio/InputRadio';
 
 interface BroadcastListProps { }
 
-const BroadcastList: FC<BroadcastListProps> = () => ( 
+const BroadcastList: FC<BroadcastListProps> = () => (
   <LayoutBroadcost>
     <div className={styles.BroadcastList}>
       <div className={styles.BroadcastList__top}>
@@ -40,6 +41,16 @@ const BroadcastList: FC<BroadcastListProps> = () => (
         </div>
         <InputBox>Тестовый тест</InputBox>
         <InputSwitch>ТАв</InputSwitch>
+        <InputRadio items={[
+          {
+            name: '123',
+            value: '123'
+          },
+          {
+            name: '1234',
+            value: '1234'
+          }
+        ]}></InputRadio>
       </div>
     </div>
   </LayoutBroadcost >

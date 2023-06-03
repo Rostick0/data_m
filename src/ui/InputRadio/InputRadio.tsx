@@ -1,12 +1,42 @@
-import React, { FC } from 'react';
+import React, { FC, InputHTMLAttributes } from 'react';
 import styles from './InputRadio.module.scss';
 
-interface InputRadioProps {}
+interface Items {
+  value: string | undefined,
+  name: string | undefined
+}
 
-const InputRadio: FC<InputRadioProps> = () => (
-  <div className={styles.InputRadio}>
-    InputRadio Component
-  </div>
-);
+interface InputRadioProps extends InputHTMLAttributes<HTMLInputElement> {
+  items: Array<Items>
+}
+
+const InputRadio: FC<InputRadioProps> = props => {
+  const {
+    className,
+    items,
+    value,
+    type,
+    ...rest
+  } = props;
+
+  return (
+    <div className={styles.InputRadio}>
+      {items.map(item => (
+        <label
+          className={styles.InputRadio__item}
+          key={item.value}
+        >
+          <input
+            className={styles.InputRadio__input}
+            type="radio"
+            value={item.value}
+            {...rest}
+          />
+          <span className={styles.InputRadio__content}>{item.name}</span>
+        </label>
+      ))}
+    </div>
+  );
+};
 
 export default InputRadio;
