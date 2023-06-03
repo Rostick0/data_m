@@ -54,9 +54,6 @@ const LayoutBroadcost: FC<LayoutBroadcostProps> = ({
   ];
 
   return (
-    // <div className={styles.LayoutBroadcost}>
-    //   LayoutBroadcost Component
-    // </div>
     <LayoutDefault>
       <TopNav links={links}></TopNav>
       {children}
