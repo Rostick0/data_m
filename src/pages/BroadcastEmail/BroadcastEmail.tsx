@@ -5,6 +5,7 @@ import Input from '../../ui/Input/Input';
 import Select from '../../ui/Select/Select';
 import FieldUi from '../../components/Field/Field';
 import InputSwitch from '../../ui/InputSwitch/InputSwitch';
+import InputMulti from '../../ui/InputMulti/InputMulti';
 
 interface BroadcastEmailProps { }
 
@@ -92,10 +93,10 @@ const BroadcastEmail: FC<BroadcastEmailProps> = () => (
       <FieldItemUi
         title="Имя трекера"
       >
-        <Input
+        <InputMulti
           className='input_width_default'
           placeholder="Введите"
-        ></Input>
+        ></InputMulti>
       </FieldItemUi>
       <FieldItemUi>
         <InputSwitch>Добавить к промо</InputSwitch>
