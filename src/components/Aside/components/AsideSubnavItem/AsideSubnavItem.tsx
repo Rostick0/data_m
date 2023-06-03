@@ -14,7 +14,11 @@ const AsideSubnavItem: FC<AsideSubnavItemProps> = ({
   icon,
   name
 }) => {
-  const selectedClass = ('/' + `${link}`.split('/')[1]) === window.location.pathname ? ' ' + styles.AsideSubnavItem__link_selected : '';
+  const selectedClass = (`${link}`.split('/')[1]) === window.location.pathname.split('/')[1]
+    ?
+    ' ' + styles.AsideSubnavItem__link_selected
+    :
+    '';
 
   return (
     <li className={styles.AsideSubnavItem}>

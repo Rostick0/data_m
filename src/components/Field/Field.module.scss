@@ -1,0 +1,11 @@
+.Field {
+    &__title {
+        margin: 48px 0 24px;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+    }
+}

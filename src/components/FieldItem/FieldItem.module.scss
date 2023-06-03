@@ -1,0 +1,16 @@
+.FieldItem {
+    display: flex;
+    column-gap: 12px;
+
+    &__title {
+        color: var(--text_secondary);
+        font-size: 14px;
+        line-height: 1.43;
+        margin-top: 8px;
+        min-width: 140px;
+    }
+
+    &__content {
+        flex-grow: 1;
+    }
+}

@@ -7,12 +7,14 @@ interface Items {
   name: string | number | undefined
 }
 interface SelectProps {
+  className?: string | undefined,
   placeholder?: string | undefined,
   onChange?: Function | undefined
-  items: Array<Items>
+  items?: Array<Items>
 }
 
 const Select: FC<SelectProps> = ({
+  className,
   placeholder,
   onChange,
   items
@@ -39,11 +41,12 @@ const Select: FC<SelectProps> = ({
   const [active, setActive] = useState(false);
   const [value, setValue] = useState('');
 
-  return (
-    <div className={styles.Select} >
-      <div className={styles.Select__switch}
-        onClick={() => setActive(prev => !prev)}
+  const styleClassName = className ? ' ' + className : '';
 
+  return (
+    <div className={styles.Select + styleClassName} >
+      <div className={styles.Select__switch + styleClassName}
+        onClick={() => setActive(prev => !prev)}
       >
         <Input
           className={styles.Select__input}
@@ -69,7 +72,7 @@ const Select: FC<SelectProps> = ({
               });
             }}
           >{item.name}</li>
-        ))}
+        )) ?? (<li className={styles.Select__item}>Нет данных</li>)}
       </ul>}
     </div>
   );
