@@ -3,15 +3,12 @@
     border-radius: 6px;
     color: var(--text_primary);
     display: flex;
-    column-gap: 2px;
+    flex-wrap: wrap;
+    grid-gap: 2px;
     font-size: 14px;
     font-family: var(--font-family-default);
     line-height: 143%;
     padding: 4px;
-
-    &::placeholder {
-        color: var(--text_tertiary);
-    }
 
     &:disabled {
         background-color: var(--basic_background);
@@ -19,5 +16,11 @@
 
     &__input {
         flex-grow: 1;
+        flex-shrink: 1;
+        padding: 8px 12px;
+
+        &::placeholder {
+            color: var(--text_tertiary);
+        }
     }
 }
