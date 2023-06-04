@@ -1,0 +1,36 @@
+.PhoneIphoneAlertContent {
+    background: rgba(255, 255, 255, 0.8);
+    color: #3F3F3F;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    column-gap: 12px;
+    padding: 8px 11px;
+    padding-right: 13px;
+    width: 100%;
+
+    &__content {
+        flex-grow: 1;
+
+        &_top {
+            display: flex;
+            justify-content: space-between;
+            letter-spacing: -0.02em;
+        }
+    }
+
+    &__title {
+        color: #222222;
+    }
+
+    &__date {
+        font-size: 10px;
+        line-height: 1.17;
+        opacity: 0.5;
+    }
+
+    &__text {
+        letter-spacing: -0.05em;
+    }
+}
