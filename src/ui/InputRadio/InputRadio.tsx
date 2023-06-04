@@ -33,7 +33,7 @@ const InputRadio: FC<InputRadioProps> = props => {
             type="radio"
             value={item.value}
             {...rest}
-            checked={item?.checked}
+            defaultChecked={item?.checked}
           />
           <span className={styles.InputRadio__content}>{item.name}</span>
         </label>
