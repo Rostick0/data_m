@@ -1,0 +1,39 @@
+.PhoneAndroidAlert {
+    background: linear-gradient(180deg, #3081DF 0%, #226DC5 100%);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Roboto';
+    padding: 5px;
+    width: 100%;
+    height: 100%;
+
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        letter-spacing: 0.07px;
+        margin-bottom: 48px;
+        width: 100%;
+    }
+
+    &__icon {
+        display: flex;
+        column-gap: 3px;
+    }
+
+    &__time {
+        font-size: 64px;
+        font-weight: 100;
+        line-height: 1.12;
+        letter-spacing: 2.993px;
+        margin-bottom: 11px;
+    }
+
+    &__date {
+        font-size: 17px;
+        letter-spacing: -1.1px;
+        margin-bottom: 25px;
+    }
+}

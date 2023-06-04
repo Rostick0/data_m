@@ -1,7 +1,10 @@
 .BroadcastPush {
-    padding: 0 166px 75px 80px;
+    display: flex;
+    justify-content: space-between;
+    padding: 58px 166px 75px 80px;
 
     .BroadcastPush__title {
+        margin-top: 0;
         margin-bottom: 56px;
     }
 }

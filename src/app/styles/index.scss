@@ -3,6 +3,12 @@
 @import './root';
 @import './helpers';
 
+body {
+    font-family: var(--font-family-default);
+    // font-family: 'Inter';
+    line-height: 1.33;
+}
+
 .icon {
     display: flex;
 }

@@ -11,7 +11,9 @@ import SelectMulti from '../../ui/SelectMulti/SelectMulti';
 import Button from '../../ui/Button/Button';
 import InputRadio from '../../ui/InputRadio/InputRadio';
 import InputBox from '../../ui/InputBox/InputBox';
-import PhoneAndroid from '../../ui/PhoneAndroid/PhoneAndroid';
+import PhoneAndroid from '../../components/PhoneAndroid/PhoneAndroid';
+import PhoneSwitch from '../../components/PhoneSwitch/PhoneSwitch';
+import PhoneAndroidAlert from '../../components/PhoneAndroid/components/PhoneAndroidAlert/PhoneAndroidAlert';
 const FieldButtons = lazy(() => import('../../components/FieldButtons/FieldButtons'));
 
 interface BroadcastPushProps { }
@@ -202,7 +204,10 @@ const BroadcastPush: FC<BroadcastPushProps> = () => (
       </FieldButtons>
     </div>
     <div>
-      <PhoneAndroid></PhoneAndroid>
+      <PhoneSwitch
+        androidChildren={<PhoneAndroidAlert></PhoneAndroidAlert>}
+      ></PhoneSwitch>
+      {/* <PhoneAndroid></PhoneAndroid> */}
     </div>
   </div>
 );
