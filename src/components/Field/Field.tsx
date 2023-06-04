@@ -12,7 +12,9 @@ const Field: FC<FieldProps> = ({
   children
 }) => (
   <div className={styles.Field}>
-    <Title className={styles.Field__title}>{title}</Title>
+    {title
+      &&
+      <Title className={styles.Field__title}>{title}</Title>}
     <div className={styles.Field__list}>{children}</div>
   </div>
 );

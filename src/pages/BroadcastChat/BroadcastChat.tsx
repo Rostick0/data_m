@@ -140,11 +140,9 @@ const BroadcastChat: FC<BroadcastChatProps> = () => (
       </FieldItemUi>
     </FieldUi>
     <FieldUi
-      title={<label>
-        <InputSwitch
+      title={<InputSwitch
         alignItems="center"
-        >Пуш-уведомление</InputSwitch>
-      </label>}
+      >Пуш-уведомление</InputSwitch>}
     >
       <FieldItemUi
         title="Наименование"

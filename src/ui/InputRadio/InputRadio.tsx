@@ -3,7 +3,8 @@ import styles from './InputRadio.module.scss';
 
 interface Items {
   value: string | undefined,
-  name: string | undefined
+  name: string | undefined,
+  checked?: boolean | undefined
 }
 
 interface InputRadioProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -27,10 +28,12 @@ const InputRadio: FC<InputRadioProps> = props => {
           key={item.value}
         >
           <input
+
             className={styles.InputRadio__input}
             type="radio"
             value={item.value}
             {...rest}
+            checked={item?.checked}
           />
           <span className={styles.InputRadio__content}>{item.name}</span>
         </label>

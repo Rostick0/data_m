@@ -1,4 +1,4 @@
-import React, { FC, InputHTMLAttributes, useState } from 'react';
+import React, { FC, InputHTMLAttributes, useState, useEffect } from 'react';
 import styles from './InputMulti.module.scss';
 import InputTag from '../InputTag/InputTag';
 
@@ -6,7 +6,7 @@ interface InputMultiProps extends InputHTMLAttributes<HTMLInputElement> { }
 
 type tag = Array<{
   id: string,
-  value: string
+  value: string | undefined
 }>;
 
 const InputMulti: FC<InputMultiProps> = props => {
@@ -15,7 +15,27 @@ const InputMulti: FC<InputMultiProps> = props => {
 
   const [value, setValue] = useState(props.value ?? '')
 
-  const [tags, setTags] = useState<tag>([]);
+  const defaultTags = (): tag => {
+    if (!props.value) return [];
+
+    const defaultTagsSplit = props.value.toString().split(' ');
+    const defaultTag: tag = [];
+
+    defaultTagsSplit.forEach(value => {
+      if (value.trim() === '') return;
+
+      console.log(value)
+
+      defaultTag.push({
+        id: Date.now() + value.toString(),
+        value: value.toString()
+      });
+    })
+
+    return defaultTag;
+  };
+
+  const [tags, setTags] = useState<tag>(defaultTags() ?? []);
 
   const onKeyDownEvent = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.keyCode !== 32) return;
