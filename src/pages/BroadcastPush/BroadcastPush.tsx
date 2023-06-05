@@ -15,6 +15,7 @@ import PhoneSwitch from '../../components/PhoneSwitch/PhoneSwitch';
 import PhoneAndroidAlert from '../../components/PhoneAndroid/components/PhoneAndroidAlert/PhoneAndroidAlert';
 import PhoneIphoneAlert from '../../components/PhoneIphone/components/PhoneIphoneAlert/PhoneIphoneAlert';
 import KeysAdd from '../../components/KeysAdd/KeysAdd';
+import Preview from '../../components/Preview/Preview';
 const FieldButtons = lazy(() => import('../../components/FieldButtons/FieldButtons'));
 
 interface BroadcastPushProps { }
@@ -189,6 +190,24 @@ const BroadcastPush: FC<BroadcastPushProps> = () => (
       <FieldUi
         title="Предпросмотр"
       >
+        <Preview
+          items={[
+            {
+              name: 'Всего',
+              value: 72
+            },
+            {
+              name: 'Отфильтровано',
+              value: 0
+            },
+            {
+              name: 'В черном списке',
+              value: 0
+            }
+          ]}
+          title='Заголовок'
+          description='Кстати,  сделанные на базе интернет-аналитики выводы лишь добавляют фракционных разногласий и описаны максимально подробно.'
+        ></Preview>
       </FieldUi>
       <FieldButtons>
         <Button styleColor='grey'>Очистить</Button>

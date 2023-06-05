@@ -15,6 +15,7 @@ import PhoneAndroidAlert from '../../components/PhoneAndroid/components/PhoneAnd
 import PhoneIphoneAlert from '../../components/PhoneIphone/components/PhoneIphoneAlert/PhoneIphoneAlert';
 import PhoneAndroidChat from '../../components/PhoneAndroid/components/PhoneAndroidChat/PhoneAndroidChat';
 import PhoneIphoneChat from '../../components/PhoneIphone/components/PhoneIphoneChat/PhoneIphoneChat';
+import Preview from '../../components/Preview/Preview';
 const FieldButtons = lazy(() => import('../../components/FieldButtons/FieldButtons'));
 
 interface BroadcastChatProps { }
@@ -223,6 +224,28 @@ const BroadcastChat: FC<BroadcastChatProps> = () => (
         <FieldItemUi>
           <InputSwitch>Пауза после привлечения пользователей</InputSwitch>
         </FieldItemUi>
+      </FieldUi>
+      <FieldUi
+        title="Предпросмотр"
+      >
+        <Preview
+          items={[
+            {
+              name: 'Всего',
+              value: 72
+            },
+            {
+              name: 'Отфильтровано',
+              value: 0
+            },
+            {
+              name: 'В черном списке',
+              value: 0
+            }
+          ]}
+          title='Заголовок'
+          description='Кстати,  сделанные на базе интернет-аналитики выводы лишь добавляют фракционных разногласий и описаны максимально подробно.'
+        ></Preview>
       </FieldUi>
       {/* <FieldButtons>
         <Button>Очистить</Button>

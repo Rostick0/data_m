@@ -16,6 +16,7 @@
     &__input {
         &:checked+.InputBox__icon {
             background-color: var(--brand_primary_1);
+            border-color: transparent;
 
             svg {
                 opacity: 1;
