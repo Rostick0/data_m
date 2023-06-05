@@ -11,7 +11,7 @@ import InputSwitch from '../../ui/InputSwitch/InputSwitch';
 import InputRadio from '../../ui/InputRadio/InputRadio';
 import SelectMulti from '../../ui/SelectMulti/SelectMulti';
 import InputTag from '../../ui/InputTag/InputTag';
-import Table from '../../components/Table/Table';
+import TableBroadcast from '../../components/TableBroadcast/TableBroadcast';
 
 interface BroadcastListProps { }
 
@@ -43,7 +43,7 @@ const BroadcastList: FC<BroadcastListProps> = () => (
         <SelectMulti></SelectMulti>
       </div>
     </div>
-    <Table></Table>
+    <TableBroadcast></TableBroadcast>
   </div>
 );
 

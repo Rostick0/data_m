@@ -2,9 +2,13 @@ import React, { FC } from 'react';
 import styles from './TablePagination.module.scss';
 import Select from '../../../../ui/Select/Select';
 
-interface TablePaginationProps { }
+interface TablePaginationProps {
+  count?: number | undefined
+}
 
-const TablePagination: FC<TablePaginationProps> = () => {
+const TablePagination: FC<TablePaginationProps> = ({
+  count
+}) => {
   const countView = [
     {
       name: 10,
@@ -18,7 +22,7 @@ const TablePagination: FC<TablePaginationProps> = () => {
 
   return (
     <div className={styles.TablePagination}>
-      <div className={styles.TablePagination__count}>Найдено: 53</div>
+      <div className={styles.TablePagination__count}>Найдено: {count}</div>
       <ul className={styles.TablePagination__list}>
         <li className={styles.TablePagination__item}>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
