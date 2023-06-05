@@ -1,0 +1,63 @@
+.PhoneChat {
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto';
+    height: 100%;
+
+    &__content {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        flex-grow: 1;
+        justify-content: flex-end;
+        padding: 0 12.8px 27px;
+
+        &_bottom {
+            display: flex;
+            align-items: center;
+            column-gap: 12.8px;
+            width: 100%;
+        }
+    }
+
+    &__date {
+        background: #F2F2F2;
+        color: #333333;
+        border-radius: 13px;
+        font-size: 10px;
+        padding: 4px 6px;
+        line-height: 1;
+        margin-bottom: 13px;
+    }
+
+    &__messages {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 25px;
+        width: 100%;
+    }
+
+    &__message {
+        display: flex;
+        align-items: flex-end;
+        column-gap: 6.8px;
+
+        &_content {
+            background: #F2F2F2;
+            color: #333333;
+            border-radius: 8px 8px 8px 4px;
+            font-size: 11px;
+            line-height: 1.5;
+            padding: 8px 12px;
+        }
+    }
+
+    &__input {
+        width: 100%;
+
+        &::placeholder {
+            color: #666;
+        }
+    }
+}

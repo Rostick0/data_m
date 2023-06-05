@@ -5,11 +5,13 @@ const PhoneIphone = lazy(() => import('../PhoneIphone/PhoneIphone'));
 const PhoneAndroid = lazy(() => import('../PhoneAndroid/PhoneAndroid'));
 
 interface PhoneSwitchProps {
+  className?: string | undefined,
   androidChildren?: React.ReactNode | undefined,
   iphoneChildren?: React.ReactNode | undefined,
 }
 
 const PhoneSwitch: FC<PhoneSwitchProps> = ({
+  className,
   androidChildren,
   iphoneChildren
 }) => {
@@ -25,13 +27,14 @@ const PhoneSwitch: FC<PhoneSwitchProps> = ({
     }
   ];
 
+  const styleClassName = className ? ' ' + className : '';
   const [phone, setPhone] = useState('iOS');
 
   return (
-    <div className={styles.PhoneSwitch}>
+    <div className={styles.PhoneSwitch + styleClassName}>
       <div className={styles.PhoneSwitch__switch}>
         <InputRadio
-          name="phone_type"
+          name={"phone_type"+ Date.now()}
           items={switches}
           onChange={e => setPhone(e.target.value)}
         ></InputRadio>

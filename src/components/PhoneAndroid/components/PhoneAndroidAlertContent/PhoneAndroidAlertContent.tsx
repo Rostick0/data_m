@@ -22,7 +22,7 @@ const PhoneAndroidAlertContent: FC<PhoneAndroidAlertContentProps> = ({
       <div className={styles.PhoneAndroidAlertContent__text}>{text ?? 'Notification'}</div>
     </div>
     <svg className={styles.PhoneAndroidAlertContent__arrow} width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g clip-path="url(#clip0_226_1325)">
+      <g clipPath="url(#clip0_226_1325)">
         <circle cx="11.5" cy="11.5" r="11.5" fill="#F3F0F4" />
         <path fillRule="evenodd" clipRule="evenodd" d="M15.7075 8.64752L11.5 12.8459L7.2925 8.64752L6 9.94002L11.5 15.44L17 9.94002L15.7075 8.64752Z" fill="#1B1B1F" />
       </g>

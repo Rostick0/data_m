@@ -1,3 +1,9 @@
 .BroadcastChat {
+    display: flex;
+    justify-content: space-between;
     padding: 56px 166px 96px 80px;
+
+    &__first_phone {
+        margin-bottom: 166px;
+    }
 }

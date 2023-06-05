@@ -1,1 +1,37 @@
-.PhoneIphoneChat {}
+.PhoneIphoneChat {
+    &__top {
+        color: var(--light_text_primary);
+        display: flex;
+        justify-content: space-between;
+        font-family: 'SF Pro Display';
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 1.29;
+        letter-spacing: -0.408px;
+        padding: 11px 13px;
+        padding-left: 20px;
+    }
+
+    &__bottom {
+        border-bottom: 1px solid #F2F2F2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 13.5px;
+        font-weight: 600;
+        line-height: 1.5;
+        letter-spacing: -0.5px;
+        padding: 0 9px 7px;
+    }
+
+    &__line {
+        background: var(--light_text_primary);
+        border-radius: 5px;
+        position: absolute;
+        left: 50%;
+        bottom: 16px;
+        transform: translateX(-50%);
+        width: 108px;
+        height: 5px;
+    }
+}

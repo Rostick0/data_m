@@ -1,1 +1,28 @@
-.PhoneAndroidChat {}
+.PhoneAndroidChat {
+    &__top {
+        color: var(--text_primary);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 13px;
+        letter-spacing: 0.07px;
+        padding: 4px 7px 12px;
+    }
+
+    &__bottom {
+        border-bottom: 1px solid #F2F2F2;
+        color: var(--light_text_primary);
+        display: flex;
+        align-items: center;
+        column-gap: 4px;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.2;
+        letter-spacing: -0.5px;
+        padding: 0 9px 7px;
+
+        &>*:last-child {
+            margin-left: auto;
+        }
+    }
+}
