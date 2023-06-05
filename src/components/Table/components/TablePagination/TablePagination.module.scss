@@ -19,6 +19,10 @@
         }
     }
 
+    &__item {
+        cursor: pointer;
+    }
+
     &__counter_show {
         display: flex;
         align-items: center;

@@ -9,6 +9,7 @@ export interface Items {
 export interface SelectProps {
   className?: string | undefined,
   inputClassName?: string | undefined,
+  defaultValue?: string | number | undefined,
   placeholder?: string | undefined,
   onChange?: Function | undefined
   items?: Array<Items>
@@ -17,6 +18,7 @@ export interface SelectProps {
 const Select: FC<SelectProps> = ({
   className,
   inputClassName,
+  defaultValue,
   placeholder,
   onChange,
   items
@@ -41,7 +43,7 @@ const Select: FC<SelectProps> = ({
   // }
 
   const [active, setActive] = useState(false);
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(defaultValue);
 
   const styleClassName = className ? ' ' + className : '';
   const styleInputClassName = inputClassName ? ' ' + inputClassName : '';

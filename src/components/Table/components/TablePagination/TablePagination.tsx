@@ -47,6 +47,7 @@ const TablePagination: FC<TablePaginationProps> = () => {
       <div className={styles.TablePagination__counter_show}>
         <div>Показывать по</div>
         <Select
+          defaultValue={50}
           inputClassName={styles.TablePagination__select}
           items={countView}
         ></Select>
