@@ -8,6 +8,7 @@ export interface Items {
 }
 export interface SelectProps {
   className?: string | undefined,
+  inputClassName?: string | undefined,
   placeholder?: string | undefined,
   onChange?: Function | undefined
   items?: Array<Items>
@@ -15,6 +16,7 @@ export interface SelectProps {
 
 const Select: FC<SelectProps> = ({
   className,
+  inputClassName,
   placeholder,
   onChange,
   items
@@ -42,6 +44,7 @@ const Select: FC<SelectProps> = ({
   const [value, setValue] = useState('');
 
   const styleClassName = className ? ' ' + className : '';
+  const styleInputClassName = inputClassName ? ' ' + inputClassName : '';
 
   return (
     <div className={styles.Select + styleClassName} >
@@ -49,7 +52,7 @@ const Select: FC<SelectProps> = ({
         onClick={() => setActive(prev => !prev)}
       >
         <Input
-          className={styles.Select__input}
+          className={styles.Select__input + styleInputClassName}
           placeholder={placeholder}
           value={value}
           readOnly
