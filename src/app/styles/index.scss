@@ -4,8 +4,8 @@
 @import './helpers';
 
 body {
+    color: var(--text_primary);
     font-family: var(--font-family-default);
-    // font-family: 'Inter';
     line-height: 1.33;
 }
 

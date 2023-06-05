@@ -6,6 +6,49 @@
     &_filter {
         display: flex;
         column-gap: 24px;
-        margin-top: 20px;
+        margin: 20px 0 16px;
+    }
+
+    &__titles {
+        color: var(--text_secondary);
+        display: grid;
+        grid-gap: 12px;
+        grid-template-columns: 1.48fr 0.679fr 1.12fr 1.44fr 1.24fr 0.79fr 1.17fr 0.6fr;
+        font-size: 12px;
+        letter-spacing: 0.1px;
+        padding: 14px 12px;
+    }
+
+    &__title {
+        &:first-child {
+            padding-left: 14px;
+        }
+    }
+
+    &__item {
+        font-size: 14px;
+        line-height: 143%;
+        word-wrap: break-all;
+
+        &_short {
+            border-top: 1px solid var(--basic_sep);
+            display: grid;
+            align-items: center;
+            grid-gap: 12px;
+            grid-template-columns: 1.48fr 0.679fr 1.12fr 1.44fr 1.24fr 0.79fr 1.17fr 0.6fr;
+            padding: 16px;
+        }
+
+        &_name {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            column-gap: 8px;
+        }
+
+        &_icons {
+            display: flex;
+            column-gap: 24px;
+        }
     }
 }
