@@ -10,6 +10,7 @@ import SelectMulti from '../../ui/SelectMulti/SelectMulti';
 import PhoneSwitch from '../../components/PhoneSwitch/PhoneSwitch';
 import PhoneAndroidChat from '../../components/PhoneAndroid/components/PhoneAndroidChat/PhoneAndroidChat';
 import PhoneIphoneChat from '../../components/PhoneIphone/components/PhoneIphoneChat/PhoneIphoneChat';
+import KeysAdd from '../../components/KeysAdd/KeysAdd';
 
 interface BroadcastSmsProps { }
 
@@ -120,10 +121,7 @@ const BroadcastSms: FC<BroadcastSmsProps> = () => (
         <FieldItemUi
           title="Ключи"
         >
-          <Input
-            className='input_width_default'
-            placeholder="Введите"
-          ></Input>
+          <KeysAdd></KeysAdd>
         </FieldItemUi>
       </FieldUi>
       <FieldUi

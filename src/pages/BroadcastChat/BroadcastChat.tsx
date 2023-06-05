@@ -9,6 +9,7 @@ import InputMulti from '../../ui/InputMulti/InputMulti';
 import SelectMulti from '../../ui/SelectMulti/SelectMulti';
 import Button from '../../ui/Button/Button';
 import InputRadio from '../../ui/InputRadio/InputRadio';
+import KeysAdd from '../../components/KeysAdd/KeysAdd';
 import PhoneSwitch from '../../components/PhoneSwitch/PhoneSwitch';
 import PhoneAndroidAlert from '../../components/PhoneAndroid/components/PhoneAndroidAlert/PhoneAndroidAlert';
 import PhoneIphoneAlert from '../../components/PhoneIphone/components/PhoneIphoneAlert/PhoneIphoneAlert';
@@ -121,7 +122,8 @@ const BroadcastChat: FC<BroadcastChatProps> = () => (
             items={[
               {
                 value: 'text',
-                name: 'Текст'
+                name: 'Текст',
+                checked: true
               },
               {
                 value: 'media',
@@ -204,10 +206,7 @@ const BroadcastChat: FC<BroadcastChatProps> = () => (
         <FieldItemUi
           title="Ключи"
         >
-          <Input
-            className='input_width_default'
-            placeholder="Введите"
-          ></Input>
+          <KeysAdd></KeysAdd>
         </FieldItemUi>
       </FieldUi>
       <FieldUi

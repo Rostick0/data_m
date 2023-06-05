@@ -21,6 +21,7 @@ const BroadcastList: FC<BroadcastListProps> = () => (
       <Title>Рассылка</Title>
       <div className={styles.BroadcastList_filter}>
         <Select
+          styleColor="grey"
           items={[
             {
               value: 1,
@@ -42,7 +43,7 @@ const BroadcastList: FC<BroadcastListProps> = () => (
         <SelectMulti></SelectMulti>
       </div>
     </div>
-   <Table></Table>
+    <Table></Table>
   </div>
 );
 

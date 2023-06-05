@@ -14,6 +14,7 @@ import InputBox from '../../ui/InputBox/InputBox';
 import PhoneSwitch from '../../components/PhoneSwitch/PhoneSwitch';
 import PhoneAndroidAlert from '../../components/PhoneAndroid/components/PhoneAndroidAlert/PhoneAndroidAlert';
 import PhoneIphoneAlert from '../../components/PhoneIphone/components/PhoneIphoneAlert/PhoneIphoneAlert';
+import KeysAdd from '../../components/KeysAdd/KeysAdd';
 const FieldButtons = lazy(() => import('../../components/FieldButtons/FieldButtons'));
 
 interface BroadcastPushProps { }
@@ -164,10 +165,7 @@ const BroadcastPush: FC<BroadcastPushProps> = () => (
         <FieldItemUi
           title="Ключи"
         >
-          <Input
-            className='input_width_default'
-            placeholder="Введите"
-          ></Input>
+          <KeysAdd></KeysAdd>
         </FieldItemUi>
         <FieldItemUi>
           <InputBox>Игнорировать частотный фильтр</InputBox>

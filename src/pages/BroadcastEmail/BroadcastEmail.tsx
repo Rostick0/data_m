@@ -7,6 +7,7 @@ import FieldUi from '../../components/Field/Field';
 import InputSwitch from '../../ui/InputSwitch/InputSwitch';
 import InputMulti from '../../ui/InputMulti/InputMulti';
 import SelectMulti from '../../ui/SelectMulti/SelectMulti';
+import KeysAdd from '../../components/KeysAdd/KeysAdd';
 
 interface BroadcastEmailProps { }
 
@@ -127,10 +128,7 @@ const BroadcastEmail: FC<BroadcastEmailProps> = () => (
       <FieldItemUi
         title="Ключи"
       >
-        <Input
-          className='input_width_default'
-          placeholder="Введите"
-        ></Input>
+        <KeysAdd></KeysAdd>
       </FieldItemUi>
     </FieldUi>
     <FieldUi

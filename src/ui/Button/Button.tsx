@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import styles from './Button.module.scss';
 
-interface ButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, React.AriaAttributes {
+export interface ButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, React.AriaAttributes {
   styleColor?: 'blue' | 'grey'
 }
 
