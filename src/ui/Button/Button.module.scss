@@ -16,5 +16,15 @@
                 background-color: var(--brand_primary_2);
             }
         }
+
+        &_grey {
+            background-color: var(--basic_background_hover);
+            color: var(--text_secondary);
+
+            &:hover {
+                background-color: var(--basic_background_hover);
+                color: var(--text_primary);
+            }
+        }
     }
 }

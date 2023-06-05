@@ -1,6 +1,18 @@
 .Select {
     position: relative;
 
+    &_style {
+        &_grey {
+            .Select__input {
+                background-color: var(--basic_background);
+
+                &::placeholder {
+                    color: var(--text_tertiary);
+                }
+            }
+        }
+    }
+
     &__switch {
         cursor: pointer;
         display: inline-flex;

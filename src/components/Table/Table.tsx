@@ -82,6 +82,7 @@ const Table: FC<TableProps> = ({
             </div>
             <div className="">
               <Select
+                styleColor='grey'
                 placeholder="Выберите папку"
               ></Select>
             </div>
@@ -205,11 +206,6 @@ const Table: FC<TableProps> = ({
                         <div className={styles.Table__item_chart_icon}
                           style={{ backgroundColor: '#F4BE37' }}
                         ></div>
-                        <div className={styles.Table__item_chart_name}>Получено</div>
-                        <div>12,423</div>
-                      </div>
-                      <div className={styles.Table__item_chart_flex}>
-                        <div className={styles.Table__item_chart_icon}></div>
                         <div className={styles.Table__item_chart_name}>Получено</div>
                         <div>12,423</div>
                       </div>

@@ -9,6 +9,7 @@ export interface Items {
 export interface SelectProps {
   className?: string | undefined,
   inputClassName?: string | undefined,
+  styleColor?: 'white' | 'grey',
   defaultValue?: string | number | undefined,
   placeholder?: string | undefined,
   onChange?: Function | undefined
@@ -18,6 +19,7 @@ export interface SelectProps {
 const Select: FC<SelectProps> = ({
   className,
   inputClassName,
+  styleColor,
   defaultValue,
   placeholder,
   onChange,
@@ -48,8 +50,11 @@ const Select: FC<SelectProps> = ({
   const styleClassName = className ? ' ' + className : '';
   const styleInputClassName = inputClassName ? ' ' + inputClassName : '';
 
+  const styleClass = styles['Select_style_' + styleColor];
+  const styleLink = styleClass ? ' ' + styleClass : ' ' + styles['Select_style_white'];
+
   return (
-    <div className={styles.Select + styleClassName} >
+    <div className={styles.Select + styleLink + styleClassName} >
       <div className={styles.Select__switch + styleClassName}
         onClick={() => setActive(prev => !prev)}
       >

@@ -225,7 +225,7 @@ const BroadcastChat: FC<BroadcastChatProps> = () => (
           <InputSwitch>Пауза после привлечения пользователей</InputSwitch>
         </FieldItemUi>
       </FieldUi>
-      <FieldButtons>
+      {/* <FieldButtons>
         <Button>Очистить</Button>
         <Button className='button_with_icon'>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -233,7 +233,7 @@ const BroadcastChat: FC<BroadcastChatProps> = () => (
           </svg>
           <span>Сохранить</span>
         </Button>
-      </FieldButtons>
+      </FieldButtons> */}
     </div>
     <div>
       <PhoneSwitch

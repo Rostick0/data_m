@@ -13,10 +13,11 @@ interface AppRouterprops {
 }
 
 const AppRouter: React.FC<AppRouterprops> = () => {
-
     return (
         <Suspense fallback={<div>Loading...</div>}>
             <Routes>
+                <Route path="/" element={<Broadcast />}
+                ></Route>
                 <Route path="/broadcast" element={<Broadcast />}
                 >
                     <Route index path="list" element={<BroadcastList />} />

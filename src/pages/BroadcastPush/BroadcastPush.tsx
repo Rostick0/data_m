@@ -191,10 +191,9 @@ const BroadcastPush: FC<BroadcastPushProps> = () => (
       <FieldUi
         title="Предпросмотр"
       >
-
       </FieldUi>
       <FieldButtons>
-        <Button>Очистить</Button>
+        <Button styleColor='grey'>Очистить</Button>
         <Button className='button_with_icon'>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M19 8.49997L10.5 16.9999L5 11.4999L6.41 10.0899L10.5 14.1699L17.59 7.08997L19 8.49997Z" fill="white" />
