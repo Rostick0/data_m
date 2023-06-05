@@ -9,9 +9,6 @@ interface PhoneAndroidChatProps {
 const PhoneAndroidChat: FC<PhoneAndroidChatProps> = ({
   messages
 }) => (
-  // <div className={styles.PhoneAndroidChat}>
-  //   PhoneAndroidChat Component
-  // </div>
   <PhoneChat
     messages={messages}
     topChildren={
