@@ -25,45 +25,13 @@ const Table: FC<TableProps> = ({
   titles,
   children
 }) => {
-  const data1 = {
-    labels: [],
-    datasets: [{
-      label: 'My First Dataset',
-      data: [12.423, 7.932],
-      backgroundColor: [
-        '#F4BE37',
-        '#F5F8FA'
-      ]
-    }],
-  };
-
-  const data2 = {
-    labels: [],
-    datasets: [{
-      label: 'My First Dataset',
-      data: [12.423, 7.932, 7.931],
-      backgroundColor: [
-        '#2471CC',
-        '#35BB73',
-        '#F4BE37'
-      ]
-    }],
-    options: {
-      plugins: {
-        tooltip: {
-          enabled: false
-        }
-      }
-    }
-  };
-
   const classGridTemplate = styleGridTemplate ? ' ' + styleGridTemplate : '';
 
   return (
     <>
       {titles?.length && (
         <div className={styles.Table__titles + classGridTemplate}>
-          {titles.map(title => (<div className={styles.Table__title}>{title}</div>))}
+          {titles.map(title => (<div key={title} className={styles.Table__title}>{title}</div>))}
         </div>
       )}
       <div className={styles.Table__list}>

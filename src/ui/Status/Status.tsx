@@ -3,7 +3,6 @@ import styles from './Status.module.scss';
 
 export type typeStatus = 'working' | 'complete' | 'active' | 'draft' | 'pause' | 'cancel';
 
-
 export interface StatusProps {
   type: typeStatus
 }
