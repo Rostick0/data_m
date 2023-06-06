@@ -59,6 +59,8 @@ const TableBroadcastItem: FC<TableBroadcastItemProps> = ({
 }) => {
   const [isShow, setIsShow] = useState(false);
 
+  const classActive = isShow ? ' ' + styles.TableBroadcastItem_active : '';
+
   const data1 = {
     labels: [],
     datasets: [{
@@ -92,7 +94,7 @@ const TableBroadcastItem: FC<TableBroadcastItemProps> = ({
   };
 
   return (
-    <div className={styles.TableBroadcastItem}>
+    <div className={styles.TableBroadcastItem + classActive}>
       <div className={styles.TableBroadcastItem__short}>
         <div className={styles.TableBroadcastItem__name}
           onClick={() => setIsShow(prev => !prev)}

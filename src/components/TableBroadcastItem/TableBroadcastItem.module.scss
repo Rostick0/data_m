@@ -1,4 +1,14 @@
 .TableBroadcastItem {
+    &_active {
+        svg {
+            transform: rotate(90deg);
+        }
+    }
+
+    svg {
+        transition: 300ms;
+    }
+
     &__short {
         border-top: 1px solid var(--basic_sep);
         display: grid;
