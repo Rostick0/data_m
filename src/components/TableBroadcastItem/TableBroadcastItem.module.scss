@@ -28,7 +28,7 @@
         position: relative;
 
         &:hover {
-            .Table__item_menu {
+            .TableBroadcastItem__menu {
                 display: block;
             }
         }
@@ -43,8 +43,9 @@
         position: absolute;
         right: 0;
         width: 180px;
+        z-index: 1;
 
-        &__item {
+        &_item {
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -56,12 +57,17 @@
     &__info {
         background-color: var(--basic_background);
         display: flex;
+        align-items: flex-start;
         column-gap: 16px;
         padding: 16px 24px;
         padding-left: 40px;
 
-        &__left {
-            min-width: 552px;
+        &_left {
+            flex-basis: 46%;
+        }
+
+        &_right {
+            flex: 1 0 54%;
         }
     }
 
@@ -135,11 +141,14 @@
 
     &__charts {
         display: flex;
+        justify-content: space-between;
+        column-gap: 10px;
         width: 100%;
     }
 
     &__chart {
         display: flex;
+        column-gap: 17px;
         flex-basis: 50%;
 
         canvas {
@@ -147,20 +156,20 @@
             max-height: 96px;
         }
 
-        &__info {
+        &_info {
             display: flex;
             flex-direction: column;
             row-gap: 8px;
             padding-top: 8px;
         }
 
-        &__flex {
+        &_flex {
             display: flex;
             align-items: center;
             column-gap: 4px;
         }
 
-        &__icon {
+        &_icon {
             border-radius: 50%;
             margin-right: 2px;
             width: 7px;
@@ -168,7 +177,7 @@
             height: 7px;
         }
 
-        &__name {
+        &_name {
             color: var(--text_tertiary);
         }
     }

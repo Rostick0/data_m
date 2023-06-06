@@ -1,8 +1,11 @@
 import React, { FC } from 'react';
 import styles from './Status.module.scss';
 
-interface StatusProps {
-  type: 'working' | 'complete' | 'active' | 'draft' | 'pause' | 'cancel'
+export type typeStatus = 'working' | 'complete' | 'active' | 'draft' | 'pause' | 'cancel';
+
+
+export interface StatusProps {
+  type: typeStatus
 }
 
 const Status: FC<StatusProps> = ({
