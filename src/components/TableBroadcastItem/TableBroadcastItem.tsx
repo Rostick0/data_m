@@ -5,22 +5,9 @@ import 'chart.js/auto';
 import { Doughnut } from 'react-chartjs-2';
 import Status, { typeStatus } from '../../ui/Status/Status';
 import Select from '../../ui/Select/Select';
-
-interface Statistic {
-  successfully?: number | undefined,
-  total?: number | undefined
-}
-
-interface Statistic_2 {
-  shipped?: number | undefined,
-  read?: number | undefined,
-  received?: number | undefined
-}
-
-interface PreviewItem {
-  name?: string | undefined,
-  image?: string | undefined,
-}
+import { chartData } from '../../app/utils/chart/helpers';
+import { Statistic, Statistic_2 } from '../../app/utils/chart/interface';
+import { PreviewItem } from '../../app/utils/preview/interface';
 interface TableBroadcastItemProps {
   data?: {
     name?: string | undefined,
@@ -49,57 +36,38 @@ interface TableBroadcastItemProps {
   },
   statistic?: Statistic | undefined,
   statistic_2?: Statistic_2 | undefined,
+  styleGridTemplate?: string | undefined
 }
 
 const TableBroadcastItem: FC<TableBroadcastItemProps> = ({
   data,
   info,
   statistic,
-  statistic_2
+  statistic_2,
+  styleGridTemplate
 }) => {
   const [isShow, setIsShow] = useState(false);
 
   const classActive = isShow ? ' ' + styles.TableBroadcastItem_active : '';
 
-  const data1 = {
-    labels: [],
-    datasets: [{
-      label: '',
-      data: [statistic?.successfully, (statistic?.total ?? statistic?.successfully ?? 0) - (statistic?.successfully ?? 0)],
-      backgroundColor: [
-        '#F4BE37',
-        '#F5F8FA'
-      ]
-    }],
-  };
+  const classGridTemplate = styleGridTemplate ? ' ' + styleGridTemplate : '';
 
-  const data2 = {
-    labels: [],
-    datasets: [{
-      label: '',
-      data: [statistic_2?.shipped, statistic_2?.read, statistic_2?.received],
-      backgroundColor: [
-        '#2471CC',
-        '#35BB73',
-        '#F4BE37'
-      ]
-    }],
-    options: {
-      plugins: {
-        tooltip: {
-          enabled: false
-        }
-      }
-    }
-  };
+  const data1 = chartData({
+    data: [statistic?.successfully, (statistic?.total ?? statistic?.successfully ?? 0) - (statistic?.successfully ?? 0)],
+    type: 'short'
+  })
+
+  const data2 = chartData({
+    data: [statistic_2?.shipped ?? 0, statistic_2?.read ?? 0, statistic_2?.received ?? 0],
+  });
 
   return (
     <div className={styles.TableBroadcastItem + classActive}>
-      <div className={styles.TableBroadcastItem__short}>
+      <div className={styles.TableBroadcastItem__short + classGridTemplate}>
         <div className={styles.TableBroadcastItem__name}
           onClick={() => setIsShow(prev => !prev)}
         >
-          <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg className={styles.TableBroadcastItem__arrow} width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 9.03125C0 9.59375 0.65625 9.875 1.0625 9.46875L5.0625 5.46875C5.3125 5.21875 5.3125 4.8125 5.0625 4.5625L1.0625 0.5625C0.65625 0.15625 0 0.4375 0 1V9.03125Z" fill="#142333" fillOpacity="0.33" />
           </svg>
           <div>{data?.name}</div>

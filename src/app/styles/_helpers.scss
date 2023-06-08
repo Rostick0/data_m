@@ -3,6 +3,16 @@
     width: 100%;
 }
 
+.input_date {
+    width: 100%;
+    max-width: 200px;
+}
+
+.input_column {
+    display: flex;
+    column-gap: 10px;
+}
+
 .field_time {
     display: flex;
     align-items: center;

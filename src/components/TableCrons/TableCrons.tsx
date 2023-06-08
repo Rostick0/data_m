@@ -1,21 +1,20 @@
 import React, { FC } from 'react';
-import styles from './TableBroadcast.module.scss';
+import styles from './TableCrons.module.scss';
 import Table from '../Table/Table';
-import TableBroadcastItem from '../TableBroadcastItem/TableBroadcastItem';
 import TableItem from '../Table/components/TableItem/TableItem';
-import { typeStatus } from '../../ui/Status/Status';
+import TableCronsItem from '../TableCronsItem/TableCronsItem';
 
-interface TableBroadcastProps { }
+interface TableCronsProps { }
 
-const TableBroadcast: FC<TableBroadcastProps> = () => {
+const TableCrons: FC<TableCronsProps> = () => {
   const titles = [
     'Наименование',
+    'Шаблон',
     'Тип',
-    'Польз. в проц./всего',
-    'Теги',
     'Дата и время',
-    'Статус',
-    'Папка',
+    'Период',
+    'Теги',
+    'Посл. роллбек',
     ''
   ];
 
@@ -23,13 +22,12 @@ const TableBroadcast: FC<TableBroadcastProps> = () => {
     {
       data: {
         name: 'Наименование',
+        template: 'Наименование',
         type: 'E-mail',
-        current_users: 88,
-        max_users: 134,
-        tags: ['default'],
         date: '20.12.2022, 10:30:25',
-        status: "working" as typeStatus,
-        folder: '',
+        period: '1 день',
+        tags: ['default'],
+        rollback: '20.12.2022, 10:30:25',
       },
       info: {
         id: 'Наименование',
@@ -68,13 +66,12 @@ const TableBroadcast: FC<TableBroadcastProps> = () => {
     {
       data: {
         name: 'New_user_no_order',
+        template: 'Имя',
         type: 'E-mail',
-        current_users: 31,
-        max_users: 134,
+        date: '20.12.2022, 10:30:25',
+        period: '1 день',
         tags: ['default'],
-        date: '20.12.2022, 10:31:25',
-        status: "working" as typeStatus,
-        folder: '',
+        rollback: '20.12.2022, 10:35:25',
       },
       info: {
         id: '2',
@@ -112,14 +109,13 @@ const TableBroadcast: FC<TableBroadcastProps> = () => {
     },
     {
       data: {
-        name: 'Verification',
+        name: 'New_user_no_order 12w',
+        template: '',
         type: 'E-mail',
-        current_users: 88,
-        max_users: 134,
-        tags: ['Новый', 'Без заказов'],
         date: '20.12.2023, 10:30:25',
-        status: "active" as typeStatus,
-        folder: '',
+        period: '1 день',
+        tags: ['default'],
+        rollback: '20.12.2022, 10:45:25',
       },
       info: {
         id: 'Наименование',
@@ -158,13 +154,12 @@ const TableBroadcast: FC<TableBroadcastProps> = () => {
     {
       data: {
         name: 'Unregistred_week',
+        template: 'Наименование',
         type: 'E-mail',
-        current_users: 12,
-        max_users: 134,
+        date: '21.12.2021, 10:30:25',
+        period: '1 день',
         tags: ['default'],
-        date: '20.12.2022, 03:30:25',
-        status: "working" as typeStatus,
-        folder: '',
+        rollback: '25.12.2022, 10:45:25',
       },
       info: {
         id: 'Наименование',
@@ -203,13 +198,12 @@ const TableBroadcast: FC<TableBroadcastProps> = () => {
     {
       data: {
         name: 'Balance_reps',
+        template: 'Наименование',
         type: 'E-mail',
-        current_users: 89,
-        max_users: 134,
+        date: '21.12.2021, 10:30:25',
+        period: '1 день',
         tags: ['default'],
-        date: '20.12.2022, 10:30:25',
-        status: "working" as typeStatus,
-        folder: '',
+        rollback: '25.12.2022, 10:45:25',
       },
       info: {
         id: 'Наименование',
@@ -245,119 +239,29 @@ const TableBroadcast: FC<TableBroadcastProps> = () => {
         received: 3150
       }
     },
-    {
-      data: {
-        name: 'Имя',
-        type: 'E-mail',
-        current_users: 88,
-        max_users: 134,
-        tags: ['default'],
-        date: '20.12.2022, 10:30:25',
-        status: "working" as typeStatus,
-        folder: '',
-      },
-      info: {
-        id: 'Наименование',
-        type: "Пуш",
-        keys: undefined,
-        date_start: "20.12.2022, 10:30:25",
-        date_end: "20.12.2022, 10:30:25",
-        type_recipient: "Зарегистрированный",
-        segments: ['eng_registred', 'eng_unregistred'],
-        type_push: "Readonly",
-        title: "Musescore",
-        text: "Welcome to the world's largest community of Sheet music lovers!",
-        link: 'https://',
-        preview: [
-          {
-            name: 'iOS',
-            image: 'https://i.ibb.co/bR3T11Q/preview-ios.png',
-          },
-          {
-            name: 'Android',
-            image: 'https://i.ibb.co/1vXXyqh/preview-andorid.png',
-          }
-        ],
-        message: "Browse through our diverse collection of Sheet music. Learn, print and play back your favorite scores. Follow your favorite Sheet music creators to find out about their newest scores as soon as they're posted"
-      },
-      statistic: {
-        successfully: 2000,
-        total: 3000
-      },
-      statistic_2: {
-        shipped: 3120,
-        read: 4350,
-        received: 3150
-      }
-    },
-    {
-      data: {
-        name: 'Имя 2',
-        type: 'E-mail',
-        current_users: 88,
-        max_users: 134,
-        tags: ['default'],
-        date: '20.12.2022, 10:30:25',
-        status: "draft" as typeStatus,
-        folder: '',
-      },
-      info: {
-        id: 'Наименование',
-        type: "Пуш",
-        keys: undefined,
-        date_start: "20.10.2022, 10:30:25",
-        date_end: "20.10.2022, 10:30:25",
-        type_recipient: "Незарегистрированный",
-        segments: ['eng_registred', 'eng_unregistred'],
-        type_push: "Readonly",
-        title: "Заголовок",
-        text: "Welcome to the world's largest community of Sheet music lovers!",
-        link: 'https://',
-        preview: [
-          {
-            name: 'iOS',
-            image: 'https://i.ibb.co/bR3T11Q/preview-ios.png',
-          },
-          {
-            name: 'Android',
-            image: 'https://i.ibb.co/1vXXyqh/preview-andorid.png',
-          }
-        ],
-        message: "Browse through our diverse collection of Sheet music. Learn, print and play back your favorite scores. Follow your favorite Sheet music creators to find out about their newest scores as soon as they're posted"
-      },
-      statistic: {
-        successfully: 3145,
-        total: 4000
-      },
-      statistic_2: {
-        shipped: 321,
-        read: 132,
-        received: 124
-      }
-    }
   ];
 
   return (
-    <div className={styles.TableBroadcast}>
+    <div className={styles.TableCrons}>
       <Table
-        styleGridTemplate={styles.TableBroadcast__grid_template}
+        styleGridTemplate={styles.TableCrons__grid_template}
         titles={titles}
       >
-        {data?.map(item => (
+        {data.length && data?.map(item => (
           <TableItem
-            key={item?.data?.name}>
-            <TableBroadcastItem
+            key={item.data.name}>
+            <TableCronsItem
               data={item?.data}
               info={item?.info}
               statistic={item?.statistic}
               statistic_2={item?.statistic_2}
-              styleGridTemplate={styles.TableBroadcast__grid_template}
-            ></TableBroadcastItem>
+              styleGridTemplate={styles.TableCrons__grid_template}
+            ></TableCronsItem>
           </TableItem>
         ))}
       </Table>
     </div>
   );
-}
+};
 
-export default TableBroadcast;
+export default TableCrons;

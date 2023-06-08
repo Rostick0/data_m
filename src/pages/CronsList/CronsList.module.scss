@@ -1,6 +1,12 @@
-.BroadcastList {
+.CronsList {
     &__top {
         padding: 0 28px;
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
     &__filter {

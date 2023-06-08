@@ -1,6 +1,6 @@
-.TableBroadcastItem {
+.TableCronsItem {
     &_active {
-        .TableBroadcastItem__arrow {
+        .TableCronsItem__arrow {
             transform: rotate(90deg);
         }
     }
@@ -14,7 +14,6 @@
         display: grid;
         align-items: center;
         grid-gap: 12px;
-        // grid-template-columns: 1.48fr 0.679fr 1.12fr 1.44fr 1.24fr 0.79fr 1.17fr 0.6fr;
         padding: 16px;
     }
 
@@ -33,6 +32,7 @@
 
     &__icons {
         display: flex;
+        align-items: center;
         column-gap: 24px;
 
         &>* {
@@ -44,7 +44,7 @@
         position: relative;
 
         &:hover {
-            .TableBroadcastItem__menu {
+            .TableCronsItem__menu {
                 display: block;
             }
         }

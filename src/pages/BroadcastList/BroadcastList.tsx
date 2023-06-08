@@ -5,12 +5,7 @@ import styles from './BroadcastList.module.scss';
 import Title from '../../ui/Title/Title';
 import Input from '../../ui/Input/Input';
 import Select from '../../ui/Select/Select';
-import Status from '../../ui/Status/Status';
-import InputBox from '../../ui/InputBox/InputBox';
-import InputSwitch from '../../ui/InputSwitch/InputSwitch';
-import InputRadio from '../../ui/InputRadio/InputRadio';
 import SelectMulti from '../../ui/SelectMulti/SelectMulti';
-import InputTag from '../../ui/InputTag/InputTag';
 import TableBroadcast from '../../components/TableBroadcast/TableBroadcast';
 
 interface BroadcastListProps { }
@@ -19,7 +14,7 @@ const BroadcastList: FC<BroadcastListProps> = () => (
   <div className={styles.BroadcastList}>
     <div className={styles.BroadcastList__top}>
       <Title>Рассылка</Title>
-      <div className={styles.BroadcastList_filter}>
+      <div className={styles.BroadcastList__filter}>
         <Select
           styleColor="grey"
           items={[

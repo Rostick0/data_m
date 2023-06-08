@@ -4,7 +4,7 @@ import LayoutDefault from '../LayoutDefault/LayoutDefault';
 import TopNav from '../../components/TopNav/TopNav';
 
 interface LayoutBroadcostProps {
-  children?: React.ReactNode
+  children?: React.ReactNode | undefined
 }
 
 const LayoutBroadcost: FC<LayoutBroadcostProps> = ({

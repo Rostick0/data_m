@@ -8,6 +8,9 @@ const BroadcastPush = lazy(() => import('../pages/BroadcastPush/BroadcastPush'))
 const BroadcastChat = lazy(() => import('../pages/BroadcastChat/BroadcastChat'));
 const BroadcastSms = lazy(() => import('../pages/BroadcastSms/BroadcastSms'));
 const BroadcastEmail = lazy(() => import('../pages/BroadcastEmail/BroadcastEmail'));
+const Crons = lazy(() => import('../pages/Crons/Crons'));
+const CronsCreate = lazy(() => import('../pages/CronsCreate/CronsCreate'));
+const CronsList = lazy(() => import('../pages/CronsList/CronsList'));
 
 interface AppRouterprops {
 }
@@ -25,6 +28,10 @@ const AppRouter: React.FC<AppRouterprops> = () => {
                     <Route path="chat" element={<BroadcastChat />} />
                     <Route path="sms" element={<BroadcastSms />} />
                     <Route path="email" element={<BroadcastEmail />} />
+                </Route>
+                <Route path="/crons" element={<Crons />}>
+                    <Route index path="list" element={<CronsList />}></Route>
+                    <Route path="create" element={<CronsCreate />}></Route>
                 </Route>
             </Routes>
         </Suspense>

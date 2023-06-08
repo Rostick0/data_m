@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styles from './Aside.module.scss';
-import { Link, LinkProps } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import LogoMain from '../../ui/LogoMain/LogoMain';
 import AsideSubnavItem from './components/AsideSubnavItem/AsideSubnavItem';
 
@@ -22,7 +22,7 @@ const Aside: FC<AsideProps> = () => {
       <path d="M12 6V12.7L14.5 15.5" stroke="white" stroke-width="2"/>
       <circle cx="12" cy="12" r="8.5" stroke="white" stroke-width="2"/>
       </svg>`,
-      link: '/',
+      link: '/crons/list',
       name: 'Кроны'
     },
     {
