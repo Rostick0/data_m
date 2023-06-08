@@ -33,7 +33,7 @@ const Aside: FC<AsideProps> = () => {
       <path d="M13 13H21V15H13V13Z" fill="white"/>
       <path d="M21 17H13V19H21V17Z" fill="white"/>
       </svg>`,
-      link: '/',
+      link: '/template/list',
       name: 'Шаблоны'
     },
     {
@@ -99,7 +99,9 @@ const Aside: FC<AsideProps> = () => {
   return (
     <aside className={styles.Aside}>
       <div className={styles.Aside__top}>
-        <Link className={styles.Aside__logo} to="/"><LogoMain /></Link>
+        <Link className={styles.Aside__logo} to="/">
+          <LogoMain />
+        </Link>
       </div>
       <ul className={styles.Aside__nav}>
         <li className={styles.Aside__nav_item}>

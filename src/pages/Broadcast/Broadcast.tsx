@@ -1,5 +1,4 @@
 import React, { Suspense, FC } from 'react';
-import styles from './Broadcast.module.scss';
 import LayoutBroadcost from '../../layout/LayoutBroadcost/LayoutBroadcost';
 import { Outlet } from "react-router-dom";
 

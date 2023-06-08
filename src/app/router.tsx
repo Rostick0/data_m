@@ -11,6 +11,9 @@ const BroadcastEmail = lazy(() => import('../pages/BroadcastEmail/BroadcastEmail
 const Crons = lazy(() => import('../pages/Crons/Crons'));
 const CronsCreate = lazy(() => import('../pages/CronsCreate/CronsCreate'));
 const CronsList = lazy(() => import('../pages/CronsList/CronsList'));
+const Template = lazy(() => import('../pages/Template/Template'));
+const TemplateCreate = lazy(() => import('../pages/TemplateCreate/TemplateCreate'));
+const TemplateList = lazy(() => import('../pages/TemplateList/TemplateList'));
 
 interface AppRouterprops {
 }
@@ -32,6 +35,10 @@ const AppRouter: React.FC<AppRouterprops> = () => {
                 <Route path="/crons" element={<Crons />}>
                     <Route index path="list" element={<CronsList />}></Route>
                     <Route path="create" element={<CronsCreate />}></Route>
+                </Route>
+                <Route path="/template" element={<Template />}>
+                    <Route index path="list" element={<TemplateList />}></Route>
+                    <Route path="create" element={<TemplateCreate />}></Route>
                 </Route>
             </Routes>
         </Suspense>
