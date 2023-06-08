@@ -28,6 +28,7 @@ const TableCrons: FC<TableCronsProps> = () => {
         period: '1 день',
         tags: ['default'],
         rollback: '20.12.2022, 10:30:25',
+        is_active: true
       },
       info: {
         id: 'Наименование',

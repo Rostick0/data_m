@@ -192,7 +192,7 @@ const CronsCreate: FC<CronsCreateProps> = () => (
         </Button>
       </FieldButtons>
     </div>
-    <div>
+    <div className={styles.CronsCreate__phone}>
       <PhoneSwitch
         androidChildren={<PhoneAndroidAlert></PhoneAndroidAlert>}
         iphoneChildren={<PhoneIphoneAlert></PhoneIphoneAlert>}

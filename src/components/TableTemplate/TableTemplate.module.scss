@@ -1,1 +1,5 @@
-.TableTemplate {}
+.TableTemplate {
+    &__grid_template {
+        grid-template-columns: 1.27fr 1.11fr 0.5fr 1.93fr 0.92fr 0.5fr;
+    }
+}

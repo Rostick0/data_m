@@ -5,8 +5,6 @@ import FieldItemUi from '../../components/FieldItem/FieldItem';
 import Input from '../../ui/Input/Input';
 import Select from '../../ui/Select/Select';
 import FieldUi from '../../components/Field/Field';
-import InputSwitch from '../../ui/InputSwitch/InputSwitch';
-import SelectMulti from '../../ui/SelectMulti/SelectMulti';
 import Button from '../../ui/Button/Button';
 import InputRadio from '../../ui/InputRadio/InputRadio';
 import PhoneSwitch from '../../components/PhoneSwitch/PhoneSwitch';
@@ -142,7 +140,7 @@ const TemplateCreate: FC<TemplateCreateProps> = () => (
         </Button>
       </FieldButtons>
     </div>
-    <div>
+    <div className={styles.TemplateCreate__phone}>
       <PhoneSwitch
         androidChildren={<PhoneAndroidAlert></PhoneAndroidAlert>}
         iphoneChildren={<PhoneIphoneAlert></PhoneIphoneAlert>}
