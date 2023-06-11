@@ -1,10 +1,6 @@
 import React, { FC, lazy } from 'react';
 import styles from './Table.module.scss';
-import Select from '../../ui/Select/Select';
-import Tag from '../../ui/Tag/Tag';
-import Status from '../../ui/Status/Status';
 import 'chart.js/auto';
-import { Doughnut } from 'react-chartjs-2';
 const TablePagination = lazy(() => import('./components/TablePagination/TablePagination'));
 
 // interface item {

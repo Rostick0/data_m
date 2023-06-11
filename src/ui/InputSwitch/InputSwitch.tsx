@@ -29,7 +29,9 @@ const InputSwitch: FC<InputSwitchProps> = props => {
       <span className={styles.InputSwitch__switch}>
         <span className={styles.InputSwitch__icon}></span>
       </span>
-      <span className={styles.InputSwitch__children}>{children}</span>
+      {children
+        &&
+        (<span className={styles.InputSwitch__children}>{children}</span>)}
     </label>
   );
 };

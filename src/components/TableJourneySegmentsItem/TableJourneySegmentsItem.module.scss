@@ -1,0 +1,9 @@
+.TableJourneySegmentsItem {
+    padding: 14px 30px 14px 28px;
+
+    &__icons {
+        display: flex;
+        column-gap: 24px;
+        justify-content: flex-end;
+    }
+}

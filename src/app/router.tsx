@@ -14,6 +14,11 @@ const CronsList = lazy(() => import('../pages/CronsList/CronsList'));
 const Template = lazy(() => import('../pages/Template/Template'));
 const TemplateCreate = lazy(() => import('../pages/TemplateCreate/TemplateCreate'));
 const TemplateList = lazy(() => import('../pages/TemplateList/TemplateList'));
+const Journey = lazy(() => import('../pages/Journey/Journey'));
+const JourneyList = lazy(() => import('../pages/JourneyList/JourneyList'));
+const JourneyItem = lazy(() => import('../pages/JourneyItem/JourneyItem'));
+const JourneyView = lazy(() => import('../pages/JourneyView/JourneyView'));
+const JourneySegmentsList = lazy(() => import('../pages/JourneySegmentsList/JourneySegmentsList'));
 
 interface AppRouterprops {
 }
@@ -33,12 +38,19 @@ const AppRouter: React.FC<AppRouterprops> = () => {
                     <Route path="email" element={<BroadcastEmail />} />
                 </Route>
                 <Route path="/crons" element={<Crons />}>
-                    <Route index path="list" element={<CronsList />}></Route>
+                    <Route path="list" element={<CronsList />}></Route>
                     <Route path="create" element={<CronsCreate />}></Route>
                 </Route>
                 <Route path="/template" element={<Template />}>
-                    <Route index path="list" element={<TemplateList />}></Route>
+                    <Route path="list" element={<TemplateList />}></Route>
                     <Route path="create" element={<TemplateCreate />}></Route>
+                </Route>
+                <Route path="/journey" element={<Journey />}>
+                    <Route path="list" element={<JourneyList />}></Route>
+                    <Route path="item/:id" element={<JourneyItem />}></Route>
+                    <Route path="view" element={<JourneyView />}></Route>
+                    <Route path="view/:id" element={<JourneyView />}></Route>
+                    <Route path="segments" element={<JourneySegmentsList />}></Route>
                 </Route>
             </Routes>
         </Suspense>

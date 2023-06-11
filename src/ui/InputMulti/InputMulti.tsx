@@ -1,4 +1,4 @@
-import React, { FC, InputHTMLAttributes, useState, useEffect } from 'react';
+import React, { FC, InputHTMLAttributes, useState } from 'react';
 import styles from './InputMulti.module.scss';
 import InputTag from '../InputTag/InputTag';
 
