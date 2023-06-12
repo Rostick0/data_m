@@ -1,5 +1,8 @@
 .TopNav {
     border-bottom: 1px solid var(--basic_border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 0 16px;
 
     &__list {

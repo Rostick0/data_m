@@ -5,10 +5,12 @@ import { TopNavItemProps } from './components/TopNavItem/TopNavItem';
 
 interface TopNavProps {
   links: Array<TopNavItemProps>,
+  children?: React.ReactNode | undefined,
 }
 
 const TopNav: FC<TopNavProps> = ({
-  links
+  links,
+  children
 }) => {
   const [items, setItems] = useState(links);
 
@@ -25,6 +27,7 @@ const TopNav: FC<TopNavProps> = ({
           ></TopNavItem>
         ))}
       </ul>
+      {children}
     </div>
   );
 };

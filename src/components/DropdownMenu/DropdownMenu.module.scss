@@ -1,0 +1,16 @@
+.DropdownMenu {
+    background-color: var(--white);
+    border-radius: 6px;
+    box-shadow: var(--shadow_popup);
+    position: absolute;
+
+    &__item {
+        cursor: pointer;
+        padding: 6px 12px;
+
+        &_line {
+            border-bottom: 1px solid var(--basic_sep);
+            margin-bottom: 4px;
+        }
+    }
+}

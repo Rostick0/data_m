@@ -5,7 +5,7 @@ import { Path } from 'react-router-dom';
 
 export interface TopNavItemProps {
   id?: number | undefined,
-  link: string | Partial<Path>,
+  link?: string | Partial<Path>,
   icon: string | TrustedHTML,
   name: string | undefined,
   onClick?: React.MouseEventHandler<HTMLLIElement> | undefined
@@ -28,10 +28,17 @@ const TopNavItem: FC<TopNavItemProps> = ({
       className={styles.TopNavItem}
       onClick={onClick}
     >
-      <Link className={styles.TopNavItem__link + selectedClass} to={link}>
-        <span className='icon' dangerouslySetInnerHTML={{ __html: icon }}></span>
-        <span>{name}</span>
-      </Link>
+      {link ? (
+        <Link className={styles.TopNavItem__link + selectedClass} to={link}>
+          <span className='icon' dangerouslySetInnerHTML={{ __html: icon }}></span>
+          <span>{name}</span>
+        </Link>
+      ) : (
+        <span className={styles.TopNavItem__link + ' ' + styles.TopNavItem__span}>
+          <span className='icon' dangerouslySetInnerHTML={{ __html: icon }}></span>
+          <span>{name}</span>
+        </span>
+      )}
     </li>
   );
 };

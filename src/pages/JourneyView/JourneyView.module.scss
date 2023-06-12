@@ -1,1 +1,11 @@
-.JourneyView {}
+.JourneyView {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    &__content {
+        background-image: url('./../../app/image/background_journey_view.svg');
+        flex-grow: 1;
+        position: relative;
+    }
+}

@@ -16,4 +16,9 @@
             color: var(--text_primary);
         }
     }
+
+    &__span {
+        color: rgba(18, 27, 38, 0.66);
+        column-gap: 20px;
+    }
 }

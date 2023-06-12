@@ -1,0 +1,30 @@
+button.JourneyAddButton {
+    align-items: stretch;
+    column-gap: 0;
+    padding: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.JourneyAddButton {
+    &__click {
+        display: flex;
+        align-items: center;
+        padding-left: 12px;
+    }
+
+    &__add {
+        display: inline-block;
+        margin-right: 4px;
+    }
+
+    &__dropdown {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, 20px);
+        width: 180px;
+        z-index: 1;
+    }
+}
