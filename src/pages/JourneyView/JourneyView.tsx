@@ -3,6 +3,7 @@ import styles from './JourneyView.module.scss';
 import TopNav from '../../components/TopNav/TopNav';
 import Button from '../../ui/Button/Button';
 import JourneyAddButton from '../../components/JourneyAddButton/JourneyAddButton';
+import JourneyCard, { typeJourneyIcon } from '../../components/JourneyCard/JourneyCard';
 
 interface JourneyViewProps { }
 
@@ -23,6 +24,49 @@ const JourneyView: FC<JourneyViewProps> = () => {
     },
   ];
 
+  const jorneyList = {
+    id: 1,
+    title: 'Message upon subscription',
+    subtitle: 'Entered node',
+    subtitle_count: 2707,
+    items: [
+      {
+        name: 'Moved forward',
+        count: 2688,
+        is_title: true,
+        icon: 'arrow' as typeJourneyIcon
+      },
+      {
+        name: 'Failed',
+        count: 561,
+      },
+      {
+        name: 'Sent',
+        count: 2127,
+      },
+      {
+        name: 'Ignored',
+        count: 0,
+      },
+      {
+        name: 'Waiting users',
+        count: 1,
+        is_title: true,
+        icon: 'wait' as typeJourneyIcon
+      },
+      {
+        name: 'Delay',
+        count: 0,
+      },
+      {
+        name: 'Waiting',
+        count: 1,
+      },
+    ],
+    positionX: 100,
+    positionY: 100,
+  }
+
   return (
     <div className={styles.JourneyView}>
       <TopNav links={links}>
@@ -34,6 +78,7 @@ const JourneyView: FC<JourneyViewProps> = () => {
         </Button>
       </TopNav>
       <div className={styles.JourneyView__content}>
+        <JourneyCard data={jorneyList}></JourneyCard>
         <JourneyAddButton></JourneyAddButton>
       </div>
     </div>

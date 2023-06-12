@@ -3,7 +3,7 @@ import styles from './JourneyAddButton.module.scss';
 import Button from '../../ui/Button/Button';
 import DropdownMenu from '../DropdownMenu/DropdownMenu';
 
-interface JourneyAddButtonProps { }
+interface JourneyAddButtonProps {}
 
 const JourneyAddButton: FC<JourneyAddButtonProps> = () => {
   const [isActive, setIsActive] = useState(false);

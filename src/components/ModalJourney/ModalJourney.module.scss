@@ -1,0 +1,8 @@
+.ModalJourney {
+    &__buttons {
+        display: flex;
+        justify-content: flex-end;
+        column-gap: 16px;
+        margin-top: 64px;
+    }
+}

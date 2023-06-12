@@ -1,10 +1,11 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import styles from './JourneySegmentsList.module.scss';
 import TopNav from '../../components/TopNav/TopNav';
 import Title from '../../ui/Title/Title';
 import Input from '../../ui/Input/Input';
 import Button from '../../ui/Button/Button';
 import TableJourneySegments from '../../components/TableJourneySegments/TableJourneySegments';
+import ModalJourney from '../../components/ModalJourney/ModalJourney';
 
 interface JourneySegmentsListProps { }
 
@@ -28,6 +29,8 @@ const JourneySegmentsList: FC<JourneySegmentsListProps> = () => {
     },
   ];
 
+  const [isActiveCreate, setIsActiveCreate] = useState(false);
+
   return (
     <>
       <TopNav links={links}></TopNav>
@@ -38,6 +41,7 @@ const JourneySegmentsList: FC<JourneySegmentsListProps> = () => {
               <div>Сегменты</div>
               <Button
                 className='button_with_icon'
+                onClick={() => setIsActiveCreate(true)}
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M11 18V13H6V11H11V6H13V11H18V13H13V18H11Z" fill="white" />
@@ -52,6 +56,12 @@ const JourneySegmentsList: FC<JourneySegmentsListProps> = () => {
         </div>
         <TableJourneySegments></TableJourneySegments>
       </div>
+      {isActiveCreate
+        &&
+        (<ModalJourney
+          title="Добавление сегмента"
+          close={() => setIsActiveCreate(false)}
+        ></ModalJourney>)}
     </>
   );
 };

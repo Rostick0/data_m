@@ -1,0 +1,80 @@
+.JourneyCard {
+    background-color: var(--white);
+    box-shadow: var(--shadow_card);
+    display: inline-block;
+    position: absolute;
+
+    &__top {
+        background: linear-gradient(90deg, #1965BF 0%, #2471CC 100%);
+        color: var(--white);
+        border-radius: 6px 6px 0px 0px;
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+        padding: 8px 18px;
+        position: relative;
+
+        &_circle {
+            background-color: var(--brand_primary_1);
+            border: 3px solid var(--white);
+            border-radius: 150%;
+            position: absolute;
+            right: 0;
+            transform: translateX(50%);
+            width: 14px;
+            height: 14px;
+        }
+    }
+
+    &__subtitle {
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        font-weight: 600;
+        line-height: 1.45;
+        text-transform: uppercase;
+        padding: 4px 10px 2px;
+    }
+
+    &__list {
+        padding-bottom: 4px;
+    }
+
+    &__item {
+        color: var(--text_secondary);
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+        font-size: 11px;
+        line-height: 1.45;
+        padding: 2px 10px;
+
+        &_title {
+            border-top: 1px solid var(--basic_sep);
+            color: var(--text_primary);
+            font-weight: 600;
+            margin-top: 4px;
+            padding-top: 4px;
+
+            .JourneyCard__name {
+                font-size: 9px;
+                text-transform: uppercase;
+                letter-spacing: 0.6px;
+                line-height: 1.78;
+            }
+        }
+
+        svg {
+            display: block;
+        }
+    }
+
+    &__icon {
+        min-width: 16px;
+    }
+
+    &__value {
+        margin-left: auto;
+    }
+}
