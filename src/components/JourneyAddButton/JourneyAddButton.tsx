@@ -41,7 +41,14 @@ const JourneyAddButton: FC<JourneyAddButtonProps> = () => {
           <path d="M18.3762 20.8208C18.177 21.0481 17.8232 21.0481 17.624 20.8208L14.1269 16.8295C13.8437 16.5063 14.0732 16 14.503 16L21.4972 16C21.927 16 22.1565 16.5063 21.8733 16.8295L18.3762 20.8208Z" fill="#C9E2FF" />
         </svg>
       </Button>
-      {isActive && (<DropdownMenu className={styles.JourneyAddButton__dropdown} items={items}></DropdownMenu>)}
+      {isActive && (
+        <DropdownMenu
+          className={styles.JourneyAddButton__dropdown}
+          items={items}
+          tabIndex={1}
+          onBlur={() => setIsActive(false)}
+        ></DropdownMenu>
+      )}
     </>
   );
 };

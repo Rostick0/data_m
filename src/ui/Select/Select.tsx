@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useRef, useEffect } from 'react';
 import styles from './Select.module.scss';
 import Input from '../Input/Input';
 
@@ -53,6 +53,14 @@ const Select: FC<SelectProps> = ({
   const styleClass = styles['Select_style_' + styleColor];
   const styleLink = styleClass ? ' ' + styleClass : ' ' + styles['Select_style_white'];
 
+  // const listRef = useRef<HTMLUListElement>(null);
+
+  // useEffect(() => {
+  //   if (!active) return;
+
+  //   listRef.current?.focus();
+  // }, [active])
+
   return (
     <div className={styles.Select + styleLink + styleClassName} >
       <div className={styles.Select__switch + styleClassName}
@@ -68,7 +76,11 @@ const Select: FC<SelectProps> = ({
           <path d="M18.376 20.8208C18.1769 21.0481 17.8231 21.0481 17.6239 20.8208L14.1268 16.8295C13.8436 16.5063 14.0731 16 14.5028 16L21.4971 16C21.9268 16 22.1564 16.5063 21.8732 16.8295L18.376 20.8208Z" fill="#142333" fillOpacity="0.33" />
         </svg>
       </div>
-      {active && <ul className={styles.Select__list}>
+      {active && <ul
+        className={styles.Select__list}
+      // ref={listRef}
+      // onBlur={() => console.log(5)}
+      >
         {items?.map(item => (
           <li
             key={item.value}

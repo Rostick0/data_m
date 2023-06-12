@@ -1,0 +1,41 @@
+.JourneyItem {
+    background-color: var(--basic_background);
+    padding: 12px 24px 12px 24px;
+    height: 100%;
+
+    &__table {
+        background-color: var(--white);
+        border: 1px solid var(--basic_sep);
+        border-radius: 4px;
+        font-size: 14px;
+        letter-spacing: 0.1px;
+        margin-bottom: 20px;
+
+        &_item {
+            border-bottom: 1px solid var(--basic_sep);
+            display: grid;
+            grid-template-columns: 1.42fr 0.75fr 0.625fr 1.31fr 1.31fr 0.7fr 1fr;
+            padding: 8px 26px 8px 40px;
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+
+        &_titles {
+            color: var(--text_secondary);
+            padding-top: 14px;
+            padding-bottom: 14px;
+        }
+    }
+
+    &__stats {
+        display: flex;
+        align-items: flex-start;
+        grid-gap: 24px;
+
+        &>* {
+            flex: 1 1 50%;
+        }
+    }
+}

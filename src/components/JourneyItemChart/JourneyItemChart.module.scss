@@ -1,0 +1,58 @@
+.JourneyItemChart {
+    background-color: var(--white);
+    border: 1px solid var(--basic_sep);
+    border-radius: 4px;
+    display: inline-block;
+    padding: 14px;
+    padding-top: 12px;
+
+    &__item {
+        display: flex;
+        align-items: center;
+        column-gap: 6px;
+        font-size: 12px;
+    }
+
+    &__top {
+        font-size: 14px;
+        line-height: 1.43;
+        margin-bottom: 16px;
+    }
+
+    &__center {
+        display: flex;
+        flex-direction: column;
+        row-gap: 2px;
+    }
+
+    &__line {
+        border-radius: 4px;
+        height: 6px;
+    }
+
+    &__progress {
+        color: var(--text_secondary);
+        display: flex;
+        column-gap: 35px;
+        justify-content: space-between;
+        font-size: 12px;
+        letter-spacing: 0.1px;
+    }
+
+    &__bottom {
+        display: flex;
+        column-gap: 28px;
+        letter-spacing: 0.1px;
+        margin-top: 12px;
+    }
+
+    &__data {
+        color: var(--text_secondary);
+        display: flex;
+        column-gap: 4px;
+    }
+
+    &__weight {
+        font-weight: 500;
+    }
+}

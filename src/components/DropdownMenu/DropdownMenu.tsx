@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, FocusEventHandler, useRef, useEffect } from 'react';
 import styles from './DropdownMenu.module.scss';
 
 interface DropdownItem {
@@ -8,26 +8,43 @@ interface DropdownItem {
 
 interface DropdownMenuProps {
   className?: string | undefined,
-  items?: Array<DropdownItem>
+  items?: Array<DropdownItem>,
+  tabIndex?: number | undefined,
+  onBlur?: FocusEventHandler<HTMLDivElement> | undefined,
 }
 
 const DropdownMenu: FC<DropdownMenuProps> = ({
   className,
-  items
+  items,
+  tabIndex,
+  onBlur
 }) => {
   const styleClassName = className ? ' ' + className : '';
 
+  const Div = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    Div.current?.focus();
+  }, [])
+
   return (
-    <div className={styles.DropdownMenu + styleClassName}>
+    <div
+      className={styles.DropdownMenu + styleClassName}
+      tabIndex={tabIndex}
+      ref={Div}
+      // autoFocus
+      // onBlur={onBlur}
+      onBlur={onBlur}
+    >
       {items?.length && items.map(item => {
         if (item.is_line) {
           return (
-            <div className={styles.DropdownMenu__item + ' ' + styles.DropdownMenu__item_line}>{item?.name}</div>
+            <div key={item.name} className={styles.DropdownMenu__item + ' ' + styles.DropdownMenu__item_line}>{item?.name}</div>
           );
         }
 
         return (
-          <div className={styles.DropdownMenu__item}>{item?.name}</div>
+          <div key={item.name} className={styles.DropdownMenu__item}>{item?.name}</div>
         );
       })}
     </div>
