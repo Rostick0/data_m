@@ -1,0 +1,7 @@
+.TableSegments {
+    &__grid_template {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 36px 1.85fr repeat(3, 0.74fr) 0.95fr 36px;
+    }
+}

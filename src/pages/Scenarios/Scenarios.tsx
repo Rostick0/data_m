@@ -2,9 +2,9 @@ import React, { FC, Suspense } from 'react';
 import { Outlet } from "react-router-dom";
 import LayoutDefault from '../../layout/LayoutDefault/LayoutDefault';
 
-interface JourneyProps { }
+interface ScenariosProps { }
 
-const Journey: FC<JourneyProps> = () => (
+const Scenarios: FC<ScenariosProps> = () => (
   <LayoutDefault>
     <Suspense>
       <Outlet></Outlet>
@@ -12,4 +12,4 @@ const Journey: FC<JourneyProps> = () => (
   </LayoutDefault>
 );
 
-export default Journey;
+export default Scenarios;

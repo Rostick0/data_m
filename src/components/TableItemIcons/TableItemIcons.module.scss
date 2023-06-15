@@ -1,0 +1,11 @@
+.TableItemIcons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    column-gap: 24px;
+
+    &>* {
+        cursor: pointer;
+        display: inline-flex;
+    }
+}

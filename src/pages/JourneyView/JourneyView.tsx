@@ -77,7 +77,7 @@ const JourneyView: FC<JourneyViewProps> = () => {
           <span>Сохранить</span>
         </Button>
       </TopNav>
-      <div className={styles.JourneyView__content}>
+      <div className={styles.JourneyView__content + ' background-points'}>
         <JourneyCard data={jorneyList}></JourneyCard>
         <JourneyAddButton></JourneyAddButton>
       </div>

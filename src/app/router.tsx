@@ -19,7 +19,13 @@ const JourneyList = lazy(() => import('../pages/JourneyList/JourneyList'));
 const JourneyItem = lazy(() => import('../pages/JourneyItem/JourneyItem'));
 const JourneyView = lazy(() => import('../pages/JourneyView/JourneyView'));
 const JourneySegmentsList = lazy(() => import('../pages/JourneySegmentsList/JourneySegmentsList'));
-
+const Scenarios = lazy(() => import('../pages/Scenarios/Scenarios'));
+const ScenariosList = lazy(() => import('../pages/ScenariosList/ScenariosList'));
+const ScenariosView = lazy(() => import('../pages/ScenariosView/ScenariosView'));
+const Segments = lazy(() => import('../pages/Segments/Segments'));
+const SegmentsList = lazy(() => import('../pages/SegmentsList/SegmentsList'));
+const SegmentsCreate = lazy(() => import('../pages/SegmentsCreate/SegmentsCreate'));
+const SegmentsAuditorium = lazy(() => import('../pages/SegmentsAuditorium/SegmentsAuditorium'));
 interface AppRouterprops {
 }
 
@@ -51,6 +57,15 @@ const AppRouter: React.FC<AppRouterprops> = () => {
                     <Route path="view" element={<JourneyView />}></Route>
                     <Route path="view/:id" element={<JourneyView />}></Route>
                     <Route path="segments" element={<JourneySegmentsList />}></Route>
+                </Route>
+                <Route path="/scenarios" element={<Scenarios />}>
+                    <Route path="list" element={<ScenariosList />}></Route>
+                    <Route path="view" element={<ScenariosView />}></Route>
+                </Route>
+                <Route path="/segments" element={<Segments />}>
+                    <Route path="list" element={<SegmentsList />}></Route>
+                    <Route path="create" element={<SegmentsCreate />}></Route>
+                    <Route path="auditorium" element={<SegmentsAuditorium />}></Route>
                 </Route>
             </Routes>
         </Suspense>
