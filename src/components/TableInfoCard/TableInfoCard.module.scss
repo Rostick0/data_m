@@ -1,1 +1,42 @@
-.TableInfoCard {}
+.TableInfoCard {
+    background-color: var(--basic_background);
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 16px;
+
+    &__title {
+        color: var(--text_secondary);
+        font-size: 12px;
+        letter-spacing: 0.1px;
+        margin-bottom: 2px;
+    }
+
+    &__value {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 1.17;
+    }
+
+    &_style {
+        &_blue {
+            &.TableInfoCard {
+                background-color: var(--bg_light_blue);
+            }
+
+            .TableInfoCard__value {
+                color: var(--brand_primary_1);
+            }
+        }
+
+        &_grey {
+            &.TableInfoCard {
+                background-color: var(--basic_background);
+            }
+
+            .TableInfoCard__value {
+                color: var(--text_primary);
+            }
+        }
+    }
+}

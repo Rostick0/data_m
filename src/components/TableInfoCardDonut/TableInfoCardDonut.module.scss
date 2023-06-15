@@ -1,0 +1,7 @@
+.TableInfoCardDonut {
+    &__diagram {
+        stroke-lineCap:round;
+        transform: rotate(-90deg);
+        transform-origin: center;
+    }
+}
