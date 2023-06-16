@@ -1,1 +1,52 @@
-.SegmentsAuditorium {}
+.SegmentsAuditorium {
+    &__content {
+        padding: 28px;
+        padding-top: 38px;
+    }
+
+    &__top {
+        color: var(--text_secondary);
+        margin-bottom: 32px;
+    }
+
+    &__title {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 12px;
+    }
+
+    &__subtitle {
+        font-size: 14px;
+        line-height: 1.43;
+        max-width: 600px;
+    }
+
+    &__form {
+        &_top {
+            display: flex;
+            column-gap: 32px;
+            margin-bottom: 28px;
+        }
+
+        &_bottom {
+            display: flex;
+            flex-direction: column;
+            row-gap: 8px;
+        }
+    }
+
+    &__select_first {
+        width: 100%;
+        max-width: 278px;
+    }
+
+    &__select_long {
+        width: 100%;
+        max-width: 24vw;
+    }
+
+    &__input_long {
+        width: 100%;
+        max-width: 25.6vw;
+    }
+}

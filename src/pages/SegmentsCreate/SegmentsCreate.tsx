@@ -7,6 +7,7 @@ import Input from '../../ui/Input/Input';
 import SegmentItemInputs from '../../components/SegmentItemInputs/SegmentItemInputs';
 import Select from '../../ui/Select/Select';
 import InputMulti from '../../ui/InputMulti/InputMulti';
+import { Link } from 'react-router-dom';
 
 interface SegmentsCreateProps { }
 
@@ -23,167 +24,171 @@ const SegmentsCreate: FC<SegmentsCreateProps> = () => {
     {
       id: 2,
       icon: `/`,
-      name: 'Наименование маршрута'
+      name: 'Новый сегмент'
     },
   ];
 
   return (
     <div className={styles.SegmentsCreate}>
       <TopNav links={links}>
-        <Button className='button_with_icon'>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M19 8.49985L10.5 16.9998L5 11.4998L6.41 10.0898L10.5 14.1698L17.59 7.08985L19 8.49985Z" fill="white" />
-          </svg>
-          <span>Сохранить</span>
-        </Button>
+        <Link to="/segments/auditorium">
+          <Button className='button_with_icon'>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 8.49985L10.5 16.9998L5 11.4998L6.41 10.0898L10.5 14.1698L17.59 7.08985L19 8.49985Z" fill="white" />
+            </svg>
+            <span>Сохранить</span>
+          </Button>
+        </Link>
       </TopNav>
-      <form className={styles.SegmentsCreate__form}>
-        <div className={styles.SegmentsCreate__form_top}>
-          <FieldItemUi
-            title="Наименование"
-          >
-            <Input
-              defaultValue='unregistered user'
-            ></Input>
-          </FieldItemUi>
-          <FieldItemUi
-            title="Размер сегмента"
-          >
-            <Input
-              type='number'
-              defaultValue='5000'
-            ></Input>
-          </FieldItemUi>
-        </div>
-        <div className={styles.SegmentsCreate__form_bottom}>
-          <SegmentItemInputs
-            hiddenFirstIcon
-          >
-            <Select
-              className={styles.SegmentsCreate__select_first}
-              placeholder='Покупатель'
-            ></Select>
-            <Button
-              className='button_with_icon'
-              styleColor='grey'
+      <div className={styles.SegmentsCreate__content}>
+        <form className={styles.SegmentsCreate__form}>
+          <div className={styles.SegmentsCreate__form_top}>
+            <FieldItemUi
+              title="Наименование"
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 18V13H6V11H11V6H13V11H18V13H13V18H11Z" fill="#121B26" fillOpacity="0.66" />
-              </svg>
-              <span>Группу</span>
-            </Button>
-          </SegmentItemInputs>
-          <SegmentItemInputs
-            hasIconApplication
-          >
-            <Select placeholder='Покупатель'></Select>
-            <Button
-              className='button_with_icon'
-              styleColor='grey'
+              <Input
+                defaultValue='unregistered user'
+              ></Input>
+            </FieldItemUi>
+            <FieldItemUi
+              title="Размер сегмента"
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 18V13H6V11H11V6H13V11H18V13H13V18H11Z" fill="#121B26" fillOpacity="0.66" />
-              </svg>
-              <span>Фильтр</span>
-            </Button>
-          </SegmentItemInputs>
-          <SegmentItemInputs
-            className='bg-basic-hover'
-          >
-            <Select className={styles.SegmentsCreate__select_long}></Select>
-            <Select></Select>
-            <Input className={styles.SegmentsCreate__input_long}></Input>
-          </SegmentItemInputs>
-          <SegmentItemInputs
-            className='bg-basic-hover'
-            hasIconApplication
-          >
-            <Select className={styles.SegmentsCreate__select_long}></Select>
-            <Select></Select>
-            <InputMulti className={styles.SegmentsCreate__input_long}></InputMulti>
-          </SegmentItemInputs>
-          <SegmentItemInputs
-            className='bg-basic-hover'
-            hasIconApplication
-          >
-            <Select className={styles.SegmentsCreate__select_long}></Select>
-            <Select></Select>
-            <InputMulti className={styles.SegmentsCreate__input_long}></InputMulti>
-          </SegmentItemInputs>
-          <SegmentItemInputs
-            hasIconApplication
-          >
-            <Select placeholder='Покупатель'></Select>
-            <Button
-              className='button_with_icon'
-              styleColor='grey'
+              <Input
+                type='number'
+                defaultValue='5000'
+              ></Input>
+            </FieldItemUi>
+          </div>
+          <div className={styles.SegmentsCreate__form_bottom}>
+            <SegmentItemInputs
+              hiddenFirstIcon
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 18V13H6V11H11V6H13V11H18V13H13V18H11Z" fill="#121B26" fillOpacity="0.66" />
-              </svg>
-              <span>Группу</span>
-            </Button>
-          </SegmentItemInputs>
-          <SegmentItemInputs
-            hasIconApplication
-          >
-            <Select placeholder='Покупатель'></Select>
-            <Button
-              className='button_with_icon'
-              styleColor='grey'
+              <Select
+                className={styles.SegmentsCreate__select_first}
+                placeholder='Покупатель'
+              ></Select>
+              <Button
+                className='button_with_icon'
+                styleColor='grey'
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11 18V13H6V11H11V6H13V11H18V13H13V18H11Z" fill="#121B26" fillOpacity="0.66" />
+                </svg>
+                <span>Группу</span>
+              </Button>
+            </SegmentItemInputs>
+            <SegmentItemInputs
+              hasIconApplication
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 18V13H6V11H11V6H13V11H18V13H13V18H11Z" fill="#121B26" fillOpacity="0.66" />
-              </svg>
-              <span>Фильтр</span>
-            </Button>
-          </SegmentItemInputs>
-          <SegmentItemInputs
-            className='bg-basic-hover'
-          >
-            <Select className={styles.SegmentsCreate__select_long}></Select>
-            <Select></Select>
-            <Input></Input>
-          </SegmentItemInputs>
-          <SegmentItemInputs
-            className='bg-basic-hover'
-            hasIconApplication
-          >
-            <Select className={styles.SegmentsCreate__select_long}></Select>
-            <Select></Select>
-            <InputMulti className={styles.SegmentsCreate__input_long}></InputMulti>
-          </SegmentItemInputs>
-          <SegmentItemInputs
-            hasIconApplication
-          >
-            <Select placeholder='Покупатель'></Select>
-            <Button
-              className='button_with_icon'
-              styleColor='grey'
+              <Select placeholder='Покупатель'></Select>
+              <Button
+                className='button_with_icon'
+                styleColor='grey'
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11 18V13H6V11H11V6H13V11H18V13H13V18H11Z" fill="#121B26" fillOpacity="0.66" />
+                </svg>
+                <span>Фильтр</span>
+              </Button>
+            </SegmentItemInputs>
+            <SegmentItemInputs
+              className='bg-basic-hover'
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 18V13H6V11H11V6H13V11H18V13H13V18H11Z" fill="#121B26" fillOpacity="0.66" />
-              </svg>
-              <span>Фильтр</span>
-            </Button>
-          </SegmentItemInputs>
-          <SegmentItemInputs
-            className='bg-basic-hover'
-          >
-            <Select className={styles.SegmentsCreate__select_long}></Select>
-            <Select></Select>
-            <Input></Input>
-          </SegmentItemInputs>
-          <SegmentItemInputs
-            className='bg-basic-hover'
-            hasIconApplication
-          >
-            <Select className={styles.SegmentsCreate__select_long}></Select>
-            <Select></Select>
-            <Input className={styles.SegmentsCreate__input_long}></Input>
-          </SegmentItemInputs>
-        </div>
-      </form>
+              <Select className={styles.SegmentsCreate__select_long}></Select>
+              <Select></Select>
+              <Input className={styles.SegmentsCreate__input_long}></Input>
+            </SegmentItemInputs>
+            <SegmentItemInputs
+              className='bg-basic-hover'
+              hasIconApplication
+            >
+              <Select className={styles.SegmentsCreate__select_long}></Select>
+              <Select></Select>
+              <InputMulti className={styles.SegmentsCreate__input_long}></InputMulti>
+            </SegmentItemInputs>
+            <SegmentItemInputs
+              className='bg-basic-hover'
+              hasIconApplication
+            >
+              <Select className={styles.SegmentsCreate__select_long}></Select>
+              <Select></Select>
+              <InputMulti className={styles.SegmentsCreate__input_long}></InputMulti>
+            </SegmentItemInputs>
+            <SegmentItemInputs
+              hasIconApplication
+            >
+              <Select placeholder='Покупатель'></Select>
+              <Button
+                className='button_with_icon'
+                styleColor='grey'
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11 18V13H6V11H11V6H13V11H18V13H13V18H11Z" fill="#121B26" fillOpacity="0.66" />
+                </svg>
+                <span>Группу</span>
+              </Button>
+            </SegmentItemInputs>
+            <SegmentItemInputs
+              hasIconApplication
+            >
+              <Select placeholder='Покупатель'></Select>
+              <Button
+                className='button_with_icon'
+                styleColor='grey'
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11 18V13H6V11H11V6H13V11H18V13H13V18H11Z" fill="#121B26" fillOpacity="0.66" />
+                </svg>
+                <span>Фильтр</span>
+              </Button>
+            </SegmentItemInputs>
+            <SegmentItemInputs
+              className='bg-basic-hover'
+            >
+              <Select className={styles.SegmentsCreate__select_long}></Select>
+              <Select></Select>
+              <Input></Input>
+            </SegmentItemInputs>
+            <SegmentItemInputs
+              className='bg-basic-hover'
+              hasIconApplication
+            >
+              <Select className={styles.SegmentsCreate__select_long}></Select>
+              <Select></Select>
+              <InputMulti className={styles.SegmentsCreate__input_long}></InputMulti>
+            </SegmentItemInputs>
+            <SegmentItemInputs
+              hasIconApplication
+            >
+              <Select placeholder='Покупатель'></Select>
+              <Button
+                className='button_with_icon'
+                styleColor='grey'
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11 18V13H6V11H11V6H13V11H18V13H13V18H11Z" fill="#121B26" fillOpacity="0.66" />
+                </svg>
+                <span>Фильтр</span>
+              </Button>
+            </SegmentItemInputs>
+            <SegmentItemInputs
+              className='bg-basic-hover'
+            >
+              <Select className={styles.SegmentsCreate__select_long}></Select>
+              <Select></Select>
+              <Input></Input>
+            </SegmentItemInputs>
+            <SegmentItemInputs
+              className='bg-basic-hover'
+              hasIconApplication
+            >
+              <Select className={styles.SegmentsCreate__select_long}></Select>
+              <Select></Select>
+              <Input className={styles.SegmentsCreate__input_long}></Input>
+            </SegmentItemInputs>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
