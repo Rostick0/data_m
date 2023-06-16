@@ -1,1 +1,32 @@
-.SegmentsCreate {}
+.SegmentsCreate {
+    &__form {
+        padding: 28px;
+
+        &_top {
+            display: flex;
+            column-gap: 32px;
+            margin-bottom: 28px;
+        }
+
+        &_bottom {
+            display: flex;
+            flex-direction: column;
+            row-gap: 8px;
+        }
+    }
+
+    &__select_first {
+        width: 100%;
+        max-width: 278px;
+    }
+
+    &__select_long {
+        width: 100%;
+        max-width: 24vw;
+    }
+
+    &__input_long {
+        width: 100%;
+        max-width: 25.6vw;
+    }
+}

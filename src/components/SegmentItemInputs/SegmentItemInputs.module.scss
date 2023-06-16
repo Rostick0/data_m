@@ -1,0 +1,11 @@
+.SegmentItemInputs {
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    column-gap: 24px;
+    padding: 8px;
+
+    &__frist_icon {
+        min-width: 12px;
+    }
+}
