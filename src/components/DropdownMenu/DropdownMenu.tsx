@@ -1,9 +1,10 @@
-import React, { FC, FocusEventHandler, useRef, useEffect } from 'react';
+import React, { FC, MouseEventHandler, FocusEventHandler, useRef, useEffect } from 'react';
 import styles from './DropdownMenu.module.scss';
 
 interface DropdownItem {
   name?: string | undefined,
-  is_line?: boolean | undefined
+  is_line?: boolean | undefined,
+  onClick?: MouseEventHandler<HTMLDivElement> | undefined,
 }
 
 interface DropdownMenuProps {
@@ -39,7 +40,11 @@ const DropdownMenu: FC<DropdownMenuProps> = ({
       {items?.length && items.map(item => {
         if (item.is_line) {
           return (
-            <div key={item.name} className={styles.DropdownMenu__item + ' ' + styles.DropdownMenu__item_line}>{item?.name}</div>
+            <div
+              key={item.name}
+              className={styles.DropdownMenu__item + ' ' + styles.DropdownMenu__item_line}
+              onClick={item?.onClick}
+            >{item?.name}</div>
           );
         }
 

@@ -7,9 +7,7 @@ import FieldItemUi from '../FieldItem/FieldItem';
 import InputBox from '../../ui/InputBox/InputBox';
 import Button from '../../ui/Button/Button';
 
-interface ModalJourneyProps extends ModalProps {
-  close?: MouseEventHandler<HTMLButtonElement> | undefined
-}
+interface ModalJourneyProps extends ModalProps {}
 
 const ModalJourney: FC<ModalJourneyProps> = ({
   title,
@@ -30,7 +28,7 @@ const ModalJourney: FC<ModalJourneyProps> = ({
             ></Input>
           </FieldItemUi>
           <FieldItemUi
-            title="Событие"
+            title="Тип"
           >
             <Input
               className='input_width_default'
