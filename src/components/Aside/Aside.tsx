@@ -80,7 +80,7 @@ const Aside: FC<AsideProps> = () => {
       <path fill-rule="evenodd" clip-rule="evenodd" d="M19 12.5771V19H4V4H16.1513L14.0693 6H6V17H17V14.6858L19 12.5771Z" fill="white"/>
       <path d="M22.1272 5.42281L13.55 14L8 8.45003L9.42281 7.02722L13.55 11.1443L20.7044 4L22.1272 5.42281Z" fill="white"/>
       </svg>`,
-      link: '/',
+      link: '/a_b_test/list',
       name: 'A/B тесты'
     }
   ];
@@ -91,7 +91,7 @@ const Aside: FC<AsideProps> = () => {
       icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M12 4.44219L13.862 8.59091L14.0968 9.11401L14.6668 9.17564L19.1879 9.66451L15.8176 12.7174L15.3927 13.1024L15.5102 13.6635L16.4424 18.1144L12.4974 15.8525L12 15.5673L11.5026 15.8525L7.55763 18.1144L8.48978 13.6635L8.60731 13.1024L8.18236 12.7174L4.8121 9.66451L9.33316 9.17564L9.9032 9.11401L10.138 8.59091L12 4.44219Z" stroke="white" stroke-width="2"/>
       </svg>`,
-      link: '/',
+      link: '/promo/list',
       name: 'Акции'
     }
   ];

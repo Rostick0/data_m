@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import styles from './ABTest.module.scss';
 
-interface AbTestProps {}
+interface ABTestProps {}
 
-const AbTest: FC<AbTestProps> = () => (
-  <div className={styles.AbTest}>
-    AbTest Component
+const ABTest: FC<ABTestProps> = () => (
+  <div className={styles.ABTest}>
+    ABTest Component
   </div>
 );
 
-export default AbTest;
+export default ABTest;

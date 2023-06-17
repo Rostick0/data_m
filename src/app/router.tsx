@@ -26,6 +26,16 @@ const Segments = lazy(() => import('../pages/Segments/Segments'));
 const SegmentsList = lazy(() => import('../pages/SegmentsList/SegmentsList'));
 const SegmentsCreate = lazy(() => import('../pages/SegmentsCreate/SegmentsCreate'));
 const SegmentsAuditorium = lazy(() => import('../pages/SegmentsAuditorium/SegmentsAuditorium'));
+const SegmentsUsers = lazy(() => import('../pages/SegmentsUsers/SegmentsUsers'));
+const SegmentsUsersList = lazy(() => import('../pages/SegmentsUsersList/SegmentsUsersList'));
+const SegmentsUsersItem = lazy(() => import('../pages/SegmentsUsersItem/SegmentsUsersItem'));
+const ABTest = lazy(() => import('../pages/ABTest/ABTest'));
+const ABTestList = lazy(() => import('../pages/ABTestList/ABTestList'));
+const ABTestCreate = lazy(() => import('../pages/ABTestCreate/ABTestCreate'));
+const ABTestCreateSecond = lazy(() => import('../pages/ABTestCreateSecond/ABTestCreateSecond'));
+const Promo = lazy(() => import('../pages/Promo/Promo'));
+const PromoList = lazy(() => import('../pages/PromoList/PromoList'));
+
 interface AppRouterprops {
 }
 
@@ -66,6 +76,18 @@ const AppRouter: React.FC<AppRouterprops> = () => {
                     <Route path="list" element={<SegmentsList />}></Route>
                     <Route path="create" element={<SegmentsCreate />}></Route>
                     <Route path="auditorium" element={<SegmentsAuditorium />}></Route>
+                    <Route path="users" element={<SegmentsUsers />}>
+                        <Route path="list" element={<SegmentsUsersList />}></Route>
+                        <Route path="info/:id" element={<SegmentsUsersItem />}></Route>
+                    </Route>
+                </Route>
+                <Route path="/a_b_test" element={<ABTest />}>
+                    <Route path="list" element={<ABTestList />}></Route>
+                    <Route path="create" element={<ABTestCreate />}></Route>
+                    <Route path="create_second" element={<ABTestCreateSecond />}></Route>
+                </Route>
+                <Route path="/promo" element={<Promo />}>
+                    <Route path="list" element={<PromoList />}></Route>
                 </Route>
             </Routes>
         </Suspense>

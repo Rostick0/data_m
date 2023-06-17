@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import styles from './ABTestCreate.module.scss';
 
-interface AbTestCreateProps {}
+interface ABTestCreateProps {}
 
-const AbTestCreate: FC<AbTestCreateProps> = () => (
-  <div className={styles.AbTestCreate}>
-    AbTestCreate Component
+const ABTestCreate: FC<ABTestCreateProps> = () => (
+  <div className={styles.ABTestCreate}>
+    ABTestCreate Component
   </div>
 );
 
-export default AbTestCreate;
+export default ABTestCreate;
