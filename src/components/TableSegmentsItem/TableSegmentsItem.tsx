@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import styles from './TableSegmentsItem.module.scss';
 import TableItemIcons from '../TableItemIcons/TableItemIcons';
 import InputBox from '../../ui/InputBox/InputBox';
+import TableItemShort from '../Table/components/TableItemShort/TableItemShort';
 
 interface TableSegmentsItemProps {
   data?: {
@@ -19,10 +20,10 @@ const TableSegmentsItem: FC<TableSegmentsItemProps> = ({
   data,
   styleGridTemplate
 }) => {
-  const classGridTemplate = styleGridTemplate ? ' ' + styleGridTemplate : '';
-
   return (
-    <div className={styles.TableSegmentsItem + classGridTemplate}>
+    <TableItemShort
+      styleGridTemplate={styleGridTemplate}
+    >
       <div className={styles.TableSegmentsItem__checkbox}>
         <InputBox></InputBox>
       </div>
@@ -46,7 +47,7 @@ const TableSegmentsItem: FC<TableSegmentsItemProps> = ({
           <circle cx="24" cy="18" r="1.5" fill="#142333" fillOpacity="0.33" />
         </svg>
       </TableItemIcons>
-    </div>
+    </TableItemShort>
   );
 };
 

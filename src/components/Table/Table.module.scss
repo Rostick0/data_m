@@ -5,15 +5,15 @@
         grid-gap: 12px;
         font-size: 12px;
         letter-spacing: 0.1px;
-        padding: 14px 12px;
+        padding: 14px 16px;
         // padding: 13px 30px 13px 28px;
     }
 
-    &__title {
-        &:first-child {
-            padding-left: 14px;
-        }
-    }
+    // &__title {
+    //     &:first-child {
+    //         padding-left: 14px;
+    //     }
+    // }
 
     &__item {
         font-size: 14px;

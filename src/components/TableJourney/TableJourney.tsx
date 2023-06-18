@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import styles from './TableJourney.module.scss';
 import Table from '../Table/Table';
-import TableItem from '../Table/components/TableItem/TableItem';
+import TableItemShort from '../Table/components/TableItemShort/TableItemShort';
 import TableJourneyItem from '../TableJourneyItem/TableJourneyItem';
 import { typeStatus } from '../../ui/Status/Status';
 
@@ -88,14 +88,11 @@ const TableJourney: FC<TableJourneyProps> = () => {
         styleGridTemplate={styles.TableJourney__grid_template}
       >
         {data?.length && data.map(item => (
-          <TableItem
+          <TableJourneyItem
             key={item.id}
-          >
-            <TableJourneyItem
-              data={item}
-              styleGridTemplate={styles.TableJourney__grid_template}
-            ></TableJourneyItem>
-          </TableItem>
+            data={item}
+            styleGridTemplate={styles.TableJourney__grid_template}
+          ></TableJourneyItem>
         ))}
       </Table>
     </div>

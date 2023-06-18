@@ -74,13 +74,13 @@ const TableScenarios: FC<TableScenariosProps> = () => {
         titles={titles}
         styleGridTemplate={styles.TableScenarios__grid_template}
       >
-        {data?.length && data.map(item => (<TableItem>
+        {data?.length && data.map(item => (
           <TableScenariosItem
+            key={item?.id}
             data={item}
             styleGridTemplate={styles.TableScenarios__grid_template}
           ></TableScenariosItem>
-        </TableItem>))
-        }
+        ))}
       </Table>
     </div>
   );

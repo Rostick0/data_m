@@ -1,0 +1,19 @@
+.TableItemShort {
+    border-bottom: 1px solid var(--basic_sep);
+    display: grid;
+    align-items: center;
+    grid-gap: 12px;
+    font-size: 14px;
+    line-height: 143%;
+    word-break: break-all;
+    padding: 13px 16px;
+    transition: 200ms;
+
+    a {
+        color: var(--text_primary);
+    }
+
+    &:hover {
+        background: var(--basic_table_item);
+    }
+}

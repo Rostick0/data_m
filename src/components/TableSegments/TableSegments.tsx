@@ -83,14 +83,11 @@ const TableSegments: FC<TableSegmentsProps> = () => {
         styleGridTemplate={styles.TableSegments__grid_template}
       >
         {data?.length && data.map(item => (
-          <TableItem
+          <TableSegmentsItem
             key={item?.id}
-          >
-            <TableSegmentsItem
-              data={item}
-              styleGridTemplate={styles.TableSegments__grid_template}
-            ></TableSegmentsItem>
-          </TableItem>
+            data={item}
+            styleGridTemplate={styles.TableSegments__grid_template}
+          ></TableSegmentsItem>
         ))}
       </Table>
     </div>

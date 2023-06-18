@@ -59,14 +59,11 @@ const TableJourneySegments: FC<TableJourneySegmentsProps> = () => {
         styleGridTemplate={styles.TableJourneySegments__grid_template}
       >
         {data?.length && data.map(item => (
-          <TableItem
+          <TableJourneySegmentsItem
             key={item.id}
-          >
-            <TableJourneySegmentsItem
-              data={item}
-              styleGridTemplate={styles.TableJourneySegments__grid_template}
-            ></TableJourneySegmentsItem>
-          </TableItem>
+            data={item}
+            styleGridTemplate={styles.TableJourneySegments__grid_template}
+          ></TableJourneySegmentsItem>
         ))}
       </Table>
     </div>
