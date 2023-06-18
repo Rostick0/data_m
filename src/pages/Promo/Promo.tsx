@@ -1,12 +1,15 @@
-import React, { FC } from 'react';
-import styles from './Promo.module.scss';
+import React, { FC, Suspense } from 'react';
+import { Outlet } from "react-router-dom";
+import LayoutDefault from '../../layout/LayoutDefault/LayoutDefault';
 
-interface PromoProps {}
+interface PromoProps { }
 
 const Promo: FC<PromoProps> = () => (
-  <div className={styles.Promo}>
-    Promo Component
-  </div>
+  <LayoutDefault>
+    <Suspense>
+      <Outlet></Outlet>
+    </Suspense>
+  </LayoutDefault>
 );
 
 export default Promo;

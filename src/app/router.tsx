@@ -78,7 +78,7 @@ const AppRouter: React.FC<AppRouterprops> = () => {
                     <Route path="auditorium" element={<SegmentsAuditorium />}></Route>
                     <Route path="users" element={<SegmentsUsers />}>
                         <Route path="list" element={<SegmentsUsersList />}></Route>
-                        <Route path="info/:id" element={<SegmentsUsersItem />}></Route>
+                        <Route path=":id" element={<SegmentsUsersItem />}></Route>
                     </Route>
                 </Route>
                 <Route path="/a_b_test" element={<ABTest />}>

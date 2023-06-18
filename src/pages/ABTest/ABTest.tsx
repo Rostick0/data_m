@@ -1,12 +1,15 @@
-import React, { FC } from 'react';
-import styles from './ABTest.module.scss';
+import React, { FC, Suspense } from 'react';
+import { Outlet } from "react-router-dom";
+import LayoutDefault from '../../layout/LayoutDefault/LayoutDefault';
 
-interface ABTestProps {}
+interface ABTestProps { }
 
 const ABTest: FC<ABTestProps> = () => (
-  <div className={styles.ABTest}>
-    ABTest Component
-  </div>
+  <LayoutDefault>
+    <Suspense>
+      <Outlet></Outlet>
+    </Suspense>
+  </LayoutDefault>
 );
 
 export default ABTest;

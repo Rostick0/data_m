@@ -1,1 +1,17 @@
-.AbTestList {}
+.AbTestList {
+    &__top {
+        padding: 0 28px;
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__filter {
+        display: flex;
+        column-gap: 24px;
+        margin: 20px 0 16px;
+    }
+}
