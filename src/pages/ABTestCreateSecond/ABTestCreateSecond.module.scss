@@ -1,1 +1,17 @@
-.ABTestCreateSecond {}
+.ABTestCreateSecond {
+    padding: 24px 166px 75px 80px;
+
+    &__inner {
+        width: 100%;
+        max-width: 560px;
+    }
+
+    &__helper {
+        color: var(--text_secondary);
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+        font-size: 14px;
+        line-height: 1.43;
+    }
+}

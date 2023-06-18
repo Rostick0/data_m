@@ -3,6 +3,11 @@
     width: 100%;
 }
 
+.input_width_default_half {
+    max-width: 13.88vw;
+    width: 100%;
+}
+
 .input_date {
     width: 100%;
     max-width: 200px;
@@ -39,6 +44,10 @@ button.button_with_icon {
     padding-left: 12px;
 }
 
+.text-center {
+    text-align: center;
+}
+
 .text-primary {
     color: var(--text_primary);
 }
@@ -67,4 +76,8 @@ button.button_with_icon {
 
 .bg-basic-hover {
     background-color: var(--basic_hover);
+}
+
+.justify-content-center {
+    justify-content: center;
 }
