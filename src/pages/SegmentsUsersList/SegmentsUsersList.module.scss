@@ -1,1 +1,11 @@
-.SegmentsUsersList {}
+.SegmentsUsersList {
+    &__top {
+        padding: 0 28px;
+    }
+
+    &__filter {
+        display: flex;
+        column-gap: 24px;
+        margin: 20px 0 16px;
+    }
+}

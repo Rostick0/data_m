@@ -1,12 +1,12 @@
-import React, { FC } from 'react';
-import styles from './SegmentsUsers.module.scss';
+import React, { FC, Suspense } from 'react';
+import { Outlet } from "react-router-dom";
 
-interface SegmentsUsersProps {}
+interface SegmentsUsersProps { }
 
 const SegmentsUsers: FC<SegmentsUsersProps> = () => (
-  <div className={styles.SegmentsUsers}>
-    SegmentsUsers Component
-  </div>
+  <Suspense>
+    <Outlet></Outlet>
+  </Suspense>
 );
 
 export default SegmentsUsers;

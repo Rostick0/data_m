@@ -1,1 +1,6 @@
-.TableSegmentsUsers {}
+.TableSegmentsUsers {
+    &__grid_template {
+        display: grid;
+        grid-template-columns: 2.04fr 1.5fr 0.75fr 1.2fr 36px;
+    }
+}
