@@ -6,7 +6,7 @@ import { Path } from 'react-router-dom';
 interface AsideSubnavItemProps {
   link: string | Partial<Path>,
   icon: string | TrustedHTML,
-  name: string | undefined
+  name?: string
 }
 
 const AsideSubnavItem: FC<AsideSubnavItemProps> = ({

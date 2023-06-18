@@ -6,9 +6,9 @@ const TablePagination = lazy(() => import('./components/TablePagination/TablePag
 type TableTitle = React.ReactNode | string;
 
 interface TableProps {
-  styleGridTemplate?: string | undefined,
+  styleGridTemplate?: string,
   titles?: Array<TableTitle>,
-  children?: React.ReactNode | undefined
+  children?: React.ReactNode
 }
 
 const Table: FC<TableProps> = ({

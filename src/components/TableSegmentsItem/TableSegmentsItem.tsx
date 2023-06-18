@@ -3,6 +3,7 @@ import styles from './TableSegmentsItem.module.scss';
 import TableItemIcons from '../TableItemIcons/TableItemIcons';
 import InputBox from '../../ui/InputBox/InputBox';
 import TableItemShort from '../Table/components/TableItemShort/TableItemShort';
+import { Link } from 'react-router-dom';
 
 interface TableSegmentsItemProps {
   data?: {
@@ -27,7 +28,7 @@ const TableSegmentsItem: FC<TableSegmentsItemProps> = ({
       <div className={styles.TableSegmentsItem__checkbox}>
         <InputBox></InputBox>
       </div>
-      <div className={styles.TableSegmentsItem__name}>
+      <Link className={styles.TableSegmentsItem__name} to="/segments/users/list">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M7.0255 0C4.4105 0 2.28457 2.13012 2.28457 4.75026C2.28457 7.3204 4.29073 9.40051 6.90573 9.49052C6.98558 9.48052 7.06543 9.48052 7.12531 9.49052H7.17521H7.19518C9.75029 9.40051 11.7565 7.3204 11.7664 4.75026C11.7664 2.13012 9.6405 0 7.0255 0Z" fill="#142333" fillOpacity="0.33" />
           <path d="M12.0968 12.15C9.31215 10.2899 4.77088 10.2899 1.96624 12.15C0.698664 13 0 14.1501 0 15.3801C0 16.6102 0.698664 17.7503 1.95626 18.5903C3.35359 19.5304 5.19007 20.0004 7.02656 20.0004C8.86301 20.0004 10.6995 19.5304 12.0968 18.5903C13.3544 17.7403 14.0531 16.6002 14.0531 15.3601C14.0431 14.1301 13.3544 12.99 12.0968 12.15Z" fill="#142333" fillOpacity="0.33" />
@@ -35,7 +36,7 @@ const TableSegmentsItem: FC<TableSegmentsItemProps> = ({
           <path d="M19.9894 14.5916C19.9096 15.5617 19.2908 16.4017 18.2528 16.9717C17.2547 17.5218 15.9971 17.7818 14.7495 17.7518C15.4681 17.1017 15.8873 16.2917 15.9671 15.4316C16.0669 14.1916 15.4781 13.0015 14.3003 12.0515C13.6316 11.5214 12.8531 11.1014 12.0047 10.7914C14.2105 10.1514 16.9852 10.5814 18.6919 11.9615C19.6102 12.7015 20.0793 13.6315 19.9894 14.5916Z" fill="#142333" fillOpacity="0.33" />
         </svg>
         <span>{data?.name} 123</span>
-      </div>
+      </Link>
       <div>{data?.date}</div>
       <div>{data?.count_companies ?? 0}</div>
       <div>{data?.count_messages ?? 0}</div>

@@ -4,21 +4,21 @@ import styles from './JourneyCard.module.scss';
 export type typeJourneyIcon = 'wait' | 'arrow' | 'group';
 
 interface JourneyCardItem {
-  name?: string | undefined,
-  count?: number | undefined,
-  is_title?: boolean | undefined,
+  name?: string,
+  count?: number,
+  is_title?: boolean,
   icon?: typeJourneyIcon
 }
 
 interface JourneyCardProps {
   data?: {
-    id?: number | undefined,
-    title?: string | undefined,
-    subtitle?: string | undefined,
-    subtitle_count?: number | undefined,
-    positionX?: string | number | undefined,
-    positionY?: string | number | undefined,
-    items?: Array<JourneyCardItem> | undefined
+    id?: number,
+    title?: string,
+    subtitle?: string,
+    subtitle_count?: number,
+    positionX?: string | number,
+    positionY?: string | number,
+    items?: Array<JourneyCardItem>
   }
 }
 

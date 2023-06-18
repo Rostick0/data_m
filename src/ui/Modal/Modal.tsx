@@ -3,9 +3,9 @@ import styles from './Modal.module.scss';
 import Title from '../Title/Title';
 
 export interface ModalProps {
-  title?: string | undefined,
-  children?: React.ReactNode | undefined,
-  close?: MouseEventHandler<HTMLButtonElement | HTMLDivElement> | undefined
+  title?: string,
+  children?: React.ReactNode,
+  close?: MouseEventHandler<HTMLButtonElement | HTMLDivElement>
 }
 
 const Modal: FC<ModalProps> = ({

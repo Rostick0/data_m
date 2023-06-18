@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import styles from './TableItemShort.module.scss';
 
 interface TableItemShortProps {
-  styleGridTemplate?: string | undefined,
-  children?: React.ReactNode | undefined
+  styleGridTemplate?: string,
+  children?: React.ReactNode
 }
 
 const TableItemShort: FC<TableItemShortProps> = ({

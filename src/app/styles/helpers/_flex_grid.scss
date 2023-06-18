@@ -1,0 +1,17 @@
+.d-flex {
+    display: flex;
+}
+
+.aling-items-center {
+    align-items: center;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.table_info_statistics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 24px;
+}

@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import styles from './TableItemIcons.module.scss';
 
 interface TableItemIconsProps {
-  className?: string | undefined,
-  children?: React.ReactNode | undefined
+  className?: string,
+  children?: React.ReactNode
 }
 
 const TableItemIcons: FC<TableItemIconsProps> = ({

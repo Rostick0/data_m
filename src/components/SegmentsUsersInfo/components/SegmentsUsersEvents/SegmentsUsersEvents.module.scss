@@ -1,0 +1,12 @@
+.SegmentsUsersEvents {
+    &__top {
+        display: flex;
+        column-gap: 24px;
+        padding: 0 28px;
+        margin-bottom: 28px;
+    }
+
+    &__grid_template {
+        grid-template-columns: 1.42fr 0.52fr 0.76fr 1.3fr;
+    }
+}

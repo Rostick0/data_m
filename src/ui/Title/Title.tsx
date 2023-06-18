@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import styles from './Title.module.scss';
 
 interface TitleProps {
-  className?: string | undefined,
-  children?: React.ReactNode | undefined
+  className?: string,
+  children?: React.ReactNode
 }
 
 const Title: FC<TitleProps> = ({

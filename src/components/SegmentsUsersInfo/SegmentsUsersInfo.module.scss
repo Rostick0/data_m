@@ -1,0 +1,54 @@
+.SegmentsUsersInfo {
+    &__application {
+        padding: 24px 28px;
+
+    }
+
+    &__top {
+        border-bottom: 1px solid var(--basic_sep);
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 24px;
+        margin-bottom: 18px;
+
+        &_left {
+            color: var(--text_secondary);
+            display: flex;
+            grid-gap: 12px 30px;
+            flex-wrap: wrap;
+
+            &_item {
+                display: flex;
+                align-items: center;
+                column-gap: 12px;
+            }
+        }
+
+        &_right {
+            display: flex;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            grid-gap: 8px;
+
+            &_item {
+                background-color: var(--green);
+                border-radius: 4px;
+                display: inline-block;
+                font-size: 12px;
+                letter-spacing: -0.1px;
+                padding: 6px 10px;
+
+                &:last-child {
+                    background-color: var(--basic_background);
+                    color: var(--text_tertiary);
+                }
+            }
+        }
+    }
+
+    &__email {
+        color: var(--text_primary);
+        flex-basis: 100%;
+        font-size: 24px;
+    }
+}

@@ -9,8 +9,8 @@ export interface message {
 }
 
 interface PhoneChatProps {
-  topChildren?: React.ReactNode | undefined,
-  bottomChildren?: React.ReactNode | undefined,
+  topChildren?: React.ReactNode,
+  bottomChildren?: React.ReactNode,
   messages?: Array<message>
 }
 

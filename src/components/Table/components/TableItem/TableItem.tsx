@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import styles from '../../Table.module.scss';
 
 interface TableItem {
-    children?: React.ReactNode | undefined
+    children?: React.ReactNode
 }
 
 const TableItem: FC<TableItem> = ({

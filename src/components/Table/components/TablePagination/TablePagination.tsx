@@ -3,7 +3,7 @@ import styles from './TablePagination.module.scss';
 import Select from '../../../../ui/Select/Select';
 
 interface TablePaginationProps {
-  count?: number | undefined
+  count?: number
 }
 
 const TablePagination: FC<TablePaginationProps> = ({

@@ -1,0 +1,33 @@
+.input_width_default {
+    max-width: 28.33vw;
+    width: 100%;
+}
+
+.input_width_default_half {
+    max-width: 13.88vw;
+    width: 100%;
+}
+
+.input_date {
+    width: 100%;
+    max-width: 200px;
+}
+
+.input_column {
+    display: flex;
+    column-gap: 10px;
+}
+
+.field_time {
+    display: flex;
+    align-items: center;
+    column-gap: 32px;
+
+    &>label {
+        flex-shrink: 0;
+    }
+
+    &>input {
+        width: 100%;
+    }
+}

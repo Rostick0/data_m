@@ -3,8 +3,8 @@ import styles from './Field.module.scss';
 import Title from '../../ui/Title/Title';
 
 interface FieldProps {
-  title?: React.ReactNode | undefined,
-  children?: React.ReactNode | undefined
+  title?: React.ReactNode,
+  children?: React.ReactNode
 }
 
 const Field: FC<FieldProps> = ({

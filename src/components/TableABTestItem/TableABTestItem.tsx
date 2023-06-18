@@ -4,13 +4,13 @@ import TableItemShort from '../Table/components/TableItemShort/TableItemShort';
 import TableItemIcons from '../TableItemIcons/TableItemIcons';
 interface TableAbTestItemProps {
   data?: {
-    id?: number | undefined,
-    name?: string | undefined,
-    type?: string | undefined,
-    date?: string | undefined,
-    status?: typeStatus | undefined
+    id?: number,
+    name?: string,
+    type?: string,
+    date?: string,
+    status?: typeStatus
   },
-  styleGridTemplate?: string | undefined
+  styleGridTemplate?: string
 }
 
 const TableAbTestItem: FC<TableAbTestItemProps> = ({

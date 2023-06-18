@@ -1,7 +1,7 @@
 @import './fonts';
 @import './reset';
 @import './root';
-@import './helpers';
+@import './helpers/index.scss';
 
 body {
     color: var(--text_primary);

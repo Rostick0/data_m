@@ -26,7 +26,7 @@ const SegmentsList: FC<SegmentsListProps> = () => (
           </Button>
           </Link>
       </Title>
-      <div className={styles.SegmentsList__statistics}>
+      <div className="table_info_statistics">
         <TableInfoCard
           title="Всего пользователей"
           value={(<>

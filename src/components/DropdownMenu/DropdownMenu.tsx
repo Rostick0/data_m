@@ -2,16 +2,16 @@ import React, { FC, MouseEventHandler, FocusEventHandler, useRef, useEffect } fr
 import styles from './DropdownMenu.module.scss';
 
 interface DropdownItem {
-  name?: string | undefined,
-  is_line?: boolean | undefined,
-  onClick?: MouseEventHandler<HTMLDivElement> | undefined,
+  name?: string,
+  is_line?: boolean,
+  onClick?: MouseEventHandler<HTMLDivElement>,
 }
 
 interface DropdownMenuProps {
-  className?: string | undefined,
+  className?: string,
   items?: Array<DropdownItem>,
-  tabIndex?: number | undefined,
-  onBlur?: FocusEventHandler<HTMLDivElement> | undefined,
+  tabIndex?: number,
+  onBlur?: FocusEventHandler<HTMLDivElement>,
 }
 
 const DropdownMenu: FC<DropdownMenuProps> = ({

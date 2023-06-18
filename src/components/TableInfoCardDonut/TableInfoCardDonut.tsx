@@ -2,7 +2,7 @@ import React, { FC, useRef, useEffect } from 'react';
 import styles from './TableInfoCardDonut.module.scss';
 
 interface TableInfoCardDonutProps {
-  value?: number | undefined
+  value?: number
 }
 
 const TableInfoCardDonut: FC<TableInfoCardDonutProps> = ({

@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import styles from './FieldButtons.module.scss';
 
 interface FieldButtonsProps {
-  children?: React.ReactNode | undefined
+  children?: React.ReactNode
 }
 
 const FieldButtons: FC<FieldButtonsProps> = ({

@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import styles from './Tag.module.scss';
 
 interface TagProps {
-  className?: string | undefined,
-  children?: React.ReactNode | undefined
+  className?: string,
+  children?: React.ReactNode
 }
 
 const Tag: FC<TagProps> = ({

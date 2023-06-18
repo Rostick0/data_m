@@ -2,9 +2,9 @@ import React, { FC, ReactNode } from 'react';
 import styles from './TableInfoCard.module.scss';
 
 interface TableInfoCardProps {
-  title?: string | undefined,
-  value?: React.ReactNode | string | undefined,
-  children?: React.ReactNode | undefined,
+  title?: string,
+  value?: React.ReactNode | string,
+  children?: React.ReactNode,
   styleColor?: 'blue' | 'grey'
 }
 
