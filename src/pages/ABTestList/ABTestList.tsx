@@ -45,7 +45,7 @@ const AbTestList: FC<AbTestListProps> = () => (
               name: '312'
             }
           ]}
-          placeholder='Тип'
+          placeholder='Статус'
         ></Select>
       </div>
     </div>

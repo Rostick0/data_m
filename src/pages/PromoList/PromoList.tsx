@@ -45,7 +45,7 @@ const PromoList: FC<PromoListProps> = () => (
               name: '312'
             }
           ]}
-          placeholder='Тип'
+          placeholder='Статус'
         ></Select>
       </div>
     </div>

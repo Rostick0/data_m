@@ -1,1 +1,6 @@
-.TableAbTest {}
+.TableAbTest {
+    &__grid_template {
+        display: grid;
+        grid-template-columns: 1.35fr 1.37fr 0.84fr 0.96fr 1.37fr 0.54fr;
+    }
+}

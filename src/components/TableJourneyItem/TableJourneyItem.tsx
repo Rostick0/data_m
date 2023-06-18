@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import styles from './TableJourneyItem.module.scss';
 import Status, { typeStatus } from '../../ui/Status/Status';
 import InputSwitch from '../../ui/InputSwitch/InputSwitch';
 import { Link } from 'react-router-dom';

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styles from './TablePromo.module.scss';
-import Status, { typeStatus } from '../../ui/Status/Status';
+import { typeStatus } from '../../ui/Status/Status';
 import Table from '../Table/Table';
 import TablePromoItem from '../TablePromoItem/TablePromoItem';
 import TableItem from '../Table/components/TableItem/TableItem';
