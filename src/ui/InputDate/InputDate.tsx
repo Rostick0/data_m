@@ -2,25 +2,25 @@ import React, { FC, useState } from 'react';
 import styles from './InputDate.module.scss'
 import './calendar.scss';
 import Calendar from 'react-calendar';
-// import 'react-calendar/dist/Calendar.css';
 import Input from '../Input/Input';
 
-interface InputDateProps {
+export interface InputDateProps {
+  className?: string,
   placeholder?: string
 }
 
 const InputDate: FC<InputDateProps> = ({
+  className,
   placeholder
 }) => {
   const [date, setDate] = useState<Date | Date[] | any>(new Date());
   const [isActive, setIsActive] = useState<boolean>(false);
 
-
-  console.log(date);
+  const styleClassName = className ? ' ' + className : '';
 
   return (
     <div
-      className={styles.InputDate + ' InputDate'}
+      className={styles.InputDate + ' InputDate ' + styleClassName}
       tabIndex={-1}
       onBlur={() => setIsActive(false)}
     >
@@ -41,7 +41,10 @@ const InputDate: FC<InputDateProps> = ({
         onClick={e => e.preventDefault()}>
         <Calendar
           value={date}
-          onChange={setDate}
+          onChange={value => {
+            setIsActive(false)
+            setDate(value)
+          }}
         />
       </div>}
     </div>

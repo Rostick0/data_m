@@ -1,1 +1,18 @@
-.InputDateTime {}
+.InputDateTime {
+    position: relative;
+
+    &__field {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        input {
+            width: 180px;
+        }
+
+        svg {
+            position: absolute;
+            right: 0;
+        }
+    }
+}

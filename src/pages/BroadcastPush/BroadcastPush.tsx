@@ -16,7 +16,7 @@ import PhoneAndroidAlert from '../../components/PhoneAndroid/components/PhoneAnd
 import PhoneIphoneAlert from '../../components/PhoneIphone/components/PhoneIphoneAlert/PhoneIphoneAlert';
 import KeysAdd from '../../components/KeysAdd/KeysAdd';
 import Preview from '../../components/Preview/Preview';
-import InputDate from '../../ui/InputDate/InputDate';
+import InputDateTime from '../../ui/InputDateTime/InputDateTime';
 const FieldButtons = lazy(() => import('../../components/FieldButtons/FieldButtons'));
 
 interface BroadcastPushProps { }
@@ -180,8 +180,7 @@ const BroadcastPush: FC<BroadcastPushProps> = () => (
         >
           <div className='input_width_default field_time'>
             <InputSwitch>Реальном времени</InputSwitch>
-            {/* <Input placeholder='01.01.2023'></Input> */}
-            <InputDate></InputDate>
+            <InputDateTime></InputDateTime>
           </div>
         </FieldItemUi>
         <FieldItemUi>

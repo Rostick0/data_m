@@ -8,6 +8,7 @@ import InputSwitch from '../../ui/InputSwitch/InputSwitch';
 import InputMulti from '../../ui/InputMulti/InputMulti';
 import SelectMulti from '../../ui/SelectMulti/SelectMulti';
 import KeysAdd from '../../components/KeysAdd/KeysAdd';
+import InputDateTime from '../../ui/InputDateTime/InputDateTime';
 
 interface BroadcastEmailProps { }
 
@@ -138,7 +139,7 @@ const BroadcastEmail: FC<BroadcastEmailProps> = () => (
       >
         <div className='input_width_default field_time'>
           <InputSwitch>Реальном времени</InputSwitch>
-          <Input placeholder='01.01.2023'></Input>
+          <InputDateTime></InputDateTime>
         </div>
       </FieldItemUi>
       <FieldItemUi>

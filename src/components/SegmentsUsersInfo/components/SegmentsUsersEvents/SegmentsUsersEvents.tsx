@@ -3,6 +3,7 @@ import styles from './SegmentsUsersEvents.module.scss';
 import TableSegmentsUsersEvents from '../../../TableSegmentsUsersEvents/TableSegmentsUsersEvents';
 import Input from '../../../../ui/Input/Input';
 import SelectMulti from '../../../../ui/SelectMulti/SelectMulti';
+import InputDateTime from '../../../../ui/InputDateTime/InputDateTime';
 
 interface SegmentsUsersEventsProps { }
 
@@ -12,9 +13,9 @@ const SegmentsUsersEvents: FC<SegmentsUsersEventsProps> = () => (
       <Input
         placeholder='Поиск по наименованию'
       ></Input>
-      <Input
+      <InputDateTime
         placeholder='Период'
-      ></Input>
+      ></InputDateTime>
       <SelectMulti></SelectMulti>
     </div>
     <TableSegmentsUsersEvents></TableSegmentsUsersEvents>

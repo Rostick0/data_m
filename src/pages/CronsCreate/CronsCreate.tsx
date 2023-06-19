@@ -12,6 +12,7 @@ import InputRadio from '../../ui/InputRadio/InputRadio';
 import PhoneSwitch from '../../components/PhoneSwitch/PhoneSwitch';
 import PhoneAndroidAlert from '../../components/PhoneAndroid/components/PhoneAndroidAlert/PhoneAndroidAlert';
 import PhoneIphoneAlert from '../../components/PhoneIphone/components/PhoneIphoneAlert/PhoneIphoneAlert';
+import InputDateTime from '../../ui/InputDateTime/InputDateTime';
 const FieldButtons = lazy(() => import('../../components/FieldButtons/FieldButtons'));
 interface CronsCreateProps { }
 
@@ -124,10 +125,9 @@ const CronsCreate: FC<CronsCreateProps> = () => (
         <FieldItemUi
           title="Начало"
         >
-          <Input
+          <InputDateTime
             className='input_date'
-            placeholder='01.01.2023'
-          ></Input>
+          ></InputDateTime>
         </FieldItemUi>
         <FieldItemUi
           title="Период"
@@ -146,9 +146,9 @@ const CronsCreate: FC<CronsCreateProps> = () => (
         <FieldItemUi
           title="Окончание"
         >
-          <Input
+          <InputDateTime
             className='input_date'
-          ></Input>
+          ></InputDateTime>
         </FieldItemUi>
       </FieldUi>
       <FieldUi

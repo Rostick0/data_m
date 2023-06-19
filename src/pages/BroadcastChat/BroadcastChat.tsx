@@ -16,6 +16,7 @@ import PhoneIphoneAlert from '../../components/PhoneIphone/components/PhoneIphon
 import PhoneAndroidChat from '../../components/PhoneAndroid/components/PhoneAndroidChat/PhoneAndroidChat';
 import PhoneIphoneChat from '../../components/PhoneIphone/components/PhoneIphoneChat/PhoneIphoneChat';
 import Preview from '../../components/Preview/Preview';
+import InputDateTime from '../../ui/InputDateTime/InputDateTime';
 const FieldButtons = lazy(() => import('../../components/FieldButtons/FieldButtons'));
 
 interface BroadcastChatProps { }
@@ -217,7 +218,7 @@ const BroadcastChat: FC<BroadcastChatProps> = () => (
         >
           <div className='input_width_default field_time'>
             <InputSwitch>Реальном времени</InputSwitch>
-            <Input placeholder='01.01.2023'></Input>
+            <InputDateTime></InputDateTime>
           </div>
         </FieldItemUi>
         <FieldItemUi>
