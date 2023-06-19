@@ -26,7 +26,11 @@ const SelectMulti: FC<SelectMultiProps> = ({
   }
 
   return (
-    <div className={styles.SelectMulti + styleClassName} >
+    <div
+      className={styles.SelectMulti + styleClassName}
+      tabIndex={1}
+      onBlur={() => setActive(false)}
+    >
       <div className={styles.SelectMulti__switch + styleClassName}
         onClick={() => setActive(prev => !prev)}
       >

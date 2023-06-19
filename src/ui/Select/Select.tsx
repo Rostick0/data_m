@@ -1,18 +1,18 @@
-import React, { FC, useState, useRef, useEffect } from 'react';
+import React, { FC, useState } from 'react';
 import styles from './Select.module.scss';
 import Input from '../Input/Input';
 
 export interface Items {
-  value: string | number | undefined,
-  name: string | number | undefined
+  value: string | number,
+  name: string | number
 }
 export interface SelectProps {
-  className?: string | undefined,
-  inputClassName?: string | undefined,
+  className?: string,
+  inputClassName?: string,
   styleColor?: 'white' | 'grey',
-  defaultValue?: string | number | undefined,
-  placeholder?: string | undefined,
-  onChange?: Function | undefined
+  defaultValue?: string | number,
+  placeholder?: string,
+  onChange?: Function
   items?: Array<Items>
 }
 
@@ -25,25 +25,6 @@ const Select: FC<SelectProps> = ({
   onChange,
   items
 }) => {
-  // function useOutsideAlerter(ref) {
-  //   useEffect(() => {
-  //     /**
-  //      * Alert if clicked on outside of element
-  //      */
-  //     function handleClickOutside(event) {
-  //       if (ref.current && !ref.current.contains(event.target)) {
-  //         alert("You clicked outside of me!");
-  //       }
-  //     }
-  //     // Bind the event listener
-  //     document.addEventListener("mousedown", handleClickOutside);
-  //     return () => {
-  //       // Unbind the event listener on clean up
-  //       document.removeEventListener("mousedown", handleClickOutside);
-  //     };
-  //   }, [ref]);
-  // }
-
   const [active, setActive] = useState(false);
   const [value, setValue] = useState(defaultValue);
 
@@ -53,16 +34,11 @@ const Select: FC<SelectProps> = ({
   const styleClass = styles['Select_style_' + styleColor];
   const styleLink = styleClass ? ' ' + styleClass : ' ' + styles['Select_style_white'];
 
-  // const listRef = useRef<HTMLUListElement>(null);
-
-  // useEffect(() => {
-  //   if (!active) return;
-
-  //   listRef.current?.focus();
-  // }, [active])
-
   return (
-    <div className={styles.Select + styleLink + styleClassName} >
+    <div className={styles.Select + styleLink + styleClassName}
+      tabIndex={1}
+      onBlur={() => setActive(false)}
+    >
       <div className={styles.Select__switch + styleClassName}
         onClick={() => setActive(prev => !prev)}
       >
@@ -87,7 +63,7 @@ const Select: FC<SelectProps> = ({
             className={styles.Select__item}
             onClick={() => {
               setValue(`${item?.name}`)
-              setActive(prev => false)
+              setActive(false)
               typeof onChange === 'function' && onChange({
                 value: item.value,
                 name: item.name

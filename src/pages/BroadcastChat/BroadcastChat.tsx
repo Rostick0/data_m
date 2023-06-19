@@ -29,7 +29,6 @@ const BroadcastChat: FC<BroadcastChatProps> = () => (
         >
           <Input
             className='input_width_default'
-            onClick={() => alert(5)}
           ></Input>
         </FieldItemUi>
         <FieldItemUi

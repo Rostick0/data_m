@@ -23,7 +23,6 @@ const BroadcastSms: FC<BroadcastSmsProps> = () => (
         >
           <Input
             className='input_width_default'
-            onClick={() => alert(5)}
           ></Input>
         </FieldItemUi>
         <FieldItemUi

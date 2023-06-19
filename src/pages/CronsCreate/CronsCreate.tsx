@@ -25,7 +25,6 @@ const CronsCreate: FC<CronsCreateProps> = () => (
         >
           <Input
             className='input_width_default'
-            onClick={() => alert(5)}
           ></Input>
         </FieldItemUi>
         <FieldItemUi
