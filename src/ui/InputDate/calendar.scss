@@ -1,0 +1,71 @@
+.InputDate {
+    .react-calendar {
+        background-color: var(--white);
+        border: 1px solid var(--basic_border);
+        border-radius: 6px;
+        font-size: 14px;
+        line-height: 1.43;
+        padding: 4px;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 15px);
+        text-align: center;
+        min-width: 224px;
+
+        &__navigation {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+            margin-bottom: 4px;
+
+            &__tabel {
+                font-size: 16px;
+                font-weight: 700;
+            }
+
+            &__arrow {
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: 700;
+                text-align: center;
+                min-width: 20px;
+            }
+        }
+
+        &__month-view__weekdays__weekday {
+            padding: 7px 0;
+
+            abbr {
+                font-size: 12px;
+                font-weight: 500;
+                text-transform: uppercase;
+                text-decoration: none;
+            }
+        }
+
+        &__tile {
+            border-radius: 6px;
+            transition: 200ms;
+            padding: 7px 0;
+
+            &:hover {
+                background-color: var(--basic_sep);
+            }
+
+            &--active {
+                background-color: var(--brand_primary_0);
+                color: var(--white);
+
+                &:hover {
+                    background-color: var(--brand_primary_1);
+                }
+            }
+        }
+
+        &__month-view__days__day {
+            &--neighboringMonth {
+                color: var(--basic_border);
+            }
+        }
+    }
+}

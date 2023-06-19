@@ -43,6 +43,7 @@ const Select: FC<SelectProps> = ({
         onClick={() => setActive(prev => !prev)}
       >
         <Input
+          onMouseDown={(e) => e.preventDefault()}
           className={styles.Select__input + styleInputClassName}
           placeholder={placeholder}
           value={value}

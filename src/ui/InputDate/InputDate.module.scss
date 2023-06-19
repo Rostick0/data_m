@@ -1,0 +1,35 @@
+.InputDate {
+    position: relative;
+
+    &__field {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        input {
+            width: 180px;
+        }
+
+        svg {
+            position: absolute;
+            right: 0;
+        }
+    }
+
+    &__react_calendar {
+        background-color: var(--white);
+        border: 1px solid var(--basic_border);
+        border-radius: 6px;
+        font-size: 14px;
+        line-height: 1.43;
+        padding: 4px;
+        position: absolute;
+        text-align: center;
+        min-width: 350px;
+
+        .react-calendar__navigation {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
