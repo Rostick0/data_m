@@ -9,6 +9,7 @@ import TableTemplate from '../../components/TableTemplate/TableTemplate';
 interface TemplateListProps { }
 
 const TemplateList: FC<TemplateListProps> = () => {
+
   return (
     <div className={styles.TemplateList}>
       <div className={styles.TemplateList__top}>
