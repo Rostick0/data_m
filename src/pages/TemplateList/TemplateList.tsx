@@ -5,10 +5,14 @@ import Input from '../../ui/Input/Input';
 import Select from '../../ui/Select/Select';
 import SelectMulti from '../../ui/SelectMulti/SelectMulti';
 import TableTemplate from '../../components/TableTemplate/TableTemplate';
+import { useTemplatesGetQuery } from '../../app/store/modules/template';
 
 interface TemplateListProps { }
 
 const TemplateList: FC<TemplateListProps> = () => {
+  const { data = [] } = useTemplatesGetQuery();
+
+  console.log(data);
 
   return (
     <div className={styles.TemplateList}>

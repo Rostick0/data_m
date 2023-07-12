@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { URL_BACKEND } from '..';
+import { URL_BACKEND } from '../utils';
 
-interface iTemplate {
+export interface iTemplate {
     id?: number
     title: string
     template: string
@@ -12,14 +12,14 @@ export const templatesApi = createApi({
     tagTypes: ['templates'],
     baseQuery: fetchBaseQuery({ baseUrl: URL_BACKEND }),
     endpoints: build => ({
-        templatesGet: build.query({
+        templatesGet: build.query<iTemplate[], void>({
             query: () => '&cmd=templatesGet',
             providesTags: result => result
                 ? [
-                    ...result?.map(({ id }: { id: number }) => ({ type: 'templatesGet', id })),
-                    { type: 'templatesGet', id: 'LIST' }
+                    ...result.map(({ id }) => ({ type: 'templates' as const, id })),
+                    { type: 'templates', id: 'LIST' }
                 ]
-                : [{ type: 'templatesGet', id: 'LIST' }]
+                : [{ type: 'templates', id: 'LIST' }]
         }),
         templateGet: build.query({
             query: (id: number) => '&cmd=templateGet&id=' + id

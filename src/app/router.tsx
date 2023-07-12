@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Suspense, lazy } from "react";
 import { Routes, Route } from 'react-router-dom';
+import { useUserLoginMutation } from './store/modules/user';
+import { LOGIN_BACKEND, PASSWORD_BACKEND } from './store/utils';
 
 const Broadcast = lazy(() => import('../pages/Broadcast/Broadcast'));
 const BroadcastList = lazy(() => import('../pages/BroadcastList/BroadcastList'));
@@ -40,6 +42,12 @@ interface AppRouterprops {
 }
 
 const AppRouter: React.FC<AppRouterprops> = () => {
+    const [asyncLogin] = useUserLoginMutation()
+
+    useEffect(() => {
+        asyncLogin({ login: LOGIN_BACKEND, password: PASSWORD_BACKEND });
+    }, []);
+
     return (
         <Suspense fallback={<div>Loading...</div>}>
             <Routes>

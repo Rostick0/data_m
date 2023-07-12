@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { URL_BACKEND } from '..';
+import { URL_BACKEND } from '../utils';
 
 export const listSubscriberApi = createApi({
     reducerPath: 'listSubscriberApi',
