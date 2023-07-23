@@ -1,4 +1,5 @@
-export const URL_BACKEND: string = 'https://sender.innolingvo.ru/admin/?page=call&pi=restapi';
+export const URL_BACKEND: string = 'https://proxy.unisender.com/ru/api/getLists?format=json&api_key=6ki6ryxudngehdwxo679gsnaxcz468ikx47a1wce';
+// 'https://jsonplaceholder.typicode.com/todos/1'
 // "http://212.113.120.254:8000/lists/admin/?page=call&pi=restapi";
 export const LOGIN_BACKEND: string = "test";
 export const PASSWORD_BACKEND: string = "0ZB87atKpMd4HP2";

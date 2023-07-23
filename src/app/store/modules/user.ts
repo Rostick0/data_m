@@ -11,18 +11,19 @@ export const userApi = createApi({
     tagTypes: ['user'],
     baseQuery: fetchBaseQuery({ baseUrl: URL_BACKEND }),
     endpoints: build => ({
-        userLogin: build.mutation({
-            query: (body: iUser) => ({
-                url: '',
-                method: 'POST',
-                body
-            }),
-            invalidatesTags: [{ type: 'user', id: 'LIST' }]
+        userLogin: build.query<any, void>({
+            query: () => '',
+            providesTags: result => result
+                ? [
+                    ...result?.map(({ id }: { id: number }) => ({ type: 'Lists', id })),
+                    { type: 'Lists', id: 'LIST' }
+                ]
+                : [{ type: 'Lists', id: 'LIST' }]
         }),
     })
 });
 
-export const { useUserLoginMutation } = userApi;
+export const { useUserLoginQuery } = userApi;
 
 // Список шаблонов (Email) - templatesGet
 
