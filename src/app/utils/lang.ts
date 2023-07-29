@@ -1,0 +1,1 @@
+export type langType = 'ru' | 'it' | 'ua' | 'en' | 'da' | 'de' | 'es' | 'fr' | 'nl' | 'pl' | 'pt' | 'tr';

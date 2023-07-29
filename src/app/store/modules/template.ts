@@ -1,52 +1,78 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { URL_BACKEND } from '../utils';
+import { FORMAT_API_KEY, URL_BACKEND } from '../utils';
+import { langType } from '../../utils/lang';
+import { setFetchQueryUrl } from '../../utils/url';
 
-export interface iTemplate {
-    id?: number
-    title: string
-    template: string
+
+export interface iGetTemplate {
+    id: number,
+    sub_user_login: string,
+    title: string,
+    description: string,
+    lang_code: langType,
+    subject: string,
+    attachments: string,
+    screenshot_url: string,
+    fullsize_screenshot_url: string,
+    created: string,
+    updated: string,
+    message_format: string,
+    type: string,
+    body: string,
 }
+
+
+export interface iMutationTemplate {
+    template_id?: number
+    title: string
+    description: string,
+    subject: string,
+    body: string,
+    text_body: string,
+    lang: langType
+}
+
+type Result = {
+    result: iGetTemplate[],
+};
 
 export const templatesApi = createApi({
     reducerPath: 'templatesApi',
-    tagTypes: ['templates'],
+    tagTypes: ['Templates'],
     baseQuery: fetchBaseQuery({ baseUrl: URL_BACKEND }),
     endpoints: build => ({
-        templatesGet: build.query<iTemplate[], void>({
-            query: () => '&cmd=templatesGet',
-            providesTags: result => result
-                ? [
-                    ...result.map(({ id }) => ({ type: 'templates' as const, id })),
-                    { type: 'templates', id: 'LIST' }
-                ]
-                : [{ type: 'templates', id: 'LIST' }]
+        templatesGet: build.query<Result, string>({
+            query: (queryParams?: string | undefined) => setFetchQueryUrl('getTemplates', queryParams),
+            providesTags: result => {
+
+                return result?.result?.length
+                    ? [
+                        ...result?.result?.map(({ id }) => ({ type: 'Templates' as const, id })),
+                        { type: 'Templates', id: 'LIST' }
+                    ]
+                    : [{ type: 'Templates', id: 'LIST' }]
+            }
         }),
         templateGet: build.query({
-            query: (id: number) => '&cmd=templateGet&id=' + id
+            query: (templateId: number) => setFetchQueryUrl('getTemplate', { template_id: templateId })
         }),
         templateAdd: build.mutation({
-            query: (body: iTemplate) => ({
-                url: '&cmd=templateAdd',
-                method: 'POST',
-                body
+            query: (body: iMutationTemplate) => ({
+                url: setFetchQueryUrl('createEmailTemplate', body),
             }),
-            invalidatesTags: [{ type: 'templates', id: 'LIST' }]
+            // invalidatesTags: [{ type: 'Templates', id: 'LIST' }]
         }),
         templateUpdate: build.mutation({
-            query: (body: iTemplate) => ({
-                url: '&cmd=templateUpdate',
-                method: 'POST',
-                body
+            query: (body: iMutationTemplate) => ({
+                url: setFetchQueryUrl('updateEmailTemplate', body),
             }),
-            invalidatesTags: [{ type: 'templates', id: 'LIST' }]
+            // invalidatesTags: [{ type: 'Templates', id: 'LIST' }]
         }),
         templateDelete: build.mutation({
-            query: (body: iTemplate) => ({
-                url: '&cmd=templateDelete',
-                method: 'POST',
-                body
+            query: (templateId: number) => ({
+                url: setFetchQueryUrl('deleteTemplate', { template_id: templateId }),
             }),
-            invalidatesTags: [{ type: 'templates', id: 'LIST' }]
+            invalidatesTags: [{ type: 'Templates', id: 'LIST' }]
         }),
     })
 });

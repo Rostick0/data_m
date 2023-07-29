@@ -10,7 +10,7 @@ import { useTemplatesGetQuery } from '../../app/store/modules/template';
 interface TemplateListProps { }
 
 const TemplateList: FC<TemplateListProps> = () => {
-  const { data = [] } = useTemplatesGetQuery();
+  const { data = [] } = useTemplatesGetQuery('');
 
   console.log(data);
 

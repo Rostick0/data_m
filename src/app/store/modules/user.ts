@@ -13,12 +13,15 @@ export const userApi = createApi({
     endpoints: build => ({
         userLogin: build.query<any, void>({
             query: () => '',
-            providesTags: result => result
+            providesTags: result => {
+                console.log(result);
+                
+                return result
                 ? [
-                    ...result?.map(({ id }: { id: number }) => ({ type: 'Lists', id })),
-                    { type: 'Lists', id: 'LIST' }
+                    { type: 'Test', id: 'LIST' },
+                    ...result?.result?.map(({ id }: { id: number }) => ({ type: 'Test' as const, id })),
                 ]
-                : [{ type: 'Lists', id: 'LIST' }]
+                : [{ type: 'Test', id: 'LIST' }]}
         }),
     })
 });

@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Suspense, lazy } from "react";
 import { Routes, Route } from 'react-router-dom';
-import { useUserLoginQuery } from './store/modules/user';
-import { LOGIN_BACKEND, PASSWORD_BACKEND } from './store/utils';
 
 const Broadcast = lazy(() => import('../pages/Broadcast/Broadcast'));
 const BroadcastList = lazy(() => import('../pages/BroadcastList/BroadcastList'));
@@ -42,22 +40,13 @@ interface AppRouterprops {
 }
 
 const AppRouter: React.FC<AppRouterprops> = () => {
-    const { data = [], isLoading } = useUserLoginQuery();
-
-    useEffect(() => {
-        // { login: LOGIN_BACKEND, password: PASSWORD_BACKEND }
-        // fetch('https://jsonplaceholder.typicode.com/todos/1')
-        //     .then(response => response.json())
-        //     .then(json => console.log(json))
-
-        fetch('https://proxy.unisender.com/ru/api/getLists?format=json&api_key=6ki6ryxudngehdwxo679gsnaxcz468ikx47a1wce')
-            .then(res => res.json())
-            .then(res => console.log(res));
+    // useEffect(() => {
+    //     fetch('https://proxy.innolingvo.ru/ru/api/getLists?format=json&api_key=6ki6ryxudngehdwxo679gsnaxcz468ikx47a1wce')
+    //         .then(res => res.json())
+    //         .then(res => console.log(res));
 
 
-    }, []);
-
-    console.log(data);
+    // }, []);
 
     return (
         <Suspense fallback={<div>Loading...</div>}>

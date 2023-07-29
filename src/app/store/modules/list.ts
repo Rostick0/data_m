@@ -1,54 +1,60 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { URL_BACKEND } from '../utils';
+import { FORMAT_API_KEY, URL_BACKEND } from '../utils';
+import { setFetchQueryUrl } from '../../utils/url';
 
-interface iList {
-    id?: number
-    name: string
-    description: string
-    listorder: number
-    active: 0 | 1
+export interface iGetList {
+    id: number,
+    title: string
 }
+
+type Result = {
+    result?: iGetList[],
+};
+
+interface iCreateList {
+    id: number,
+    title: string,
+    before_subscribe_url?: string,
+    after_subscribe_url?: string
+}
+// interface iList {
+//     id?: number
+//     name: string
+//     description: string
+//     listorder: number
+//     active: 0 | 1
+// }
 
 export const listApi = createApi({
     reducerPath: 'listApi',
     tagTypes: ['Lists'],
     baseQuery: fetchBaseQuery({ baseUrl: URL_BACKEND }),
     endpoints: build => ({
-        listsGet: build.query({
-            query: () => '&cmd=listsGet',
-            providesTags: result => result
-                ? [
-                    ...result?.map(({ id }: { id: number }) => ({ type: 'Lists', id })),
-                    { type: 'Lists', id: 'LIST' }
-                ]
-                : [{ type: 'Lists', id: 'LIST' }]
+        listsGet: build.query<Result, void>({
+            query: () => setFetchQueryUrl('getLists'),
+            providesTags: result => {
+                return result?.result?.length
+                    ? [
+                        ...result?.result?.map(({ id }: { id: number }) => ({ type: 'Lists' as const, id })),
+                        { type: 'Lists', id: 'LIST' }
+                    ]
+                    : [{ type: 'Lists', id: 'LIST' }]
+            }
         }),
-        listGet: build.query({
-            query: (id: number) => '&cmd=listGet&id=' + id
-        }),
-        listAdd: build.mutation({
-            query: (body: iList) => ({
-                url: '&cmd=listAdd',
-                method: 'POST',
-                body
+        // listGet: build.query({
+        //     query: (id: number) => '&cmd=listGet&id=' + id
+        // }),
+        createList: build.mutation({
+            query: (body: iCreateList) => ({
+                url: setFetchQueryUrl('createList', body),
             }),
             invalidatesTags: [{ type: 'Lists', id: 'LIST' }]
         }),
-        listUpdate: build.mutation({
-            query: (body: iList) => ({
-                url: '&cmd=listUpdate',
-                method: 'POST',
-                body
-            }),
-            invalidatesTags: [{ type: 'Lists', id: 'LIST' }]
-        }),
+
         listDelete: build.mutation({
-            query: (id: number) => ({
-                url: '&cmd=listDelete',
+            query: (listId: number) => ({
+                url: setFetchQueryUrl('deleteList', { list_id: listId }),
                 method: 'POST',
-                body: {
-                    id
-                }
             }),
             invalidatesTags: [{ type: 'Lists', id: 'LIST' }]
         }),
@@ -65,4 +71,4 @@ export const listApi = createApi({
 
 // Удалить сегмент - listDelete
 
-export const { useListsGetQuery, useListGetQuery, useListAddMutation, useListUpdateMutation, useListDeleteMutation } = listApi
+export const { useCreateListMutation, useListDeleteMutation, useListsGetQuery } = listApi
