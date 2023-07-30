@@ -9,42 +9,35 @@ import { chartData } from '../../app/utils/chart/helpers';
 import { Statistic, Statistic_2 } from '../../app/utils/chart/interface';
 import { PreviewItem } from '../../app/utils/preview/interface';
 import TableItemIcons from '../TableItemIcons/TableItemIcons';
+import { iGetCampaign } from '../../app/store/modules/campaign';
+
 interface TableBroadcastItemProps {
-  data?: {
-    name?: string,
-    type?: string,
-    current_users?: number,
-    max_users?: number,
-    tags?: string[],
-    date?: string,
-    status?: typeStatus | null,
-    folder?: string,
-  },
-  info?: {
-    id?: string | number,
-    type?: string | number,
-    keys?: string[],
-    date_start?: string,
-    date_end?: string,
-    type_recipient?: string,
-    segments?: string[],
-    type_push?: string,
-    title?: string,
-    text?: string,
-    link?: string,
-    preview?: Array<PreviewItem>,
-    message?: string,
-  },
-  statistic?: Statistic,
-  statistic_2?: Statistic_2,
+  data?: iGetCampaign,
+  // info?: {
+  //   id?: string | number,
+  //   type?: string | number,
+  //   keys?: string[],
+  //   date_start?: string,
+  //   date_end?: string,
+  //   type_recipient?: string,
+  //   segments?: string[],
+  //   type_push?: string,
+  //   title?: string,
+  //   text?: string,
+  //   link?: string,
+  //   preview?: Array<PreviewItem>,
+  //   message?: string,
+  // },
+  // statistic?: Statistic,
+  // statistic_2?: Statistic_2,
   styleGridTemplate?: string
 }
 
 const TableBroadcastItem: FC<TableBroadcastItemProps> = ({
   data,
-  info,
-  statistic,
-  statistic_2,
+  // info,
+  // statistic,
+  // statistic_2,
   styleGridTemplate
 }) => {
   const [isShow, setIsShow] = useState(false);
@@ -53,14 +46,14 @@ const TableBroadcastItem: FC<TableBroadcastItemProps> = ({
 
   const classGridTemplate = styleGridTemplate ? ' ' + styleGridTemplate : '';
 
-  const data1 = chartData({
-    data: [statistic?.successfully, (statistic?.total ?? statistic?.successfully ?? 0) - (statistic?.successfully ?? 0)],
-    type: 'short'
-  })
+  // const data1 = chartData({
+  //   data: [statistic?.successfully, (statistic?.total ?? statistic?.successfully ?? 0) - (statistic?.successfully ?? 0)],
+  //   type: 'short'
+  // })
 
-  const data2 = chartData({
-    data: [statistic_2?.shipped ?? 0, statistic_2?.read ?? 0, statistic_2?.received ?? 0],
-  });
+  // const data2 = chartData({
+  //   data: [statistic_2?.shipped ?? 0, statistic_2?.read ?? 0, statistic_2?.received ?? 0],
+  // });
 
   return (
     <div className={styles.TableBroadcastItem + classActive}>
@@ -71,25 +64,29 @@ const TableBroadcastItem: FC<TableBroadcastItemProps> = ({
           <svg className={styles.TableBroadcastItem__arrow} width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 9.03125C0 9.59375 0.65625 9.875 1.0625 9.46875L5.0625 5.46875C5.3125 5.21875 5.3125 4.8125 5.0625 4.5625L1.0625 0.5625C0.65625 0.15625 0 0.4375 0 1V9.03125Z" fill="#142333" fillOpacity="0.33" />
           </svg>
-          <div>{data?.name}</div>
+          <div>{data?.sender_name}</div>
         </div>
-        <div className="">{data?.type}</div>
-        <div className="">{data?.current_users}/{data?.max_users}</div>
+        <div className="">{data?.list_id}</div>
+        {/* <div className="">{data?.current_users}/{data?.max_users}</div> */}
+        <div className="">{data?.message_id}</div>
         <div className={styles.TableBroadcastItem__tags}>
-          {data?.tags?.map(tag => <Tag key={tag}>{tag}</Tag>)}
+          {/* {data?.tags?.map(tag => <Tag key={tag}>{tag}</Tag>)} */}
+          {data?.subject}
         </div>
-        <div className="">{data?.date}</div>
+        <div className="">{data?.start_time}</div>
         <div className="">
-          <Status
+          {data?.status}
+          {/* <Status
             type={data?.status ?? 'draft'}
-          ></Status>
+          ></Status> */}
         </div>
         <div className="">
-          <Select
+          {data?.sender_email}
+          {/* <Select
             defaultValue={data?.folder}
             styleColor='grey'
             placeholder="Выберите папку"
-          ></Select>
+          ></Select> */}
         </div>
         <TableItemIcons className={styles.TableBroadcastItem__icons}>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -126,149 +123,149 @@ const TableBroadcastItem: FC<TableBroadcastItemProps> = ({
         </TableItemIcons>
       </div>
       {
-        isShow && (
-          <div className={styles.TableBroadcastItem__info}>
-            <div className={styles.TableBroadcastItem__info_left}>
-              <div className={styles.TableBroadcastItem__block}>
-                <div className={styles.TableBroadcastItem__block_flex}>
-                  <div className={styles.TableBroadcastItem__block_name}>Id</div>
-                  <div className={styles.TableBroadcastItem__block_value}>{info?.id}</div>
-                </div>
-                <div className={styles.TableBroadcastItem__block_flex}>
-                  <div className={styles.TableBroadcastItem__block_name}>Тип</div>
-                  <div className={styles.TableBroadcastItem__block_value}>{info?.type}</div>
-                </div>
-                <div className={styles.TableBroadcastItem__block_flex}>
-                  <div className={styles.TableBroadcastItem__block_name}>Ключи</div>
-                  <div className={styles.TableBroadcastItem__block_value}>
-                    {info?.keys?.map(key => (
-                      <span key={key}>{key}</span>
-                    ))}
-                  </div>
-                </div>
-                <div className={styles.TableBroadcastItem__block_flex}>
-                  <div className={styles.TableBroadcastItem__block_name}>Начало отправки</div>
-                  <div className={styles.TableBroadcastItem__block_value}>{info?.date_start}</div>
-                </div>
-                <div className={styles.TableBroadcastItem__block_flex}>
-                  <div className={styles.TableBroadcastItem__block_name}>Окончание отправки</div>
-                  <div className={styles.TableBroadcastItem__block_value}>{info?.date_end}</div>
-                </div>
-                <div className={styles.TableBroadcastItem__block_flex}>
-                  <div className={styles.TableBroadcastItem__block_name}>Тип получателя</div>
-                  <div className={styles.TableBroadcastItem__block_value}>{info?.type_recipient}</div>
-                </div>
-                <div className={styles.TableBroadcastItem__block_flex}>
-                  <div className={styles.TableBroadcastItem__block_name}>Сегменты</div>
-                  <div className={styles.TableBroadcastItem__block_value}>
-                    {info?.segments?.map(segment => (
-                      <Tag key={segment} className={styles.TableBroadcastItem__block_tag}>{segment}</Tag>
-                    ))}
-                  </div>
-                </div>
-                <div className={styles.TableBroadcastItem__block_flex}>
-                  <div className={styles.TableBroadcastItem__block_name}>Тип пуш-уведомления</div>
-                  <div className={styles.TableBroadcastItem__block_value}>{info?.type_push}</div>
-                </div>
-              </div>
-              <div className={styles.TableBroadcastItem__statistic + ' ' + styles.TableBroadcastItem__block}>
-                <div className={styles.TableBroadcastItem__block_name}>Статистика</div>
-                <div className={styles.TableBroadcastItem__charts}>
-                  <div className={styles.TableBroadcastItem__chart}>
-                    <Doughnut
-                      data={data1}
-                      width="100%"
-                    ></Doughnut>
-                    <span className={styles.TableBroadcastItem__chart_info}>
-                      <div className={styles.TableBroadcastItem__chart_flex}>
-                        <div className={styles.TableBroadcastItem__chart_icon}
-                          style={{ backgroundColor: '#F4BE37' }}
-                        ></div>
-                        <div className={styles.TableBroadcastItem__chart_name}>Успешно</div>
-                        <div>{statistic?.successfully}</div>
-                      </div>
-                      <div className={styles.TableBroadcastItem__chart_flex}>
-                        <div className={styles.TableBroadcastItem__chart_icon}></div>
-                        <div className={styles.TableBroadcastItem__chart_name}>Всего</div>
-                        <div>{statistic?.total}</div>
-                      </div>
-                    </span>
-                  </div>
-                  <div className={styles.TableBroadcastItem__chart}>
-                    <Doughnut
-                      data={data2}
-                      width="50%"
-                    ></Doughnut>
-                    <div className={styles.TableBroadcastItem__chart_info}>
-                      <div className={styles.TableBroadcastItem__chart_flex}>
-                        <div className={styles.TableBroadcastItem__chart_icon}
-                          style={{ backgroundColor: 'var(--brand_primary_2)' }}
-                        ></div>
-                        <div className={styles.TableBroadcastItem__chart_name}>Отправлено</div>
-                        <div>{statistic_2?.shipped}</div>
-                      </div>
-                      <div className={styles.TableBroadcastItem__chart_flex}>
-                        <div className={styles.TableBroadcastItem__chart_icon}
-                          style={{ backgroundColor: '#35BB73' }}
-                        ></div>
-                        <div className={styles.TableBroadcastItem__chart_name}>Прочитано</div>
-                        <div>{statistic_2?.read}</div>
-                      </div>
-                      <div className={styles.TableBroadcastItem__chart_flex}>
-                        <div className={styles.TableBroadcastItem__chart_icon}
-                          style={{ backgroundColor: '#F4BE37' }}
-                        ></div>
-                        <div className={styles.TableBroadcastItem__chart_name}>Получено</div>
-                        <div>{statistic_2?.received}</div>
-                      </div>
-                      <div className={styles.TableBroadcastItem__chart_flex}>
-                        <div className={styles.TableBroadcastItem__chart_icon}></div>
-                        <div className={styles.TableBroadcastItem__chart_name}>Всего</div>
-                        <div>{
-                          (statistic_2?.shipped ?? 0)
-                          +
-                          (statistic_2?.read ?? 0)
-                          +
-                          (statistic_2?.received ?? 0)}</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className={styles.TableBroadcastItem__block + ' ' + styles.TableBroadcastItem__info_right}>
-              <div className={styles.TableBroadcastItem__block_flex_column}>
-                <div className={styles.TableBroadcastItem__block_name}>Заголовок</div>
-                <div className={styles.TableBroadcastItem__block_value}>{info?.title}</div>
-              </div>
-              <div className={styles.TableBroadcastItem__block_flex_column}>
-                <div className={styles.TableBroadcastItem__block_name}>Текст</div>
-                <div className={styles.TableBroadcastItem__block_value}>{info?.text}</div>
-              </div>
-              <div className={styles.TableBroadcastItem__block_flex_column}>
-                <div className={styles.TableBroadcastItem__block_name}>Внутренняя ссылка</div>
-                <div className={styles.TableBroadcastItem__block_value}>{info?.link}</div>
-              </div>
-              <div className={styles.TableBroadcastItem__block_flex_column}>
-                <div className={styles.TableBroadcastItem__block_name}>Превью</div>
-                <div className={styles.TableBroadcastItem__block_value}>
-                  <div className={styles.TableBroadcastItem__block_images}>
-                    {info?.preview?.map(previewItem => (
-                      <div key={previewItem?.name} className={styles.TableBroadcastItem__block_image}>
-                        <img loading="lazy" src={previewItem?.image} alt={previewItem?.name} />
-                        <span>{previewItem?.name}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <div className={styles.TableBroadcastItem__block_flex_column}>
-                <div className={styles.TableBroadcastItem__block_name}>Сообщение</div>
-                <div className={styles.TableBroadcastItem__block_value}>{info?.message}</div>
-              </div>
-            </div>
-          </div>
-        )
+        // isShow && (
+        //   <div className={styles.TableBroadcastItem__info}>
+        //     <div className={styles.TableBroadcastItem__info_left}>
+        //       <div className={styles.TableBroadcastItem__block}>
+        //         <div className={styles.TableBroadcastItem__block_flex}>
+        //           <div className={styles.TableBroadcastItem__block_name}>Id</div>
+        //           <div className={styles.TableBroadcastItem__block_value}>{info?.id}</div>
+        //         </div>
+        //         <div className={styles.TableBroadcastItem__block_flex}>
+        //           <div className={styles.TableBroadcastItem__block_name}>Тип</div>
+        //           <div className={styles.TableBroadcastItem__block_value}>{info?.type}</div>
+        //         </div>
+        //         <div className={styles.TableBroadcastItem__block_flex}>
+        //           <div className={styles.TableBroadcastItem__block_name}>Ключи</div>
+        //           <div className={styles.TableBroadcastItem__block_value}>
+        //             {info?.keys?.map(key => (
+        //               <span key={key}>{key}</span>
+        //             ))}
+        //           </div>
+        //         </div>
+        //         <div className={styles.TableBroadcastItem__block_flex}>
+        //           <div className={styles.TableBroadcastItem__block_name}>Начало отправки</div>
+        //           <div className={styles.TableBroadcastItem__block_value}>{info?.date_start}</div>
+        //         </div>
+        //         <div className={styles.TableBroadcastItem__block_flex}>
+        //           <div className={styles.TableBroadcastItem__block_name}>Окончание отправки</div>
+        //           <div className={styles.TableBroadcastItem__block_value}>{info?.date_end}</div>
+        //         </div>
+        //         <div className={styles.TableBroadcastItem__block_flex}>
+        //           <div className={styles.TableBroadcastItem__block_name}>Тип получателя</div>
+        //           <div className={styles.TableBroadcastItem__block_value}>{info?.type_recipient}</div>
+        //         </div>
+        //         <div className={styles.TableBroadcastItem__block_flex}>
+        //           <div className={styles.TableBroadcastItem__block_name}>Сегменты</div>
+        //           <div className={styles.TableBroadcastItem__block_value}>
+        //             {info?.segments?.map(segment => (
+        //               <Tag key={segment} className={styles.TableBroadcastItem__block_tag}>{segment}</Tag>
+        //             ))}
+        //           </div>
+        //         </div>
+        //         <div className={styles.TableBroadcastItem__block_flex}>
+        //           <div className={styles.TableBroadcastItem__block_name}>Тип пуш-уведомления</div>
+        //           <div className={styles.TableBroadcastItem__block_value}>{info?.type_push}</div>
+        //         </div>
+        //       </div>
+        //       <div className={styles.TableBroadcastItem__statistic + ' ' + styles.TableBroadcastItem__block}>
+        //         <div className={styles.TableBroadcastItem__block_name}>Статистика</div>
+        //         <div className={styles.TableBroadcastItem__charts}>
+        //           <div className={styles.TableBroadcastItem__chart}>
+        //             <Doughnut
+        //               data={data1}
+        //               width="100%"
+        //             ></Doughnut>
+        //             <span className={styles.TableBroadcastItem__chart_info}>
+        //               <div className={styles.TableBroadcastItem__chart_flex}>
+        //                 <div className={styles.TableBroadcastItem__chart_icon}
+        //                   style={{ backgroundColor: '#F4BE37' }}
+        //                 ></div>
+        //                 <div className={styles.TableBroadcastItem__chart_name}>Успешно</div>
+        //                 <div>{statistic?.successfully}</div>
+        //               </div>
+        //               <div className={styles.TableBroadcastItem__chart_flex}>
+        //                 <div className={styles.TableBroadcastItem__chart_icon}></div>
+        //                 <div className={styles.TableBroadcastItem__chart_name}>Всего</div>
+        //                 <div>{statistic?.total}</div>
+        //               </div>
+        //             </span>
+        //           </div>
+        //           <div className={styles.TableBroadcastItem__chart}>
+        //             <Doughnut
+        //               data={data2}
+        //               width="50%"
+        //             ></Doughnut>
+        //             <div className={styles.TableBroadcastItem__chart_info}>
+        //               <div className={styles.TableBroadcastItem__chart_flex}>
+        //                 <div className={styles.TableBroadcastItem__chart_icon}
+        //                   style={{ backgroundColor: 'var(--brand_primary_2)' }}
+        //                 ></div>
+        //                 <div className={styles.TableBroadcastItem__chart_name}>Отправлено</div>
+        //                 <div>{statistic_2?.shipped}</div>
+        //               </div>
+        //               <div className={styles.TableBroadcastItem__chart_flex}>
+        //                 <div className={styles.TableBroadcastItem__chart_icon}
+        //                   style={{ backgroundColor: '#35BB73' }}
+        //                 ></div>
+        //                 <div className={styles.TableBroadcastItem__chart_name}>Прочитано</div>
+        //                 <div>{statistic_2?.read}</div>
+        //               </div>
+        //               <div className={styles.TableBroadcastItem__chart_flex}>
+        //                 <div className={styles.TableBroadcastItem__chart_icon}
+        //                   style={{ backgroundColor: '#F4BE37' }}
+        //                 ></div>
+        //                 <div className={styles.TableBroadcastItem__chart_name}>Получено</div>
+        //                 <div>{statistic_2?.received}</div>
+        //               </div>
+        //               <div className={styles.TableBroadcastItem__chart_flex}>
+        //                 <div className={styles.TableBroadcastItem__chart_icon}></div>
+        //                 <div className={styles.TableBroadcastItem__chart_name}>Всего</div>
+        //                 <div>{
+        //                   (statistic_2?.shipped ?? 0)
+        //                   +
+        //                   (statistic_2?.read ?? 0)
+        //                   +
+        //                   (statistic_2?.received ?? 0)}</div>
+        //               </div>
+        //             </div>
+        //           </div>
+        //         </div>
+        //       </div>
+        //     </div>
+        //     <div className={styles.TableBroadcastItem__block + ' ' + styles.TableBroadcastItem__info_right}>
+        //       <div className={styles.TableBroadcastItem__block_flex_column}>
+        //         <div className={styles.TableBroadcastItem__block_name}>Заголовок</div>
+        //         <div className={styles.TableBroadcastItem__block_value}>{info?.title}</div>
+        //       </div>
+        //       <div className={styles.TableBroadcastItem__block_flex_column}>
+        //         <div className={styles.TableBroadcastItem__block_name}>Текст</div>
+        //         <div className={styles.TableBroadcastItem__block_value}>{info?.text}</div>
+        //       </div>
+        //       <div className={styles.TableBroadcastItem__block_flex_column}>
+        //         <div className={styles.TableBroadcastItem__block_name}>Внутренняя ссылка</div>
+        //         <div className={styles.TableBroadcastItem__block_value}>{info?.link}</div>
+        //       </div>
+        //       <div className={styles.TableBroadcastItem__block_flex_column}>
+        //         <div className={styles.TableBroadcastItem__block_name}>Превью</div>
+        //         <div className={styles.TableBroadcastItem__block_value}>
+        //           <div className={styles.TableBroadcastItem__block_images}>
+        //             {info?.preview?.map(previewItem => (
+        //               <div key={previewItem?.name} className={styles.TableBroadcastItem__block_image}>
+        //                 <img loading="lazy" src={previewItem?.image} alt={previewItem?.name} />
+        //                 <span>{previewItem?.name}</span>
+        //               </div>
+        //             ))}
+        //           </div>
+        //         </div>
+        //       </div>
+        //       <div className={styles.TableBroadcastItem__block_flex_column}>
+        //         <div className={styles.TableBroadcastItem__block_name}>Сообщение</div>
+        //         <div className={styles.TableBroadcastItem__block_value}>{info?.message}</div>
+        //       </div>
+        //     </div>
+        //   </div>
+        // )
       }
     </div >
   );

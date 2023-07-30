@@ -12,3 +12,8 @@ body {
 .icon {
     display: flex;
 }
+
+.form-flex-item {
+    flex-grow: 1;
+    max-width: 30vw;
+}

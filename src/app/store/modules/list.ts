@@ -7,11 +7,11 @@ export interface iGetList {
     title: string
 }
 
-type Result = {
+export type resultListsGet = {
     result?: iGetList[],
 };
 
-interface iCreateList {
+export interface iCreateList {
     id: number,
     title: string,
     before_subscribe_url?: string,
@@ -30,7 +30,7 @@ export const listApi = createApi({
     tagTypes: ['Lists'],
     baseQuery: fetchBaseQuery({ baseUrl: URL_BACKEND }),
     endpoints: build => ({
-        listsGet: build.query<Result, void>({
+        listsGet: build.query<resultListsGet, void>({
             query: () => setFetchQueryUrl('getLists'),
             providesTags: result => {
                 return result?.result?.length

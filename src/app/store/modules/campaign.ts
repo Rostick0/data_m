@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { FORMAT_API_KEY, URL_BACKEND } from '../utils';
 import { setFetchQueryUrl } from '../../utils/url';
 
-interface iGetCampaign {
+export interface iGetCampaign {
     id: number,
     start_time?: string,
     status?: string,
@@ -12,6 +12,13 @@ interface iGetCampaign {
     sender_name?: string,
     sender_email?: string,
     stats_url?: string
+}
+
+interface iUrlGetCampaigns {
+    from: string, // Дата и время старта рассылки, начиная с которой нужно выводить рассылки, в формате «ГГГГ-ММ-ДД чч:мм:сс», часовой пояс UTC.
+    to?: string,	// Дата и время старта рассылки, заканчивая которой нужно выводить рассылки, в формате «ГГГГ-ММ-ДД чч:мм:сс», часовой пояс UTC.
+    limit?: number, // Количество записей в ответе на один запрос должно быть целым числом в диапазоне 1 — 10 000.
+    offset?: number
 }
 
 type Result = {
@@ -60,17 +67,14 @@ export const campaignApi = createApi({
     tagTypes: ['campaigns'],
     baseQuery: fetchBaseQuery({ baseUrl: URL_BACKEND }),
     endpoints: build => ({
-        campaignsGet: build.query<Result, void>({
-            query: () => setFetchQueryUrl('getLists'),
+        campaignsGet: build.query<Result, iUrlGetCampaigns>({
+            query: (body) => setFetchQueryUrl('getCampaigns', body),
             providesTags: result => result?.result?.length
                 ? [
                     ...result?.result?.map(({ id }: { id: number }) => ({ type: 'campaigns' as const, id })),
                     { type: 'campaigns', id: 'LIST' }
                 ]
                 : [{ type: 'campaigns', id: 'LIST' }]
-        }),
-        campaignGet: build.query({
-            query: (id: number) => '&cmd=campaignGet&id=' + id
         }),
         createCampaign: build.mutation({
             query: (body: iMutationCampaing) => ({
@@ -94,4 +98,4 @@ export const campaignApi = createApi({
     })
 });
 
-export const { useCampaignGetQuery, useCampaignsGetQuery, useCancelCampaigMutation, useCreateCampaignMutation } = campaignApi;
+export const { useCampaignsGetQuery, useCancelCampaigMutation, useCreateCampaignMutation } = campaignApi;

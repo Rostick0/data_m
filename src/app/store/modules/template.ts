@@ -21,15 +21,23 @@ export interface iGetTemplate {
     body: string,
 }
 
-
-export interface iMutationTemplate {
-    template_id?: number
+export interface iCreateTemplate {
     title: string
-    description: string,
+    description?: string,
     subject: string,
     body: string,
-    text_body: string,
-    lang: langType
+    text_body?: string,
+    lang?: langType
+}
+
+export interface iUpdateTemplate {
+    template_id: number
+    title?: string
+    description?: string,
+    subject?: string,
+    body?: string,
+    text_body?: string,
+    lang?: langType
 }
 
 type Result = {
@@ -42,7 +50,7 @@ export const templatesApi = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: URL_BACKEND }),
     endpoints: build => ({
         templatesGet: build.query<Result, string>({
-            query: (queryParams?: string | undefined) => setFetchQueryUrl('getTemplates', queryParams),
+            query: (queryParams: string = '') => setFetchQueryUrl('getTemplates', queryParams),
             providesTags: result => {
 
                 return result?.result?.length
@@ -57,13 +65,13 @@ export const templatesApi = createApi({
             query: (templateId: number) => setFetchQueryUrl('getTemplate', { template_id: templateId })
         }),
         templateAdd: build.mutation({
-            query: (body: iMutationTemplate) => ({
+            query: (body: iCreateTemplate) => ({
                 url: setFetchQueryUrl('createEmailTemplate', body),
             }),
             // invalidatesTags: [{ type: 'Templates', id: 'LIST' }]
         }),
         templateUpdate: build.mutation({
-            query: (body: iMutationTemplate) => ({
+            query: (body: iUpdateTemplate) => ({
                 url: setFetchQueryUrl('updateEmailTemplate', body),
             }),
             // invalidatesTags: [{ type: 'Templates', id: 'LIST' }]

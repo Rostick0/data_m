@@ -10,9 +10,7 @@ import { useTemplatesGetQuery } from '../../app/store/modules/template';
 interface TemplateListProps { }
 
 const TemplateList: FC<TemplateListProps> = () => {
-  const { data = [] } = useTemplatesGetQuery('');
-
-  console.log(data);
+  const { data } = useTemplatesGetQuery('');
 
   return (
     <div className={styles.TemplateList}>
@@ -42,7 +40,9 @@ const TemplateList: FC<TemplateListProps> = () => {
           <SelectMulti></SelectMulti>
         </div>
       </div>
-      <TableTemplate></TableTemplate>
+      <TableTemplate
+        data={data?.result}
+      ></TableTemplate>
     </div>
   );
 };

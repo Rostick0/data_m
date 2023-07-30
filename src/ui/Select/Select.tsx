@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import styles from './Select.module.scss';
 import Input from '../Input/Input';
 
@@ -13,7 +13,8 @@ export interface SelectProps {
   defaultValue?: string | number,
   placeholder?: string,
   onChange?: Function
-  items?: Array<Items>
+  items?: Array<Items>,
+  resetField?: any
 }
 
 const Select: FC<SelectProps> = ({
@@ -23,10 +24,17 @@ const Select: FC<SelectProps> = ({
   defaultValue,
   placeholder,
   onChange,
-  items
+  items,
+  resetField
 }) => {
   const [active, setActive] = useState(false);
   const [value, setValue] = useState(defaultValue);
+
+  // useEffect(() => {
+  //   console.log(resetField)
+  //   setValue('');
+  // })
+
 
   const styleClassName = className ? ' ' + className : '';
   const styleInputClassName = inputClassName ? ' ' + inputClassName : '';
@@ -43,10 +51,11 @@ const Select: FC<SelectProps> = ({
         onClick={() => setActive(prev => !prev)}
       >
         <Input
-          onMouseDown={(e) => e.preventDefault()}
+          onClick={(e) => e.preventDefault()}
+          onMouseDown={e => e.preventDefault()}
           className={styles.Select__input + styleInputClassName}
           placeholder={placeholder}
-          value={value}
+          defaultValue={value}
           readOnly
         ></Input>
         <svg className={styles.Select__icon} width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -64,7 +73,7 @@ const Select: FC<SelectProps> = ({
             className={styles.Select__item}
             onClick={() => {
               setValue(`${item?.name}`)
-              setActive(false)
+              // setActive(false)
               typeof onChange === 'function' && onChange({
                 value: item.value,
                 name: item.name
@@ -73,7 +82,7 @@ const Select: FC<SelectProps> = ({
           >{item.name}</li>
         )) ?? (<li className={styles.Select__item}>Нет данных</li>)}
       </ul>}
-    </div>
+    </div >
   );
 };
 
