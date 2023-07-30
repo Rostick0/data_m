@@ -30,11 +30,11 @@ const Select: FC<SelectProps> = ({
   const [active, setActive] = useState(false);
   const [value, setValue] = useState(defaultValue);
 
-  // useEffect(() => {
-  //   console.log(resetField)
-  //   setValue('');
-  // })
+  useEffect(() => {
+    if (value && defaultValue) return;
 
+    setValue(defaultValue);
+  }, [defaultValue])
 
   const styleClassName = className ? ' ' + className : '';
   const styleInputClassName = inputClassName ? ' ' + inputClassName : '';

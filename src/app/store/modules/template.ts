@@ -62,7 +62,7 @@ export const templatesApi = createApi({
             }
         }),
         templateGet: build.query({
-            query: (templateId: number) => setFetchQueryUrl('getTemplate', { template_id: templateId })
+            query: (templateId?: string) => setFetchQueryUrl('getTemplate', { template_id: templateId })
         }),
         templateAdd: build.mutation({
             query: (body: iCreateTemplate) => ({
@@ -77,7 +77,7 @@ export const templatesApi = createApi({
             // invalidatesTags: [{ type: 'Templates', id: 'LIST' }]
         }),
         templateDelete: build.mutation({
-            query: (templateId: number) => ({
+            query: (templateId?: number) => ({
                 url: setFetchQueryUrl('deleteTemplate', { template_id: templateId }),
             }),
             invalidatesTags: [{ type: 'Templates', id: 'LIST' }]

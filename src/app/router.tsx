@@ -1,7 +1,6 @@
 import React from 'react';
 import { Suspense, lazy } from "react";
 import { Routes, Route } from 'react-router-dom';
-
 const Broadcast = lazy(() => import('../pages/Broadcast/Broadcast'));
 const BroadcastList = lazy(() => import('../pages/BroadcastList/BroadcastList'));
 const BroadcastPush = lazy(() => import('../pages/BroadcastPush/BroadcastPush'));
@@ -14,6 +13,7 @@ const CronsList = lazy(() => import('../pages/CronsList/CronsList'));
 const Template = lazy(() => import('../pages/Template/Template'));
 const TemplateCreate = lazy(() => import('../pages/TemplateCreate/TemplateCreate'));
 const TemplateList = lazy(() => import('../pages/TemplateList/TemplateList'));
+const TemplateEdit = lazy(() => import('../pages/TemplateEdit/TemplateEdit'));
 const Journey = lazy(() => import('../pages/Journey/Journey'));
 const JourneyList = lazy(() => import('../pages/JourneyList/JourneyList'));
 const JourneyItem = lazy(() => import('../pages/JourneyItem/JourneyItem'));
@@ -68,6 +68,7 @@ const AppRouter: React.FC<AppRouterprops> = () => {
                 <Route path="/template" element={<Template />}>
                     <Route path="list" element={<TemplateList />}></Route>
                     <Route path="create" element={<TemplateCreate />}></Route>
+                    <Route path="edit/:id" element={<TemplateEdit />}></Route>
                 </Route>
                 <Route path="/journey" element={<Journey />}>
                     <Route path="list" element={<JourneyList />}></Route>

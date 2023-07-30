@@ -5,5 +5,5 @@ export const setQueryUrl = (data: any) => {
 };
 
 export const setFetchQueryUrl = (method: string, data: any = '') => {
-    return method + FORMAT_API_KEY + '&' + setQueryUrl(data);
-};
+    return method + FORMAT_API_KEY + setQueryUrl(data);
+};  

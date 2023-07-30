@@ -1,5 +1,5 @@
-import React, { FC, lazy } from 'react';
-import styles from './TemplateCreate.module.scss';
+import React, { FC, lazy, useEffect } from 'react';
+import styles from './TemplateEdit.module.scss';
 import Title from '../../ui/Title/Title';
 import FieldItemUi from '../../components/FieldItem/FieldItem';
 import Input from '../../ui/Input/Input';
@@ -12,23 +12,33 @@ import PhoneAndroidAlert from '../../components/PhoneAndroid/components/PhoneAnd
 import PhoneIphoneAlert from '../../components/PhoneIphone/components/PhoneIphoneAlert/PhoneIphoneAlert';
 import { useForm } from 'react-hook-form';
 import { langsSelectItems } from '../../app/utils/lang';
-import { iCreateTemplate, useTemplateAddMutation } from '../../app/store/modules/template';
+import { iUpdateTemplate, useTemplateAddMutation, useTemplateGetQuery } from '../../app/store/modules/template';
+import { useParams } from 'react-router';
 const FieldButtons = lazy(() => import('../../components/FieldButtons/FieldButtons'));
 
-interface TemplateCreateProps { }
+interface TemplateTemplateEditProps { }
 
-const TemplateCreate: FC<TemplateCreateProps> = () => {
-  const { register, handleSubmit, reset, setValue, resetField, formState: { errors }, } = useForm<iCreateTemplate>();
-  const [createTemplate, result] = useTemplateAddMutation();
+const TemplateEdit: FC<TemplateTemplateEditProps> = () => {
+  const { id } = useParams();
+  const [updateTemplate, result] = useTemplateAddMutation();
+  const { data } = useTemplateGetQuery(id)
+  const { register, handleSubmit, reset, setValue, resetField, formState: { errors, defaultValues }, } = useForm<iUpdateTemplate>(
+    { defaultValues: data?.result },
+  );
 
-  const onSubmit = (values: iCreateTemplate) => {
-    createTemplate(values);
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
+
+  const onSubmit = (values: iUpdateTemplate) => {
+    // updateTemplate(values);
+    console.log(values);
   };
 
   return (
-    <div className={styles.TemplateCreate}>
+    <div className={styles.TemplateEdit}>
       <form className='form-flex-item' onSubmit={handleSubmit(onSubmit)}>
-        <Title className={styles.TemplateCreate__title}>Создать шаблон</Title>
+        <Title className={styles.TemplateEdit__title}>Создать шаблон</Title>
         <FieldUi>
           <FieldItemUi
             title="Наименование"
@@ -36,6 +46,7 @@ const TemplateCreate: FC<TemplateCreateProps> = () => {
             <Input
               className='input_width_default'
               placeholder='Введите'
+              defaultValue={data?.result?.title}
               register={register("title")}
             ></Input>
           </FieldItemUi>
@@ -45,6 +56,7 @@ const TemplateCreate: FC<TemplateCreateProps> = () => {
             <Input
               className='input_width_default'
               placeholder='Введите'
+              defaultValue={data?.result?.title}
               register={register("subject")}
             ></Input>
           </FieldItemUi>
@@ -54,6 +66,7 @@ const TemplateCreate: FC<TemplateCreateProps> = () => {
             <Input
               className='input_width_default'
               placeholder='Текст шаблона письма в формате HTML'
+              defaultValue={data?.result?.body}
               register={register("body")}
             ></Input>
           </FieldItemUi>
@@ -63,6 +76,7 @@ const TemplateCreate: FC<TemplateCreateProps> = () => {
             <Input
               className='input_width_default'
               placeholder='Введите'
+              defaultValue={data?.result?.description}
               register={register("description")}
             ></Input>
           </FieldItemUi>
@@ -72,6 +86,7 @@ const TemplateCreate: FC<TemplateCreateProps> = () => {
             <Input
               className='input_width_default'
               placeholder='Текстовый вариант шаблона'
+              defaultValue={data?.result?.text_body}
               register={register("text_body")}
             ></Input>
           </FieldItemUi>
@@ -82,7 +97,7 @@ const TemplateCreate: FC<TemplateCreateProps> = () => {
               className='input_width_default'
               placeholder='Выберите'
               items={langsSelectItems}
-              // name="lang"
+              defaultValue={data?.result?.lang_code}
               onChange={(data: any) => setValue('lang', data?.value)}
             ></Select>
           </FieldItemUi>
@@ -169,7 +184,7 @@ const TemplateCreate: FC<TemplateCreateProps> = () => {
           </Button>
         </FieldButtons>
       </form>
-      <div className={styles.TemplateCreate__phone}>
+      <div className={styles.TemplateEdit__phone}>
         <PhoneSwitch
           androidChildren={<PhoneAndroidAlert></PhoneAndroidAlert>}
           iphoneChildren={<PhoneIphoneAlert></PhoneIphoneAlert>}
@@ -179,4 +194,4 @@ const TemplateCreate: FC<TemplateCreateProps> = () => {
   );
 }
 
-export default TemplateCreate;
+export default TemplateEdit;
