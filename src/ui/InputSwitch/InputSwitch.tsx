@@ -2,13 +2,15 @@ import React, { FC, InputHTMLAttributes } from 'react';
 import styles from './InputSwitch.module.scss';
 
 interface InputSwitchProps extends InputHTMLAttributes<HTMLInputElement> {
-  alignItems?: string | undefined
+  alignItems?: string | undefined,
+  register?: any
 }
 
 const InputSwitch: FC<InputSwitchProps> = props => {
   const {
     className,
     alignItems,
+    register,
     type = "checkbox",
     hidden = true,
     children,
@@ -24,6 +26,7 @@ const InputSwitch: FC<InputSwitchProps> = props => {
         className={styles.InputSwitch__input}
         type={type}
         hidden={hidden}
+        {...register}
         {...rest}
       />
       <span className={styles.InputSwitch__switch}>

@@ -2,8 +2,9 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { FORMAT_API_KEY, URL_BACKEND } from '../utils';
 import { langType } from '../../utils/lang';
 import { setFetchQueryUrl } from '../../utils/url';
+import { wrap_type } from '../../utils/wrapType';
 
-interface iCreateEmailMessage {
+export interface iCreateEmailMessage {
     sender_name: string,
     sender_email: string,
     subject: string,
@@ -16,7 +17,7 @@ interface iCreateEmailMessage {
     lang: langType,
     template_id: number,
     system_template_id: number,
-    wrap_type?: 'skip' | 'right' | 'left' | 'center'
+    wrap_type?: wrap_type
 }
 
 interface iUpdateEmailMessage {
@@ -31,7 +32,7 @@ interface iUpdateEmailMessage {
     categories?: string
 }
 
-interface iMutationSmsMessage {
+export interface iMutationSmsMessage {
     sender: string,
     body: string,
     list_id: number,

@@ -80,7 +80,7 @@ const Select: FC<SelectProps> = ({
             className={styles.Select__item}
             onClick={() => {
               setValue(`${item?.name}`)
-              // setActive(false)
+              setActive(false)
               typeof onChange === 'function' && onChange({
                 value: item.value,
                 name: item.name
