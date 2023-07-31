@@ -14,9 +14,9 @@ export interface iCreateEmailMessage {
     generate_text?: 1 | 0,
     tag?: string,
     attachments?: string,
-    lang: langType,
-    template_id: number,
-    system_template_id: number,
+    lang?: langType,
+    template_id?: number,
+    system_template_id?: number,
     wrap_type?: wrap_type
 }
 
@@ -32,7 +32,7 @@ interface iUpdateEmailMessage {
     categories?: string
 }
 
-export interface iMutationSmsMessage {
+export interface iCreateSmsMessage {
     sender: string,
     body: string,
     list_id: number,
@@ -70,7 +70,7 @@ interface iSendSms {
 }
 
 export const messageApi = createApi({
-    reducerPath: 'listCampaignApi',
+    reducerPath: 'messageApi',
     tagTypes: ['Message'],
     baseQuery: fetchBaseQuery({ baseUrl: URL_BACKEND }),
     endpoints: build => ({
@@ -81,7 +81,7 @@ export const messageApi = createApi({
             invalidatesTags: [{ type: 'Message', id: 'LIST' }]
         }),
         createSmsMessage: build.mutation({
-            query: (body: iMutationSmsMessage) => ({
+            query: (body: iCreateSmsMessage) => ({
                 url: setFetchQueryUrl('createSmsMessage', body),
             }),
             invalidatesTags: [{ type: 'Message', id: 'LIST' }]
@@ -109,7 +109,7 @@ export const messageApi = createApi({
     })
 });
 
-export const { useCreateEmailMessageMutation } = messageApi;
+export const { useCreateEmailMessageMutation, useCreateSmsMessageMutation } = messageApi;
 
 // Добавить сегмент к рассылке - listCampaignAdd
 

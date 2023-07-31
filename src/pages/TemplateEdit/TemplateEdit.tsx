@@ -27,14 +27,13 @@ const TemplateEdit: FC<TemplateTemplateEditProps> = () => {
   );
 
   useEffect(() => {
+    if (!data?.result?.id) return;
+
     reset(data?.result);
-    console.log(data);
   }, [data]);
 
-  console.log(result);
-
   const onSubmit = (values: iUpdateTemplate) => {
-    console.log(values);
+    // console.log(values);
     updateTemplate({ ...values, template_id: Number(id) });
   };
 

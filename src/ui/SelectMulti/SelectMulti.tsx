@@ -19,7 +19,6 @@ const SelectMulti: FC<SelectMultiProps> = ({
 
   const clearValue = (valueItem: string) => {
     const index = values.findIndex(value => value.value == valueItem);
-    console.log(valueItem)
     const clearValue = [...values];
     clearValue.splice(index, 1)
     setValues(clearValue);

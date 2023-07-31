@@ -14,7 +14,6 @@ export const userApi = createApi({
         userLogin: build.query<any, void>({
             query: () => '',
             providesTags: result => {
-                console.log(result);
                 
                 return result
                 ? [

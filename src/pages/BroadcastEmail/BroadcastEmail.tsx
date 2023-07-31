@@ -19,12 +19,19 @@ const FieldButtons = lazy(() => import('../../components/FieldButtons/FieldButto
 interface BroadcastEmailProps { }
 
 const BroadcastEmail: FC<BroadcastEmailProps> = () => {
-  const [createEmailMessage] = useCreateEmailMessageMutation();
-
+  const [createEmailMessage, result] = useCreateEmailMessageMutation();
   const { register, handleSubmit, setValue, reset } = useForm<iCreateEmailMessage>();
 
   const onSubmit = (values: iCreateEmailMessage) => {
-    console.log(values)
+    // console.log(values)
+    // const { generate_text, ...other } = values;
+    // let generateTextValue: 1 | 0 = generate_text ? 1 : 0;
+
+    // createEmailMessage({
+    //   ...other,
+    //   generate_text: generateTextValue
+    // })
+
     createEmailMessage(values)
   };
 

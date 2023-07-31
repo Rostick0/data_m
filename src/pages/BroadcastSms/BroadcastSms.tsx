@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, lazy } from 'react';
 import styles from './BroadcastSms.module.scss';
 import FieldItemUi from '../../components/FieldItem/FieldItem';
 import Input from '../../ui/Input/Input';
@@ -12,142 +12,93 @@ import PhoneAndroidChat from '../../components/PhoneAndroid/components/PhoneAndr
 import PhoneIphoneChat from '../../components/PhoneIphone/components/PhoneIphoneChat/PhoneIphoneChat';
 import KeysAdd from '../../components/KeysAdd/KeysAdd';
 import InputDateTime from '../../ui/InputDateTime/InputDateTime';
+import { useForm } from 'react-hook-form';
+import { iCreateSmsMessage, useCreateSmsMessageMutation } from '../../app/store/modules/message';
+import Button from '../../ui/Button/Button';
+const FieldButtons = lazy(() => import('../../components/FieldButtons/FieldButtons'));
 
 interface BroadcastSmsProps { }
 
-const BroadcastSms: FC<BroadcastSmsProps> = () => (
-  <div className={styles.BroadcastSms}>
-    <div>
-      <FieldUi>
-        <FieldItemUi
-          title="Наименование"
+const BroadcastSms: FC<BroadcastSmsProps> = () => {
+  const { register, handleSubmit, reset } = useForm<iCreateSmsMessage>();
+  const [createSmsMessage] = useCreateSmsMessageMutation()
+
+  const onSubmit = (values: iCreateSmsMessage) => {
+    createSmsMessage(values);
+  }
+
+  return (
+    <div className={styles.BroadcastSms}>
+      <form onSubmit={handleSubmit(onSubmit)} className='form-flex-item'>
+        <FieldUi>
+          <FieldItemUi
+            title="Имя отправителя"
+          >
+            <Input
+              className='input_width_default'
+              register={register('sender')}
+            ></Input>
+          </FieldItemUi>
+        </FieldUi>
+        <FieldUi
+          title="Получатели"
         >
-          <Input
-            className='input_width_default'
-          ></Input>
-        </FieldItemUi>
-        <FieldItemUi
-          title="Папка"
+          <FieldItemUi
+            title="Код списка"
+          >
+            <Input
+              className='input_width_default'
+              register={register('list_id')}
+            ></Input>
+          </FieldItemUi>
+        </FieldUi>
+        <FieldUi
+          title="SMS"
         >
-          <Select
-            className='input_width_default'
-          ></Select>
-        </FieldItemUi>
-      </FieldUi>
-      <FieldUi
-        title="Получатели"
-      >
-        <FieldItemUi
-          title="Тип"
+          <FieldItemUi
+            title="Текст"
+          >
+            <Input
+              className='input_width_default'
+              placeholder="Введите"
+              register={register('body')}
+            ></Input>
+          </FieldItemUi>
+        </FieldUi>
+        <FieldUi
+          title="Настройки"
         >
-          <SelectMulti
-            className='input_width_default'
-            placeholder="Выберите"
-            items={[
-              {
-                name: 132131231231312,
-                value: 1
-              },
-              {
-                name: 'dsadas3132131231231312',
-                value: 2
-              },
-              {
-                name: 'd44412h532gj5j4f35',
-                value: 3
-              },
-            ]}
-          ></SelectMulti>
-        </FieldItemUi>
-        <FieldItemUi
-          title="Брать из"
-        >
-          <Select
-            className='input_width_default'
-            placeholder="Выберите"
-          ></Select>
-        </FieldItemUi>
-        <FieldItemUi
-          title="BI компоненты"
-        >
-          <Select
-            className='input_width_default'
-            placeholder="Выберите"
-          ></Select>
-        </FieldItemUi>
-        <FieldItemUi
-          title="S3 компоненты"
-        >
-          <Input
-            className='input_width_default'
-            placeholder="Выберите"
-          ></Input>
-        </FieldItemUi>
-      </FieldUi>
-      <FieldUi
-        title="SMS"
-      >
-        <FieldItemUi
-          title="Текст"
-        >
-          <Input
-            className='input_width_default'
-            placeholder="Введите"
-          ></Input>
-        </FieldItemUi>
-      </FieldUi>
-      <FieldUi
-        title="Настройки"
-      >
-        <FieldItemUi
-          title="Имя трекера"
-        >
-          <Input
-            className='input_width_default'
-            placeholder="Введите"
-          ></Input>
-        </FieldItemUi>
-        <FieldItemUi>
-          <InputSwitch>Добавить к промо</InputSwitch>
-        </FieldItemUi>
-        <FieldItemUi
-          title="Теги"
-        >
-          <InputMulti
-            className='input_width_default'
-            placeholder="Введите"
-          ></InputMulti>
-        </FieldItemUi>
-        <FieldItemUi
-          title="Ключи"
-        >
-          <KeysAdd></KeysAdd>
-        </FieldItemUi>
-      </FieldUi>
-      <FieldUi
-        title="Время"
-      >
-        <FieldItemUi
-          title="Рассылать в"
-        >
-          <div className='input_width_default field_time'>
-            <InputSwitch>Реальном времени</InputSwitch>
-            <InputDateTime></InputDateTime>
-          </div>
-        </FieldItemUi>
-        <FieldItemUi>
-          <InputSwitch>Пауза после привлечения пользователей</InputSwitch>
-        </FieldItemUi>
-      </FieldUi>
+          <FieldItemUi
+            title="Теги"
+          >
+            <Input
+              className='input_width_default'
+              placeholder="Введите"
+              register={register('tag')}
+            ></Input>
+          </FieldItemUi>
+        </FieldUi>
+        <FieldButtons>
+          <Button styleColor='grey'
+            onClick={() => reset()}
+          >Очистить</Button>
+          <Button className='button_with_icon'>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 8.49997L10.5 16.9999L5 11.4999L6.41 10.0899L10.5 14.1699L17.59 7.08997L19 8.49997Z" fill="white" />
+            </svg>
+            <span>Сохранить</span>
+          </Button>
+        </FieldButtons>
+      </form>
+      <div>
+        <PhoneSwitch
+          className={styles.BroadcastChat__first_phone}
+          androidChildren={<PhoneAndroidChat></PhoneAndroidChat>}
+          iphoneChildren={<PhoneIphoneChat></PhoneIphoneChat>}
+        ></PhoneSwitch>
+      </div>
     </div>
-    <div>
-      <PhoneSwitch
-        className={styles.BroadcastChat__first_phone}
-        androidChildren={<PhoneAndroidChat></PhoneAndroidChat>}
-        iphoneChildren={<PhoneIphoneChat></PhoneIphoneChat>}
-      ></PhoneSwitch>
-    </div>
-  </div>
-);
+  );
+};
 
 export default BroadcastSms;
