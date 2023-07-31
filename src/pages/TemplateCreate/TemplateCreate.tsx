@@ -11,7 +11,7 @@ import PhoneSwitch from '../../components/PhoneSwitch/PhoneSwitch';
 import PhoneAndroidAlert from '../../components/PhoneAndroid/components/PhoneAndroidAlert/PhoneAndroidAlert';
 import PhoneIphoneAlert from '../../components/PhoneIphone/components/PhoneIphoneAlert/PhoneIphoneAlert';
 import { useForm } from 'react-hook-form';
-import { langsSelectItems } from '../../app/utils/lang';
+import { langType, langsSelectItems } from '../../app/utils/lang';
 import { iCreateTemplate, useTemplateAddMutation } from '../../app/store/modules/template';
 const FieldButtons = lazy(() => import('../../components/FieldButtons/FieldButtons'));
 
@@ -83,7 +83,7 @@ const TemplateCreate: FC<TemplateCreateProps> = () => {
               placeholder='Выберите'
               items={langsSelectItems}
               // name="lang"
-              onChange={(data: any) => setValue('lang', data?.value)}
+              onChange={({ value }: { value: langType }) => setValue('lang', value)}
             ></Select>
           </FieldItemUi>
         </FieldUi>

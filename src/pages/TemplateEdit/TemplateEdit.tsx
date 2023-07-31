@@ -11,8 +11,8 @@ import PhoneSwitch from '../../components/PhoneSwitch/PhoneSwitch';
 import PhoneAndroidAlert from '../../components/PhoneAndroid/components/PhoneAndroidAlert/PhoneAndroidAlert';
 import PhoneIphoneAlert from '../../components/PhoneIphone/components/PhoneIphoneAlert/PhoneIphoneAlert';
 import { useForm } from 'react-hook-form';
-import { langsSelectItems } from '../../app/utils/lang';
-import { iUpdateTemplate, useTemplateAddMutation, useTemplateGetQuery } from '../../app/store/modules/template';
+import { langType, langsSelectItems } from '../../app/utils/lang';
+import { iUpdateTemplate, useTemplateGetQuery, useTemplateUpdateMutation } from '../../app/store/modules/template';
 import { useParams } from 'react-router';
 const FieldButtons = lazy(() => import('../../components/FieldButtons/FieldButtons'));
 
@@ -20,19 +20,22 @@ interface TemplateTemplateEditProps { }
 
 const TemplateEdit: FC<TemplateTemplateEditProps> = () => {
   const { id } = useParams();
-  const [updateTemplate, result] = useTemplateAddMutation();
+  const [updateTemplate, result] = useTemplateUpdateMutation();
   const { data } = useTemplateGetQuery(id)
   const { register, handleSubmit, reset, setValue, resetField, formState: { errors, defaultValues }, } = useForm<iUpdateTemplate>(
     { defaultValues: data?.result },
   );
 
   useEffect(() => {
+    reset(data?.result);
     console.log(data);
   }, [data]);
 
+  console.log(result);
+
   const onSubmit = (values: iUpdateTemplate) => {
-    // updateTemplate(values);
     console.log(values);
+    updateTemplate({ ...values, template_id: Number(id) });
   };
 
   return (
@@ -46,7 +49,7 @@ const TemplateEdit: FC<TemplateTemplateEditProps> = () => {
             <Input
               className='input_width_default'
               placeholder='Введите'
-              defaultValue={data?.result?.title}
+              // defaultValue={data?.result?.title}
               register={register("title")}
             ></Input>
           </FieldItemUi>
@@ -56,7 +59,7 @@ const TemplateEdit: FC<TemplateTemplateEditProps> = () => {
             <Input
               className='input_width_default'
               placeholder='Введите'
-              defaultValue={data?.result?.title}
+              // defaultValue={data?.result?.title}
               register={register("subject")}
             ></Input>
           </FieldItemUi>
@@ -66,7 +69,7 @@ const TemplateEdit: FC<TemplateTemplateEditProps> = () => {
             <Input
               className='input_width_default'
               placeholder='Текст шаблона письма в формате HTML'
-              defaultValue={data?.result?.body}
+              // defaultValue={data?.result?.body}
               register={register("body")}
             ></Input>
           </FieldItemUi>
@@ -76,7 +79,7 @@ const TemplateEdit: FC<TemplateTemplateEditProps> = () => {
             <Input
               className='input_width_default'
               placeholder='Введите'
-              defaultValue={data?.result?.description}
+              // defaultValue={data?.result?.description}
               register={register("description")}
             ></Input>
           </FieldItemUi>
@@ -86,7 +89,7 @@ const TemplateEdit: FC<TemplateTemplateEditProps> = () => {
             <Input
               className='input_width_default'
               placeholder='Текстовый вариант шаблона'
-              defaultValue={data?.result?.text_body}
+              // defaultValue={data?.result?.text_body}
               register={register("text_body")}
             ></Input>
           </FieldItemUi>
@@ -98,7 +101,7 @@ const TemplateEdit: FC<TemplateTemplateEditProps> = () => {
               placeholder='Выберите'
               items={langsSelectItems}
               defaultValue={data?.result?.lang_code}
-              onChange={(data: any) => setValue('lang', data?.value)}
+              onChange={({ value }: { value: langType }) => setValue('lang', value)}
             ></Select>
           </FieldItemUi>
         </FieldUi>

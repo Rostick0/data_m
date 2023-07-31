@@ -45,13 +45,20 @@ const Select: FC<SelectProps> = ({
   return (
     <div className={styles.Select + styleLink + styleClassName}
       tabIndex={1}
-      onBlur={() => setActive(false)}
+      onBlur={function (e) {
+        if (e.currentTarget !== e.target) return;
+
+        setActive(false)
+      }}
     >
       <div className={styles.Select__switch + styleClassName}
         onClick={() => setActive(prev => !prev)}
       >
         <Input
-          onClick={(e) => e.preventDefault()}
+          // onClick={(e) => e.preventDefault()}
+          
+          // onBlur={e => e.preventDefault()}
+          // onFocus={e => e.preventDefault()}
           onMouseDown={e => e.preventDefault()}
           className={styles.Select__input + styleInputClassName}
           placeholder={placeholder}
