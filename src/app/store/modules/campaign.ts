@@ -4,6 +4,7 @@ import { setFetchQueryUrl } from '../../utils/url';
 
 export interface iGetCampaign {
     id: number,
+    title?: string,
     start_time?: string,
     status?: string,
     message_id?: number,
@@ -15,7 +16,7 @@ export interface iGetCampaign {
 }
 
 interface iUrlGetCampaigns {
-    from: string, // Дата и время старта рассылки, начиная с которой нужно выводить рассылки, в формате «ГГГГ-ММ-ДД чч:мм:сс», часовой пояс UTC.
+    from?: string, // Дата и время старта рассылки, начиная с которой нужно выводить рассылки, в формате «ГГГГ-ММ-ДД чч:мм:сс», часовой пояс UTC.
     to?: string,	// Дата и время старта рассылки, заканчивая которой нужно выводить рассылки, в формате «ГГГГ-ММ-ДД чч:мм:сс», часовой пояс UTC.
     limit?: number, // Количество записей в ответе на один запрос должно быть целым числом в диапазоне 1 — 10 000.
     offset?: number
@@ -67,8 +68,11 @@ export const campaignApi = createApi({
     tagTypes: ['campaigns'],
     baseQuery: fetchBaseQuery({ baseUrl: URL_BACKEND }),
     endpoints: build => ({
-        campaignsGet: build.query<Result, iUrlGetCampaigns>({
-            query: (body) => setFetchQueryUrl('getCampaigns', body),
+        campaignsGet: build.query<Result, void>({
+            query: (body) => {
+                console.log(body);
+                return setFetchQueryUrl('getCampaigns', body)
+            },
             providesTags: result => result?.result?.length
                 ? [
                     ...result?.result?.map(({ id }: { id: number }) => ({ type: 'campaigns' as const, id })),

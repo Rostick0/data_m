@@ -6,12 +6,14 @@ import Select from '../../ui/Select/Select';
 import SelectMulti from '../../ui/SelectMulti/SelectMulti';
 import TableBroadcast from '../../components/TableBroadcast/TableBroadcast';
 import { resultListsGet, useListsGetQuery } from '../../app/store/modules/list';
+import { useCampaignsGetQuery } from '../../app/store/modules/campaign';
 
 interface BroadcastListProps { }
 
 const BroadcastList: FC<BroadcastListProps> = () => {
-  const { data } = useListsGetQuery();
+  const { data } = useCampaignsGetQuery();
 
+  console.log(data?.result);
 
   return (
     <div className={styles.BroadcastList}>

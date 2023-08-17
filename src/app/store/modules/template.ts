@@ -52,7 +52,6 @@ export const templatesApi = createApi({
         templatesGet: build.query<Result, string>({
             query: (queryParams: string = '') => setFetchQueryUrl('getTemplates', queryParams),
             providesTags: result => {
-
                 return result?.result?.length
                     ? [
                         ...result?.result?.map(({ id }) => ({ type: 'Templates' as const, id })),
@@ -68,7 +67,7 @@ export const templatesApi = createApi({
             query: (body: iCreateTemplate) => ({
                 url: setFetchQueryUrl('createEmailTemplate', body),
             }),
-            // invalidatesTags: [{ type: 'Templates', id: 'LIST' }]
+            invalidatesTags: [{ type: 'Templates', id: 'LIST' }]
         }),
         templateUpdate: build.mutation({
             query: (body: iUpdateTemplate) => ({
